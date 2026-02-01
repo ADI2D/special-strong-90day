@@ -1,0 +1,341 @@
+{
+  "meta": {
+    "title": "Special Strong - 90 Day Plan",
+    "role": "VP of Sales & Marketing",
+    "startDate": "2026-02-23",
+    "endDate": "2026-05-24",
+    "lastUpdated": "2026-01-31"
+  },
+  "phases": [
+    {
+      "id": "pre-start",
+      "name": "Pre-Start",
+      "startDate": "2026-01-27",
+      "endDate": "2026-02-22",
+      "color": "#6366f1"
+    },
+    {
+      "id": "phase-1",
+      "name": "Days 1-30: Foundation",
+      "startDate": "2026-02-23",
+      "endDate": "2026-03-24",
+      "color": "#22c55e"
+    },
+    {
+      "id": "phase-2",
+      "name": "Days 31-60: Build",
+      "startDate": "2026-03-25",
+      "endDate": "2026-04-23",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "phase-3",
+      "name": "Days 61-90: Execute",
+      "startDate": "2026-04-24",
+      "endDate": "2026-05-24",
+      "color": "#ef4444"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "Sign Employment Agreement",
+      "phase": "pre-start",
+      "type": "milestone",
+      "status": "complete",
+      "owner": "Alex",
+      "dueDate": "2026-01-27",
+      "dependencies": [],
+      "notes": "Signed with Adaptive Fitness LLC"
+    },
+    {
+      "id": "t2",
+      "title": "Dallas Relocation - Household",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "in-progress",
+      "owner": "Alex",
+      "dueDate": "2026-02-09",
+      "dependencies": [],
+      "notes": "Truck departs Olathe with belongings"
+    },
+    {
+      "id": "t3",
+      "title": "Dallas Relocation - Melanie",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Melanie",
+      "dueDate": "2026-02-14",
+      "dependencies": ["t2"],
+      "notes": "Melanie follows after truck"
+    },
+    {
+      "id": "t4",
+      "title": "Deep dive with Judah (SGP architecture)",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-04",
+      "dependencies": [],
+      "notes": "Understand Strong Growth Platform data flow"
+    },
+    {
+      "id": "t5",
+      "title": "Graham onboarding sessions",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "in-progress",
+      "owner": "Alex",
+      "dueDate": "2026-02-22",
+      "dependencies": [],
+      "notes": "15-30 hours pre-start work, $5k signing bonus"
+    },
+    {
+      "id": "t6",
+      "title": "Get Upwork job posting access",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Daniel",
+      "dependencies": [],
+      "notes": "Request from Daniel"
+    },
+    {
+      "id": "t7",
+      "title": "Request full 2026 Marketing Budget/P&L",
+      "phase": "pre-start",
+      "type": "decision",
+      "status": "pending",
+      "owner": "Alex",
+      "dependencies": [],
+      "notes": "Need visibility into budget allocation"
+    },
+    {
+      "id": "t8",
+      "title": "Get added to Zoom corporate account",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dependencies": [],
+      "notes": ""
+    },
+    {
+      "id": "t9",
+      "title": "OFFICIAL START DATE",
+      "phase": "phase-1",
+      "type": "milestone",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-23",
+      "dependencies": ["t2", "t3"],
+      "notes": "First day at Adaptive Fitness"
+    },
+    {
+      "id": "t10",
+      "title": "Lead Flow Audit",
+      "phase": "phase-1",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-01",
+      "dependencies": ["t9", "t4"],
+      "notes": "Bleeding neck - leads going to wrong franchisees"
+    },
+    {
+      "id": "t11",
+      "title": "End-to-end growth strategy document",
+      "phase": "phase-1",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-15",
+      "dependencies": ["t10"],
+      "notes": "Q3 Bonus Deliverable A.1 - Requires Managing Member approval"
+    },
+    {
+      "id": "t12",
+      "title": "Athlete & franchise funnel design",
+      "phase": "phase-1",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-15",
+      "dependencies": ["t10"],
+      "notes": "Q3 Bonus Deliverable A.2"
+    },
+    {
+      "id": "t13",
+      "title": "Channel alignment (paid, SEO, social, remarketing)",
+      "phase": "phase-1",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-20",
+      "dependencies": ["t11", "t12"],
+      "notes": "Q3 Bonus Deliverable A.3"
+    },
+    {
+      "id": "t14",
+      "title": "Budget allocation model",
+      "phase": "phase-1",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-20",
+      "dependencies": ["t7", "t11"],
+      "notes": "Q3 Bonus Deliverable A.4"
+    },
+    {
+      "id": "t15",
+      "title": "90-day execution roadmap",
+      "phase": "phase-1",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-24",
+      "dependencies": ["t11", "t12", "t13", "t14"],
+      "notes": "Q3 Bonus Deliverable A.5 - Rolling roadmap required"
+    },
+    {
+      "id": "t16",
+      "title": "Athlete Sales Funnel documentation",
+      "phase": "phase-2",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-04-07",
+      "dependencies": ["t12"],
+      "notes": "Q3 Bonus Deliverable B.1 - Traffic sources, capture flows, automation"
+    },
+    {
+      "id": "t17",
+      "title": "End-to-end tracking (ad → trial → enrollment)",
+      "phase": "phase-2",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-04-10",
+      "dependencies": ["t16", "t4"],
+      "notes": "Q3 Bonus Deliverable B.3"
+    },
+    {
+      "id": "t18",
+      "title": "Rebuilt paid advertising framework",
+      "phase": "phase-2",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-04-15",
+      "dependencies": ["t16", "t14"],
+      "notes": "Q3 Bonus Deliverable B.4"
+    },
+    {
+      "id": "t19",
+      "title": "CRM & SGP integrations + reporting",
+      "phase": "phase-2",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-04-20",
+      "dependencies": ["t17", "t4"],
+      "notes": "Q3 Bonus Deliverable B.5"
+    },
+    {
+      "id": "t20",
+      "title": "Franchise Sales Funnel mapping",
+      "phase": "phase-2",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-04-15",
+      "dependencies": ["t12"],
+      "notes": "Q3 Bonus Deliverable C.1 - Traffic → close with benchmarks"
+    },
+    {
+      "id": "t21",
+      "title": "Speed to lead system (<5 min)",
+      "phase": "phase-3",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-01",
+      "dependencies": ["t16", "t19"],
+      "notes": "Q3 Bonus Deliverable D.1"
+    },
+    {
+      "id": "t22",
+      "title": "Automated follow-up & re-engagement workflows",
+      "phase": "phase-3",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-08",
+      "dependencies": ["t21"],
+      "notes": "Q3 Bonus Deliverable D.2"
+    },
+    {
+      "id": "t23",
+      "title": "Athlete & franchise remarketing strategies",
+      "phase": "phase-3",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-10",
+      "dependencies": ["t18", "t20"],
+      "notes": "Q3 Bonus Deliverable D.3"
+    },
+    {
+      "id": "t24",
+      "title": "Defined roles, KPI structure, performance dashboards",
+      "phase": "phase-3",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-15",
+      "dependencies": ["t19"],
+      "notes": "Q3 Bonus Deliverable E.1"
+    },
+    {
+      "id": "t25",
+      "title": "Unified marketing roadmap (cross-departmental)",
+      "phase": "phase-3",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-20",
+      "dependencies": ["t15", "t24"],
+      "notes": "Q3 Bonus Deliverable E.2"
+    },
+    {
+      "id": "t26",
+      "title": "Executive leadership approval",
+      "phase": "phase-3",
+      "type": "decision",
+      "status": "pending",
+      "owner": "Daniel",
+      "dueDate": "2026-05-24",
+      "dependencies": ["t25"],
+      "notes": "Q3 Bonus Deliverable E.3 - CRITICAL: No bonus without written approval"
+    },
+    {
+      "id": "t27",
+      "title": "90-DAY CHECKPOINT",
+      "phase": "phase-3",
+      "type": "milestone",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-24",
+      "dependencies": [],
+      "notes": "End of initial 90-day period"
+    }
+  ],
+  "contacts": [
+    {"name": "Daniel Stein", "role": "CEO", "email": "daniel@specialstrong.com"},
+    {"name": "Dwayne Stoltzfus", "role": "Managing Member", "email": "dwayne@ethnoholdings.com"},
+    {"name": "Graham", "role": "Sales/Workflows", "email": ""},
+    {"name": "Judah", "role": "SGP Architecture", "email": ""}
+  ]
+}

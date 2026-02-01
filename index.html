@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Strong - 90 Day Plan</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface-hover: #334155;
+      --border: #475569;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #3b82f6;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --purple: #6366f1;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+    
+    .stats {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+    }
+    
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .filters {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    
+    .filter-btn:hover {
+      background: var(--surface-hover);
+    }
+    
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 24px;
+    }
+    
+    @media (max-width: 1024px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .panel {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+    
+    .panel-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    /* Timeline */
+    .timeline-container {
+      overflow-x: auto;
+      margin-bottom: 24px;
+    }
+    
+    .timeline {
+      min-width: 800px;
+      position: relative;
+    }
+    
+    .timeline-header {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+    
+    .timeline-phase {
+      flex: 1;
+      text-align: center;
+      padding: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      margin: 0 4px;
+    }
+    
+    .timeline-track {
+      position: relative;
+      height: 8px;
+      background: var(--surface-hover);
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+    
+    .timeline-progress {
+      position: absolute;
+      height: 100%;
+      background: linear-gradient(90deg, var(--purple), var(--success));
+      border-radius: 4px;
+      transition: width 0.3s;
+    }
+    
+    .timeline-today {
+      position: absolute;
+      top: -4px;
+      width: 3px;
+      height: 16px;
+      background: var(--danger);
+      border-radius: 2px;
+      z-index: 10;
+    }
+    
+    .timeline-today::after {
+      content: 'TODAY';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: var(--danger);
+      font-weight: 600;
+    }
+    
+    /* Task List */
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .task-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-left: 4px solid var(--border);
+    }
+    
+    .task-card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+    
+    .task-card.complete {
+      opacity: 0.6;
+      border-left-color: var(--success);
+    }
+    
+    .task-card.in-progress {
+      border-left-color: var(--warning);
+    }
+    
+    .task-card.overdue {
+      border-left-color: var(--danger);
+    }
+    
+    .task-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    
+    .task-title {
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .task-type {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    
+    .task-type.milestone { background: var(--purple); }
+    .task-type.deliverable { background: var(--success); }
+    .task-type.task { background: var(--accent); }
+    .task-type.decision { background: var(--warning); color: #000; }
+    
+    .task-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    
+    .task-notes {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    
+    /* Focus Panel */
+    .focus-section {
+      margin-bottom: 20px;
+    }
+    
+    .focus-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    
+    .focus-item {
+      background: var(--bg);
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    
+    .focus-item.urgent {
+      border-left: 3px solid var(--danger);
+    }
+    
+    .focus-item.soon {
+      border-left: 3px solid var(--warning);
+    }
+    
+    .countdown {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    
+    /* Dependencies */
+    .dep-graph {
+      margin-top: 16px;
+    }
+    
+    .dep-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .dep-arrow {
+      color: var(--text-muted);
+    }
+    
+    /* Status badges */
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    
+    .status.complete { background: rgba(34, 197, 94, 0.2); color: var(--success); }
+    .status.in-progress { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
+    .status.pending { background: rgba(148, 163, 184, 0.2); color: var(--text-muted); }
+    
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    
+    /* Phase sections */
+    .phase-group {
+      margin-bottom: 32px;
+    }
+    
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+    
+    .phase-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+    
+    .phase-name {
+      font-weight: 600;
+      font-size: 16px;
+    }
+    
+    .phase-dates {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    
+    /* Progress ring */
+    .progress-ring {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .progress-ring-circle {
+      transition: stroke-dashoffset 0.3s;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+    
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-muted);
+    }
+    
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+    
+    .modal-overlay.open {
+      display: flex;
+    }
+    
+    .modal {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 500px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    
+    .modal h2 {
+      margin-bottom: 16px;
+    }
+    
+    .modal-close {
+      float: right;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      filter: brightness(1.1);
+    }
+    
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+    
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>🎯 Special Strong - 90 Day Plan</h1>
+        <div class="subtitle">VP of Sales & Marketing | Start: Feb 23, 2026</div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-value" id="days-until">--</div>
+          <div class="stat-label">Days to Start</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="tasks-complete">--</div>
+          <div class="stat-label">Complete</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="tasks-total">--</div>
+          <div class="stat-label">Total Tasks</div>
+        </div>
+      </div>
+    </header>
+    
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="milestone">Milestones</button>
+      <button class="filter-btn" data-filter="deliverable">Deliverables</button>
+      <button class="filter-btn" data-filter="task">Tasks</button>
+      <button class="filter-btn" data-filter="decision">Decisions</button>
+      <button class="filter-btn" data-filter="pending">Pending</button>
+      <button class="filter-btn" data-filter="in-progress">In Progress</button>
+      <button class="filter-btn" data-filter="complete">Complete</button>
+    </div>
+    
+    <div class="panel timeline-container" style="margin-bottom: 24px;">
+      <div class="timeline">
+        <div class="timeline-header" id="timeline-phases"></div>
+        <div class="timeline-track">
+          <div class="timeline-progress" id="timeline-progress"></div>
+          <div class="timeline-today" id="timeline-today"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="main-grid">
+      <div class="task-area">
+        <div id="task-groups"></div>
+      </div>
+      
+      <div class="sidebar">
+        <div class="panel" style="margin-bottom: 24px;">
+          <div class="panel-title">📅 Today's Focus</div>
+          <div id="focus-today"></div>
+        </div>
+        
+        <div class="panel" style="margin-bottom: 24px;">
+          <div class="panel-title">⚡ Coming Up</div>
+          <div id="focus-upcoming"></div>
+        </div>
+        
+        <div class="panel">
+          <div class="panel-title">🔗 Key Dependencies</div>
+          <div class="dep-graph" id="dependencies"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <h2 id="modal-title"></h2>
+      <div id="modal-content"></div>
+      <div class="modal-actions">
+        <button class="btn btn-success" onclick="toggleStatus()">Toggle Status</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let data = null;
+    let currentFilter = 'all';
+    let selectedTask = null;
+    
+    async function loadData() {
+      try {
+        const resp = await fetch('data.json');
+        data = await resp.json();
+        render();
+      } catch (e) {
+        console.error('Failed to load data:', e);
+        document.getElementById('task-groups').innerHTML = 
+          '<div class="empty-state">Failed to load data.json</div>';
+      }
+    }
+    
+    function formatDate(dateStr) {
+      const d = new Date(dateStr + 'T00:00:00');
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    }
+    
+    function daysBetween(d1, d2) {
+      const date1 = new Date(d1 + 'T00:00:00');
+      const date2 = new Date(d2 + 'T00:00:00');
+      return Math.ceil((date2 - date1) / (1000 * 60 * 60 * 24));
+    }
+    
+    function getToday() {
+      return new Date().toISOString().split('T')[0];
+    }
+    
+    function render() {
+      renderStats();
+      renderTimeline();
+      renderTasks();
+      renderFocus();
+      renderDependencies();
+    }
+    
+    function renderStats() {
+      const today = getToday();
+      const startDate = data.meta.startDate;
+      const daysUntil = daysBetween(today, startDate);
+      
+      document.getElementById('days-until').textContent = 
+        daysUntil > 0 ? daysUntil : (daysUntil === 0 ? 'TODAY!' : `Day ${Math.abs(daysUntil)}`);
+      
+      const complete = data.tasks.filter(t => t.status === 'complete').length;
+      document.getElementById('tasks-complete').textContent = complete;
+      document.getElementById('tasks-total').textContent = data.tasks.length;
+    }
+    
+    function renderTimeline() {
+      const phasesEl = document.getElementById('timeline-phases');
+      phasesEl.innerHTML = data.phases.map(p => 
+        `<div class="timeline-phase" style="background: ${p.color}20; color: ${p.color};">
+          ${p.name}<br><small>${formatDate(p.startDate)} - ${formatDate(p.endDate)}</small>
+        </div>`
+      ).join('');
+      
+      // Calculate progress
+      const today = getToday();
+      const totalStart = new Date(data.phases[0].startDate + 'T00:00:00');
+      const totalEnd = new Date(data.phases[data.phases.length - 1].endDate + 'T00:00:00');
+      const todayDate = new Date(today + 'T00:00:00');
+      
+      const totalDays = (totalEnd - totalStart) / (1000 * 60 * 60 * 24);
+      const elapsedDays = Math.max(0, (todayDate - totalStart) / (1000 * 60 * 60 * 24));
+      const progressPct = Math.min(100, (elapsedDays / totalDays) * 100);
+      
+      document.getElementById('timeline-progress').style.width = progressPct + '%';
+      document.getElementById('timeline-today').style.left = progressPct + '%';
+    }
+    
+    function filterTasks(tasks) {
+      if (currentFilter === 'all') return tasks;
+      if (['milestone', 'deliverable', 'task', 'decision'].includes(currentFilter)) {
+        return tasks.filter(t => t.type === currentFilter);
+      }
+      if (['pending', 'in-progress', 'complete'].includes(currentFilter)) {
+        return tasks.filter(t => t.status === currentFilter);
+      }
+      return tasks;
+    }
+    
+    function renderTasks() {
+      const groupsEl = document.getElementById('task-groups');
+      const today = getToday();
+      
+      let html = '';
+      
+      data.phases.forEach(phase => {
+        const phaseTasks = filterTasks(data.tasks.filter(t => t.phase === phase.id));
+        if (phaseTasks.length === 0) return;
+        
+        html += `
+          <div class="phase-group">
+            <div class="phase-header">
+              <div class="phase-indicator" style="background: ${phase.color}"></div>
+              <span class="phase-name">${phase.name}</span>
+              <span class="phase-dates">${formatDate(phase.startDate)} - ${formatDate(phase.endDate)}</span>
+            </div>
+            <div class="task-list">
+              ${phaseTasks.map(task => {
+                const isOverdue = task.dueDate && task.dueDate < today && task.status !== 'complete';
+                return `
+                  <div class="task-card ${task.status} ${isOverdue ? 'overdue' : ''}" 
+                       onclick="openTask('${task.id}')">
+                    <div class="task-header">
+                      <span class="task-title">${task.title}</span>
+                      <span class="task-type ${task.type}">${task.type}</span>
+                    </div>
+                    <div class="task-meta">
+                      <span class="status ${task.status}">
+                        <span class="status-dot"></span>
+                        ${task.status.replace('-', ' ')}
+                      </span>
+                      ${task.dueDate ? `<span>Due: ${formatDate(task.dueDate)}</span>` : ''}
+                      <span>Owner: ${task.owner}</span>
+                    </div>
+                    ${task.notes ? `<div class="task-notes">${task.notes}</div>` : ''}
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        `;
+      });
+      
+      groupsEl.innerHTML = html || '<div class="empty-state">No tasks match this filter</div>';
+    }
+    
+    function renderFocus() {
+      const today = getToday();
+      const todayEl = document.getElementById('focus-today');
+      const upcomingEl = document.getElementById('focus-upcoming');
+      
+      // Tasks due today or overdue
+      const urgent = data.tasks.filter(t => 
+        t.status !== 'complete' && t.dueDate && t.dueDate <= today
+      );
+      
+      // Tasks due in next 7 days
+      const nextWeek = new Date();
+      nextWeek.setDate(nextWeek.getDate() + 7);
+      const nextWeekStr = nextWeek.toISOString().split('T')[0];
+      
+      const upcoming = data.tasks.filter(t => 
+        t.status !== 'complete' && t.dueDate && t.dueDate > today && t.dueDate <= nextWeekStr
+      ).slice(0, 5);
+      
+      if (urgent.length === 0) {
+        todayEl.innerHTML = '<div class="focus-item">✅ No urgent items</div>';
+      } else {
+        todayEl.innerHTML = urgent.map(t => `
+          <div class="focus-item urgent">
+            <strong>${t.title}</strong>
+            <div class="countdown">${t.dueDate === today ? 'Due today' : 'Overdue: ' + formatDate(t.dueDate)}</div>
+          </div>
+        `).join('');
+      }
+      
+      if (upcoming.length === 0) {
+        upcomingEl.innerHTML = '<div class="focus-item">No items in next 7 days</div>';
+      } else {
+        upcomingEl.innerHTML = upcoming.map(t => `
+          <div class="focus-item soon">
+            <strong>${t.title}</strong>
+            <div class="countdown">${formatDate(t.dueDate)} (${daysBetween(today, t.dueDate)} days)</div>
+          </div>
+        `).join('');
+      }
+    }
+    
+    function renderDependencies() {
+      const depEl = document.getElementById('dependencies');
+      
+      // Find tasks with dependencies
+      const withDeps = data.tasks.filter(t => t.dependencies && t.dependencies.length > 0).slice(0, 8);
+      
+      if (withDeps.length === 0) {
+        depEl.innerHTML = '<div class="focus-item">No dependencies tracked</div>';
+        return;
+      }
+      
+      depEl.innerHTML = withDeps.map(t => {
+        const depNames = t.dependencies.map(depId => {
+          const dep = data.tasks.find(x => x.id === depId);
+          return dep ? dep.title.substring(0, 30) + (dep.title.length > 30 ? '...' : '') : depId;
+        });
+        return `
+          <div class="dep-item">
+            <span style="flex:1">${t.title.substring(0, 25)}${t.title.length > 25 ? '...' : ''}</span>
+            <span class="dep-arrow">←</span>
+            <span style="color: var(--text-muted); font-size: 11px;">${depNames[0]}</span>
+          </div>
+        `;
+      }).join('');
+    }
+    
+    function openTask(id) {
+      selectedTask = data.tasks.find(t => t.id === id);
+      if (!selectedTask) return;
+      
+      document.getElementById('modal-title').textContent = selectedTask.title;
+      
+      const deps = (selectedTask.dependencies || []).map(depId => {
+        const dep = data.tasks.find(x => x.id === depId);
+        return dep ? dep.title : depId;
+      });
+      
+      const blockedBy = data.tasks.filter(t => 
+        (t.dependencies || []).includes(selectedTask.id)
+      ).map(t => t.title);
+      
+      document.getElementById('modal-content').innerHTML = `
+        <p><strong>Type:</strong> ${selectedTask.type}</p>
+        <p><strong>Status:</strong> ${selectedTask.status}</p>
+        <p><strong>Owner:</strong> ${selectedTask.owner}</p>
+        ${selectedTask.dueDate ? `<p><strong>Due:</strong> ${formatDate(selectedTask.dueDate)}</p>` : ''}
+        ${selectedTask.notes ? `<p><strong>Notes:</strong> ${selectedTask.notes}</p>` : ''}
+        ${deps.length ? `<p><strong>Depends on:</strong> ${deps.join(', ')}</p>` : ''}
+        ${blockedBy.length ? `<p><strong>Blocks:</strong> ${blockedBy.join(', ')}</p>` : ''}
+      `;
+      
+      document.getElementById('modal').classList.add('open');
+    }
+    
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+      selectedTask = null;
+    }
+    
+    function toggleStatus() {
+      if (!selectedTask) return;
+      
+      const statuses = ['pending', 'in-progress', 'complete'];
+      const currentIdx = statuses.indexOf(selectedTask.status);
+      selectedTask.status = statuses[(currentIdx + 1) % statuses.length];
+      
+      // Update data.json would require server - just re-render for now
+      render();
+      openTask(selectedTask.id);
+    }
+    
+    // Filter handlers
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderTasks();
+      });
+    });
+    
+    // Close modal on overlay click
+    document.getElementById('modal').addEventListener('click', (e) => {
+      if (e.target.id === 'modal') closeModal();
+    });
+    
+    // Load data on start
+    loadData();
+  </script>
+</body>
+</html>
