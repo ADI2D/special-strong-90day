@@ -1,2057 +1,3409 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <me
+ta charset="UTF-8">
+  <meta name="viewport" c
+ontent="width=device-width, initial-scale=1.0
+">
   <title>DAMB Plan</title>
   <style>
-    :root {
+    :
+root {
       --bg: #0f172a;
-      --surface: #1e293b;
+      --surface: 
+#1e293b;
       --surface-hover: #334155;
-      --border: #475569;
+    
+  --border: #475569;
       --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --accent: #3b82f6;
+ 
+     --text-muted: #94a3b8;
+      --accent: #
+3b82f6;
       --success: #22c55e;
-      --warning: #f59e0b;
+      --war
+ning: #f59e0b;
       --danger: #ef4444;
-      --purple: #6366f1;
+     
+ --purple: #6366f1;
     }
     
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+    * { box-si
+zing: border-box; margin: 0; padding: 0; }
+  
+  
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: -apple-syste
+m, BlinkMacSystemFont, 'Segoe UI', Roboto, sa
+ns-serif;
       background: var(--bg);
-      color: var(--text);
+      
+color: var(--text);
       line-height: 1.5;
-      min-height: 100vh;
+ 
+     min-height: 100vh;
     }
     
-    .container {
+    .conta
+iner {
       max-width: 1400px;
-      margin: 0 auto;
+      margin:
+ 0 auto;
       padding: 24px;
     }
     
-    header {
+    
+header {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+      justify-c
+ontent: space-between;
+      align-items: fle
+x-start;
       margin-bottom: 32px;
-      flex-wrap: wrap;
+      fle
+x-wrap: wrap;
       gap: 16px;
     }
     
-    h1 {
+   
+ h1 {
       font-size: 28px;
-      font-weight: 700;
+      font-weigh
+t: 700;
     }
     
     .subtitle {
-      color: var(--text-muted);
+      colo
+r: var(--text-muted);
       font-size: 14px;
+
       margin-top: 4px;
     }
     
-    .stats {
+    .stats 
+{
       display: flex;
       gap: 24px;
-      flex-wrap: wrap;
+     
+ flex-wrap: wrap;
     }
     
     .stat {
-      text-align: center;
+    
+  text-align: center;
     }
     
-    .stat-value {
+    .stat-va
+lue {
       font-size: 32px;
-      font-weight: 700;
+      font-weigh
+t: 700;
     }
     
     .stat-label {
-      font-size: 12px;
-      color: var(--text-muted);
+      fo
+nt-size: 12px;
+      color: var(--text-muted)
+;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      lett
+er-spacing: 0.5px;
     }
     
     .filters {
+
       display: flex;
       gap: 12px;
-      margin-bottom: 24px;
+      m
+argin-bottom: 24px;
       flex-wrap: wrap;
-    }
+  
+  }
     
     .filter-btn {
-      padding: 8px 16px;
+      padding: 8px
+ 16px;
       border: 1px solid var(--border);
+
       border-radius: 8px;
-      background: var(--surface);
+      background: 
+var(--surface);
       color: var(--text);
-      cursor: pointer;
+   
+   cursor: pointer;
       font-size: 14px;
-      transition: all 0.2s;
+  
+    transition: all 0.2s;
     }
     
-    .filter-btn:hover {
-      background: var(--surface-hover);
+    .fil
+ter-btn:hover {
+      background: var(--surfa
+ce-hover);
     }
     
-    .filter-btn.active {
+    .filter-btn.active 
+{
       background: var(--accent);
-      border-color: var(--accent);
+      bord
+er-color: var(--accent);
     }
     
-    .main-grid {
+    .main
+-grid {
       display: grid;
-      grid-template-columns: 1fr 380px;
+      grid-templ
+ate-columns: 1fr 380px;
       gap: 24px;
-    }
+    
+}
     
     @media (max-width: 1024px) {
-      .main-grid {
-        grid-template-columns: 1fr;
+     
+ .main-grid {
+        grid-template-columns: 
+1fr;
       }
     }
     
     .panel {
-      background: var(--surface);
-      border-radius: 12px;
+      ba
+ckground: var(--surface);
+      border-radius
+: 12px;
       padding: 20px;
-      border: 1px solid var(--border);
+      border: 1p
+x solid var(--border);
     }
     
-    .panel-title {
+    .panel-
+title {
       font-size: 16px;
-      font-weight: 600;
+      font-wei
+ght: 600;
       margin-bottom: 16px;
-      display: flex;
+      di
+splay: flex;
       align-items: center;
-      gap: 8px;
+     
+ gap: 8px;
     }
     
     /* Timeline */
-    .timeline-container {
+    
+.timeline-container {
       overflow-x: auto;
+
       margin-bottom: 24px;
     }
     
-    .timeline {
+    .t
+imeline {
       min-width: 800px;
-      position: relative;
+      posit
+ion: relative;
     }
     
-    .timeline-header {
+    .timeline-heade
+r {
       display: flex;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 8px;
+      border-bottom:
+ 1px solid var(--border);
+      padding-botto
+m: 8px;
       margin-bottom: 16px;
     }
     
+
     .timeline-phase {
       flex: 1;
-      text-align: center;
+      t
+ext-align: center;
       padding: 8px;
-      font-size: 13px;
+      
+font-size: 13px;
       font-weight: 600;
-      border-radius: 6px;
+    
+  border-radius: 6px;
       margin: 0 4px;
-    }
+  
+  }
     
     .timeline-track {
-      position: relative;
+      position
+: relative;
       height: 8px;
-      background: var(--surface-hover);
-      border-radius: 4px;
+      backgrou
+nd: var(--surface-hover);
+      border-radius
+: 4px;
       margin-bottom: 24px;
     }
     
+
     .timeline-progress {
-      position: absolute;
+      position: abso
+lute;
       height: 100%;
-      background: linear-gradient(90deg, var(--purple), var(--success));
+      background: l
+inear-gradient(90deg, var(--purple), var(--su
+ccess));
       border-radius: 4px;
-      transition: width 0.3s;
+      tran
+sition: width 0.3s;
     }
     
-    .timeline-today {
+    .timeline-
+today {
       position: absolute;
-      top: -4px;
+      top: 
+-4px;
       width: 3px;
       height: 16px;
-      background: var(--danger);
-      border-radius: 2px;
+ 
+     background: var(--danger);
+      border-
+radius: 2px;
       z-index: 10;
     }
     
-    .timeline-today::after {
-      content: 'TODAY';
+  
+  .timeline-today::after {
+      content: 'TO
+DAY';
       position: absolute;
-      top: -20px;
+      top: -2
+0px;
       left: 50%;
-      transform: translateX(-50%);
+      transform: transl
+ateX(-50%);
       font-size: 10px;
-      color: var(--danger);
+      colo
+r: var(--danger);
       font-weight: 600;
-    }
+   
+ }
     
     /* Task List */
     .task-list {
+
       display: flex;
-      flex-direction: column;
+      flex-direction: co
+lumn;
       gap: 12px;
     }
     
-    .task-card {
+    .task-c
+ard {
       background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      bord
+er: 1px solid var(--border);
+      border-rad
+ius: 8px;
       padding: 16px;
-      cursor: pointer;
+      cursor: 
+pointer;
       transition: all 0.2s;
-      border-left: 4px solid var(--border);
+      bo
+rder-left: 4px solid var(--border);
     }
-    
+   
+ 
     .task-card:hover {
-      border-color: var(--accent);
-      transform: translateX(4px);
+      border-color: 
+var(--accent);
+      transform: translateX(4p
+x);
     }
     
     .task-card.complete {
-      opacity: 0.6;
-      border-left-color: var(--success);
+    
+  opacity: 0.6;
+      border-left-color: var(
+--success);
     }
     
-    .task-card.in-progress {
-      border-left-color: var(--warning);
+    .task-card.in-prog
+ress {
+      border-left-color: var(--warning
+);
     }
     
     .task-card.overdue {
-      border-left-color: var(--danger);
+      
+border-left-color: var(--danger);
     }
     
+
     .task-header {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+     
+ justify-content: space-between;
+      align-
+items: flex-start;
       gap: 12px;
-      margin-bottom: 8px;
+      mar
+gin-bottom: 8px;
     }
     
     .task-title {
+
       font-weight: 600;
-      font-size: 14px;
+      font-size: 14p
+x;
     }
     
     .task-type {
-      font-size: 11px;
+      font-siz
+e: 11px;
       padding: 2px 8px;
-      border-radius: 4px;
-      text-transform: uppercase;
+      border
+-radius: 4px;
+      text-transform: uppercase
+;
       font-weight: 600;
-      white-space: nowrap;
+      white-space: 
+nowrap;
     }
     
-    .task-type.milestone { background: var(--purple); }
-    .task-type.deliverable { background: var(--success); }
-    .task-type.task { background: var(--accent); }
-    .task-type.decision { background: var(--warning); color: #000; }
+    .task-type.milestone {
+ background: var(--purple); }
+    .task-type.
+deliverable { background: var(--success); }
+ 
+   .task-type.task { background: var(--accent
+); }
+    .task-type.decision { background: va
+r(--warning); color: #000; }
     
-    /* Category badges */
+    /* Cate
+gory badges */
     .task-category {
-      font-size: 11px;
+      fon
+t-size: 11px;
       padding: 2px 8px;
-      border-radius: 4px;
+      b
+order-radius: 4px;
       font-weight: 600;
-      white-space: nowrap;
-      display: inline-flex;
+  
+    white-space: nowrap;
+      display: inlin
+e-flex;
       align-items: center;
-      gap: 4px;
+      gap:
+ 4px;
     }
     
     .task-subcategory {
-      font-size: 10px;
+    
+  font-size: 10px;
       padding: 2px 6px;
-      border-radius: 3px;
-      font-weight: 500;
+  
+    border-radius: 3px;
+      font-weight: 50
+0;
       white-space: nowrap;
-      background: rgba(255,255,255,0.1);
-      color: var(--text-muted);
+      backgroun
+d: rgba(255,255,255,0.1);
+      color: var(--
+text-muted);
     }
     
     .category-row {
-      display: flex;
-      align-items: center;
+ 
+     display: flex;
+      align-items: center
+;
       gap: 8px;
       margin-bottom: 8px;
-    }
+ 
+   }
     
     /* Category filter pills */
-    .category-filters {
+   
+ .category-filters {
       display: flex;
-      gap: 8px;
+   
+   gap: 8px;
       margin-bottom: 16px;
-      flex-wrap: wrap;
+     
+ flex-wrap: wrap;
       padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
+
+      border-bottom: 1px solid var(--border)
+;
     }
     
     .category-filter-btn {
-      padding: 6px 14px;
-      border: 2px solid transparent;
+     
+ padding: 6px 14px;
+      border: 2px solid t
+ransparent;
       border-radius: 20px;
-      cursor: pointer;
+      
+cursor: pointer;
       font-size: 13px;
-      font-weight: 600;
-      transition: all 0.2s;
+     
+ font-weight: 600;
+      transition: all 0.2s
+;
       display: inline-flex;
-      align-items: center;
+      align-ite
+ms: center;
       gap: 6px;
     }
     
-    .category-filter-btn:hover {
-      filter: brightness(1.1);
+    .c
+ategory-filter-btn:hover {
+      filter: brig
+htness(1.1);
     }
     
-    .category-filter-btn.active {
-      box-shadow: 0 0 0 2px var(--text);
+    .category-filter-
+btn.active {
+      box-shadow: 0 0 0 2px var(
+--text);
     }
     
     .task-meta {
-      display: flex;
+      di
+splay: flex;
       gap: 16px;
-      font-size: 12px;
+      font-size
+: 12px;
       color: var(--text-muted);
     }
+
     
     .task-notes {
-      font-size: 12px;
+      font-size: 12px
+;
       color: var(--text-muted);
-      margin-top: 8px;
+      margi
+n-top: 8px;
       padding-top: 8px;
-      border-top: 1px solid var(--border);
+      bor
+der-top: 1px solid var(--border);
     }
     
+
     /* Focus Panel */
     .focus-section {
-      margin-bottom: 20px;
+  
+    margin-bottom: 20px;
     }
     
-    .focus-label {
+    .focu
+s-label {
       font-size: 11px;
-      text-transform: uppercase;
-      color: var(--text-muted);
+      text-t
+ransform: uppercase;
+      color: var(--text-
+muted);
       letter-spacing: 0.5px;
-      margin-bottom: 8px;
+      ma
+rgin-bottom: 8px;
     }
     
-    .focus-item {
+    .focus-item 
+{
       background: var(--bg);
-      border-radius: 6px;
+      border-r
+adius: 6px;
       padding: 12px;
-      margin-bottom: 8px;
+      margin
+-bottom: 8px;
       font-size: 13px;
     }
-    
+  
+  
     .focus-item.urgent {
-      border-left: 3px solid var(--danger);
+      border-left
+: 3px solid var(--danger);
     }
     
-    .focus-item.soon {
-      border-left: 3px solid var(--warning);
+    .fo
+cus-item.soon {
+      border-left: 3px solid 
+var(--warning);
     }
     
     .countdown {
-      font-size: 11px;
-      color: var(--text-muted);
+ 
+     font-size: 11px;
+      color: var(--text
+-muted);
       margin-top: 4px;
     }
     
-    /* Dependencies */
+  
+  /* Dependencies */
     .dep-graph {
-      margin-top: 16px;
+      m
+argin-top: 16px;
     }
     
     .dep-item {
-      display: flex;
-      align-items: center;
+ 
+     display: flex;
+      align-items: center
+;
       gap: 8px;
       font-size: 12px;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
+    
+  padding: 8px 0;
+      border-bottom: 1px so
+lid var(--border);
     }
     
-    .dep-arrow {
+    .dep-arrow 
+{
       color: var(--text-muted);
     }
     
+
     /* Status badges */
     .status {
-      display: inline-flex;
-      align-items: center;
+      d
+isplay: inline-flex;
+      align-items: cente
+r;
       gap: 4px;
       font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 4px;
+   
+   padding: 2px 8px;
+      border-radius: 4px
+;
     }
     
-    .status.complete { background: rgba(34, 197, 94, 0.2); color: var(--success); }
-    .status.in-progress { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
-    .status.pending { background: rgba(148, 163, 184, 0.2); color: var(--text-muted); }
+    .status.complete { backgroun
+d: rgba(34, 197, 94, 0.2); color: var(--succe
+ss); }
+    .status.in-progress { background: 
+rgba(245, 158, 11, 0.2); color: var(--warning
+); }
+    .status.pending { background: rgba(1
+48, 163, 184, 0.2); color: var(--text-muted);
+ }
     
     .status-dot {
       width: 6px;
-      height: 6px;
+ 
+     height: 6px;
       border-radius: 50%;
-      background: currentColor;
+ 
+     background: currentColor;
     }
     
-    /* Phase sections */
+   
+ /* Phase sections */
     .phase-group {
-      margin-bottom: 32px;
+    
+  margin-bottom: 32px;
     }
     
-    .phase-header {
+    .phase-
+header {
       display: flex;
-      align-items: center;
+      align-ite
+ms: center;
       gap: 12px;
-      margin-bottom: 16px;
+      margin-bot
+tom: 16px;
       padding-bottom: 8px;
-      border-bottom: 2px solid var(--border);
+      b
+order-bottom: 2px solid var(--border);
     }
+
     
     .phase-indicator {
-      width: 12px;
+      width: 12px
+;
       height: 12px;
-      border-radius: 3px;
+      border-radius: 3p
+x;
     }
     
     .phase-name {
-      font-weight: 600;
+      font-we
+ight: 600;
       font-size: 16px;
     }
     
+
     .phase-dates {
       font-size: 12px;
-      color: var(--text-muted);
+   
+   color: var(--text-muted);
     }
     
-    /* Progress ring */
+    /
+* Progress ring */
     .progress-ring {
-      width: 80px;
+     
+ width: 80px;
       height: 80px;
     }
     
+
     .progress-ring-circle {
-      transition: stroke-dashoffset 0.3s;
-      transform: rotate(-90deg);
+      transition:
+ stroke-dashoffset 0.3s;
+      transform: rot
+ate(-90deg);
       transform-origin: 50% 50%;
+
     }
     
     /* Empty state */
-    .empty-state {
+    .empty-
+state {
       text-align: center;
-      padding: 40px;
+      paddi
+ng: 40px;
       color: var(--text-muted);
-    }
+   
+ }
     
     /* Modal */
     .modal-overlay {
+
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.7);
-      display: none;
+      
+background: rgba(0,0,0,0.7);
+      display: n
+one;
       align-items: center;
-      justify-content: center;
+      justify
+-content: center;
       z-index: 100;
     }
-    
+ 
+   
     .modal-overlay.open {
-      display: flex;
+      display: 
+flex;
     }
     
     .modal {
-      background: var(--surface);
+      backgroun
+d: var(--surface);
       border-radius: 12px;
+
       padding: 24px;
       max-width: 500px;
+
       width: 90%;
       max-height: 80vh;
-      overflow-y: auto;
+  
+    overflow-y: auto;
     }
     
-    .modal h2 {
+    .modal h
+2 {
       margin-bottom: 16px;
     }
     
-    .modal-close {
+   
+ .modal-close {
       float: right;
-      background: none;
+      bac
+kground: none;
       border: none;
-      color: var(--text-muted);
+      colo
+r: var(--text-muted);
       font-size: 24px;
+
       cursor: pointer;
     }
     
     .btn {
+
       padding: 10px 20px;
-      border-radius: 8px;
+      border-radius
+: 8px;
       font-weight: 600;
-      cursor: pointer;
+      cursor: 
+pointer;
       border: none;
-      transition: all 0.2s;
+      transition
+: all 0.2s;
     }
     
     .btn-primary {
-      background: var(--accent);
-      color: white;
+   
+   background: var(--accent);
+      color: wh
+ite;
     }
     
     .btn-primary:hover {
-      filter: brightness(1.1);
+    
+  filter: brightness(1.1);
     }
     
-    .btn-success {
+    .bt
+n-success {
       background: var(--success);
+
       color: white;
     }
     
-    .modal-actions {
+    .modal-ac
+tions {
       display: flex;
       gap: 12px;
+
       margin-top: 20px;
     }
     
-    /* Editable fields */
+    /* Ed
+itable fields */
     .edit-field {
-      width: 100%;
+      widt
+h: 100%;
       background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
+      b
+order: 1px solid var(--border);
+      border-
+radius: 6px;
       color: var(--text);
-      padding: 10px;
+      
+padding: 10px;
       font-family: inherit;
-      font-size: 14px;
+  
+    font-size: 14px;
       resize: vertical;
+
       min-height: 80px;
-      margin-top: 8px;
+      margin-top: 8px
+;
     }
     
     .edit-field:focus {
-      outline: none;
-      border-color: var(--accent);
+      ou
+tline: none;
+      border-color: var(--accent
+);
     }
     
     .field-label {
-      font-size: 12px;
+      font-s
+ize: 12px;
       font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
+      colo
+r: var(--text-muted);
+      text-transform: u
+ppercase;
       letter-spacing: 0.5px;
-      margin-top: 16px;
+      
+margin-top: 16px;
       margin-bottom: 4px;
-    }
+ 
+   }
     
     /* Contacts section */
-    .contacts-section {
+    .con
+tacts-section {
       margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
+     
+ padding-top: 16px;
+      border-top: 1px sol
+id var(--border);
     }
     
-    .contact-card {
+    .contact-car
+d {
       background: var(--bg);
-      border-radius: 6px;
+      border
+-radius: 6px;
       padding: 12px;
-      margin-bottom: 8px;
+      marg
+in-bottom: 8px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      ju
+stify-content: space-between;
+      align-ite
+ms: center;
     }
     
     .contact-info {
-      flex: 1;
+  
+    flex: 1;
     }
     
     .contact-name {
-      font-weight: 600;
+ 
+     font-weight: 600;
       font-size: 14px;
+
     }
     
     .contact-role {
-      font-size: 12px;
+      font-si
+ze: 12px;
       color: var(--text-muted);
-    }
+   
+ }
     
     .contact-email {
-      font-size: 12px;
+      font-size:
+ 12px;
       color: var(--accent);
-      text-decoration: none;
+      text
+-decoration: none;
     }
     
-    .contact-email:hover {
+    .contact-em
+ail:hover {
       text-decoration: underline;
+
     }
     
     .contact-remove {
-      background: none;
+      backg
+round: none;
       border: none;
-      color: var(--text-muted);
+      color:
+ var(--text-muted);
       cursor: pointer;
-      font-size: 18px;
+  
+    font-size: 18px;
       padding: 4px 8px;
+
     }
     
     .contact-remove:hover {
-      color: var(--danger);
+      
+color: var(--danger);
     }
     
-    .add-contact-form {
+    .add-con
+tact-form {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr auto;
-      gap: 8px;
+      grid-t
+emplate-columns: 1fr 1fr 1fr auto;
+      gap:
+ 8px;
       margin-top: 8px;
     }
     
-    .add-contact-form input {
-      background: var(--bg);
-      border: 1px solid var(--border);
+    .
+add-contact-form input {
+      background: va
+r(--bg);
+      border: 1px solid var(--border
+);
       border-radius: 4px;
-      color: var(--text);
+      color: var
+(--text);
       padding: 8px;
-      font-size: 13px;
+      font-size
+: 13px;
     }
     
-    .add-contact-form input:focus {
+    .add-contact-form inpu
+t:focus {
       outline: none;
-      border-color: var(--accent);
+      border-c
+olor: var(--accent);
     }
     
-    .add-contact-form input::placeholder {
-      color: var(--text-muted);
+    .add-cont
+act-form input::placeholder {
+      color: va
+r(--text-muted);
     }
     
     .btn-small {
+
       padding: 8px 12px;
-      font-size: 12px;
+      font-size: 12p
+x;
     }
     
-    /* Accordion for messages */
+    /* Accordion for messages *
+/
     .accordion {
       margin-top: 16px;
-      border-top: 1px solid var(--border);
-      padding-top: 16px;
+  
+    border-top: 1px solid var(--border);
+    
+  padding-top: 16px;
     }
     
-    .accordion-header {
+    .accordio
+n-header {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify
+-content: space-between;
+      align-items: c
+enter;
       cursor: pointer;
-      padding: 10px 0;
+      padding: 
+10px 0;
     }
     
-    .accordion-header:hover {
+    .accordion-header:hove
+r {
       color: var(--accent);
     }
     
-    .accordion-title {
+  
+  .accordion-title {
       font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
+ 
+     font-weight: 600;
+      text-transform: 
+uppercase;
       letter-spacing: 0.5px;
-      display: flex;
+     
+ display: flex;
       align-items: center;
-      gap: 8px;
+  
+    gap: 8px;
     }
     
-    .accordion-icon {
+    .accordion-icon 
+{
       transition: transform 0.2s;
     }
-    
+   
+ 
     .accordion.open .accordion-icon {
-      transform: rotate(180deg);
+     
+ transform: rotate(180deg);
     }
     
-    .accordion-content {
+    .a
+ccordion-content {
       display: none;
-      padding-top: 8px;
+     
+ padding-top: 8px;
     }
     
-    .accordion.open .accordion-content {
-      display: block;
+    .accordion.
+open .accordion-content {
+      display: bloc
+k;
     }
     
     .message-item {
-      background: var(--bg);
+      backg
+round: var(--bg);
       border-radius: 6px;
-      padding: 12px;
+ 
+     padding: 12px;
       margin-bottom: 8px;
+
       border-left: 3px solid var(--border);
+
     }
     
     .message-meta {
-      display: flex;
+      display:
+ flex;
       justify-content: space-between;
+
       align-items: center;
-      margin-bottom: 6px;
+      margin-botto
+m: 6px;
     }
     
     .message-date {
-      font-size: 11px;
-      color: var(--text-muted);
+      
+font-size: 11px;
+      color: var(--text-mute
+d);
     }
     
     .message-medium {
-      font-size: 10px;
+      fo
+nt-size: 10px;
       padding: 2px 6px;
-      border-radius: 3px;
-      text-transform: uppercase;
+      
+border-radius: 3px;
+      text-transform: upp
+ercase;
       font-weight: 600;
     }
     
-    .message-medium.email { background: var(--accent); }
-    .message-medium.text { background: var(--success); }
-    .message-medium.slack { background: var(--purple); }
-    .message-medium.call { background: var(--warning); color: #000; }
-    .message-medium.meeting { background: var(--danger); }
-    .message-medium.teams { background: #5c5cff; }
+  
+  .message-medium.email { background: var(--a
+ccent); }
+    .message-medium.text { backgrou
+nd: var(--success); }
+    .message-medium.sla
+ck { background: var(--purple); }
+    .messag
+e-medium.call { background: var(--warning); c
+olor: #000; }
+    .message-medium.meeting { b
+ackground: var(--danger); }
+    .message-medi
+um.teams { background: #5c5cff; }
     
-    .message-text {
+    .m
+essage-text {
       font-size: 13px;
-      line-height: 1.5;
+      li
+ne-height: 1.5;
     }
     
-    .add-message-form {
+    .add-message-f
+orm {
       margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
+      padding-t
+op: 12px;
+      border-top: 1px solid var(--b
+order);
     }
     
     .add-message-row {
-      display: flex;
+   
+   display: flex;
       gap: 8px;
-      margin-bottom: 8px;
+      margi
+n-bottom: 8px;
     }
     
-    .add-message-row select {
+    .add-message-ro
+w select {
       background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
+     
+ border: 1px solid var(--border);
+      borde
+r-radius: 4px;
       color: var(--text);
-      padding: 8px;
+    
+  padding: 8px;
+      font-size: 13px;
+    }
+
+    
+    .add-message-row input[type="date"] 
+{
+      background: var(--bg);
+      border: 
+1px solid var(--border);
+      border-radius:
+ 4px;
+      color: var(--text);
+      padding
+: 8px;
       font-size: 13px;
     }
     
-    .add-message-row input[type="date"] {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      color: var(--text);
-      padding: 8px;
-      font-size: 13px;
-    }
     
-    .message-input {
+.message-input {
       width: 100%;
-      background: var(--bg);
-      border: 1px solid var(--border);
+      bac
+kground: var(--bg);
+      border: 1px solid v
+ar(--border);
       border-radius: 4px;
-      color: var(--text);
+     
+ color: var(--text);
       padding: 8px;
-      font-family: inherit;
-      font-size: 13px;
+    
+  font-family: inherit;
+      font-size: 13px
+;
       resize: vertical;
-      min-height: 60px;
+      min-height: 6
+0px;
     }
     
     .message-input:focus {
-      outline: none;
-      border-color: var(--accent);
+  
+    outline: none;
+      border-color: var(--
+accent);
     }
     
     .message-count {
-      background: var(--surface-hover);
-      padding: 2px 8px;
+    
+  background: var(--surface-hover);
+      pad
+ding: 2px 8px;
       border-radius: 10px;
-      font-size: 11px;
+   
+   font-size: 11px;
     }
     
-    /* Attachments */
+    /* Attachm
+ents */
     .attachments-section {
-      margin-top: 16px;
+      marg
+in-top: 16px;
       padding-top: 16px;
-      border-top: 1px solid var(--border);
+      
+border-top: 1px solid var(--border);
     }
-    
+  
+  
     .attachments-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      display: gri
+d;
+      grid-template-columns: repeat(auto-f
+ill, minmax(120px, 1fr));
       gap: 12px;
-      margin-top: 8px;
+  
+    margin-top: 8px;
     }
     
-    .attachment-item {
+    .attachme
+nt-item {
       position: relative;
-      border-radius: 8px;
+      bor
+der-radius: 8px;
       overflow: hidden;
-      background: var(--bg);
-      border: 1px solid var(--border);
+    
+  background: var(--bg);
+      border: 1px so
+lid var(--border);
     }
     
-    .attachment-item img {
+    .attachment
+-item img {
       width: 100%;
-      height: 100px;
+      height: 
+100px;
       object-fit: cover;
-      cursor: pointer;
+      cursor:
+ pointer;
       transition: opacity 0.2s;
-    }
+   
+ }
     
     .attachment-item img:hover {
-      opacity: 0.8;
+    
+  opacity: 0.8;
     }
     
-    .attachment-remove {
+    .attachment-re
+move {
       position: absolute;
-      top: 4px;
+      top: 4
+px;
       right: 4px;
-      background: var(--danger);
+      background: var(-
+-danger);
       color: white;
-      border: none;
+      border: n
+one;
       border-radius: 50%;
-      width: 20px;
+      width: 2
+0px;
       height: 20px;
-      cursor: pointer;
+      cursor: pointe
+r;
       font-size: 12px;
-      line-height: 1;
+      line-height: 
+1;
       display: flex;
-      align-items: center;
+      align-items: ce
+nter;
       justify-content: center;
     }
-    
+  
+  
     .attachment-name {
       padding: 6px;
+
       font-size: 11px;
-      color: var(--text-muted);
+      color: var(--te
+xt-muted);
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      o
+verflow: hidden;
+      text-overflow: ellipsi
+s;
     }
     
     .attachment-empty {
-      color: var(--text-muted);
-      font-size: 13px;
+      c
+olor: var(--text-muted);
+      font-size: 13p
+x;
       padding: 12px;
-      text-align: center;
+      text-align: cen
+ter;
       background: var(--bg);
-      border-radius: 8px;
+      borde
+r-radius: 8px;
     }
     
     /* Lightbox */
+
     .lightbox {
       position: fixed;
-      inset: 0;
+      
+inset: 0;
       background: rgba(0,0,0,0.9);
+
       display: none;
-      align-items: center;
+      align-items: cente
+r;
       justify-content: center;
-      z-index: 200;
+      z-ind
+ex: 200;
     }
     
     .lightbox.open {
-      display: flex;
+    
+  display: flex;
     }
     
-    .lightbox img {
+    .lightbox img
+ {
       max-width: 90%;
-      max-height: 90%;
+      max-height: 90
+%;
       border-radius: 8px;
     }
     
-    .lightbox-close {
+    .
+lightbox-close {
       position: absolute;
-      top: 20px;
+  
+    top: 20px;
       right: 20px;
-      background: none;
+      backg
+round: none;
       border: none;
-      color: white;
+      color:
+ white;
       font-size: 36px;
-      cursor: pointer;
+      cursor: 
+pointer;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 600px)
+ {
       .add-contact-form {
-        grid-template-columns: 1fr;
+        grid-tem
+plate-columns: 1fr;
       }
-      .add-message-row {
+      .add-messag
+e-row {
         flex-direction: column;
-      }
+     
+ }
     }
     
     /* Header actions */
-    .header-actions {
+    .h
+eader-actions {
       display: flex;
-      gap: 8px;
+      ga
+p: 8px;
       align-items: center;
     }
     
+
     /* Sync status */
     .sync-status {
-      font-size: 11px;
-      color: var(--text-muted);
+   
+   font-size: 11px;
+      color: var(--text-m
+uted);
       margin-left: 8px;
     }
     
-    .sync-status.syncing {
-      color: var(--warning);
+   
+ .sync-status.syncing {
+      color: var(--wa
+rning);
     }
     
     .sync-status.success {
+
       color: var(--success);
     }
     
-    .sync-status.error {
-      color: var(--danger);
+    
+.sync-status.error {
+      color: var(--dange
+r);
     }
     
     /* Settings modal */
-    .settings-field {
+    .
+settings-field {
       margin-bottom: 16px;
-    }
+ 
+   }
     
     .settings-field label {
-      display: block;
+      d
+isplay: block;
       font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
+      f
+ont-weight: 600;
+      color: var(--text-mute
+d);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 6px;
+      le
+tter-spacing: 0.5px;
+      margin-bottom: 6px
+;
     }
     
     .settings-field input {
-      width: 100%;
+    
+  width: 100%;
       background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
+ 
+     border: 1px solid var(--border);
+      b
+order-radius: 6px;
       color: var(--text);
+
       padding: 10px;
       font-size: 14px;
-    }
+ 
+   }
     
     .settings-field input:focus {
-      outline: none;
-      border-color: var(--accent);
+ 
+     outline: none;
+      border-color: var(-
+-accent);
     }
     
     .settings-help {
-      font-size: 12px;
-      color: var(--text-muted);
+   
+   font-size: 12px;
+      color: var(--text-m
+uted);
       margin-top: 6px;
-      line-height: 1.5;
+      line-heig
+ht: 1.5;
     }
     
     .settings-help a {
-      color: var(--accent);
+  
+    color: var(--accent);
     }
     
-    .token-status {
+    .tok
+en-status {
       display: inline-flex;
-      align-items: center;
+     
+ align-items: center;
       gap: 6px;
-      font-size: 12px;
+      f
+ont-size: 12px;
       margin-top: 8px;
     }
+
     
     .token-status.valid {
-      color: var(--success);
+      color: v
+ar(--success);
     }
     
-    .token-status.invalid {
+    .token-status.i
+nvalid {
       color: var(--danger);
     }
-    
+  
+  
     /* Last sync indicator */
-    .last-sync {
+    .last-sy
+nc {
       font-size: 11px;
-      color: var(--text-muted);
+      color: var(
+--text-muted);
       text-align: right;
-      margin-top: 4px;
+     
+ margin-top: 4px;
     }
   </style>
 </head>
-<body>
+<b
+ody>
   <div class="container">
     <header>
-      <div>
+ 
+     <div>
         <h1>🎯 DAMB Plan</h1>
-        <div class="subtitle">VP of Sales & Marketing | Start: Feb 23, 2026</div>
-      </div>
+  
+      <div class="subtitle">VP of Sales & Mar
+keting | Start: Feb 23, 2026</div>
+      </di
+v>
       <div class="header-actions">
-        <button class="btn btn-primary" onclick="syncToGitHub()" id="sync-btn">
-          <span id="sync-icon">⬆️</span> Sync
-        </button>
-        <button class="btn" style="background: var(--surface-hover);" onclick="openSettings()">⚙️</button>
+       
+ <button class="btn btn-primary" onclick="syn
+cToGitHub()" id="sync-btn">
+          <span i
+d="sync-icon">⬆️</span> Sync
+        </bu
+tton>
+        <button class="btn" style="back
+ground: var(--surface-hover);" onclick="openS
+ettings()">⚙️</button>
       </div>
-      <div class="stats">
-        <div class="stat">
-          <div class="stat-value" id="days-until">--</div>
-          <div class="stat-label">Days to Start</div>
+     
+ <div class="stats">
+        <div class="stat
+">
+          <div class="stat-value" id="days
+-until">--</div>
+          <div class="stat-l
+abel">Days to Start</div>
+        </div>
+    
+    <div class="stat">
+          <div class="
+stat-value" id="tasks-complete">--</div>
+    
+      <div class="stat-label">Complete</div>
+
         </div>
         <div class="stat">
-          <div class="stat-value" id="tasks-complete">--</div>
-          <div class="stat-label">Complete</div>
+   
+       <div class="stat-value" id="tasks-tota
+l">--</div>
+          <div class="stat-label"
+>Total Tasks</div>
         </div>
-        <div class="stat">
-          <div class="stat-value" id="tasks-total">--</div>
-          <div class="stat-label">Total Tasks</div>
-        </div>
-      </div>
+      </div
+>
     </header>
     
-    <div class="category-filters" id="category-filters">
-      <!-- Populated by JS -->
+    <div class="category
+-filters" id="category-filters">
+      <!-- P
+opulated by JS -->
     </div>
     
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="active">Active</button>
-      <button class="filter-btn" data-filter="milestone">Milestones</button>
-      <button class="filter-btn" data-filter="deliverable">Deliverables</button>
-      <button class="filter-btn" data-filter="task">Tasks</button>
-      <button class="filter-btn" data-filter="decision">Decisions</button>
-      <button class="filter-btn" data-filter="pending">Pending</button>
-      <button class="filter-btn" data-filter="in-progress">In Progress</button>
-      <button class="filter-btn" data-filter="complete">Complete</button>
+    <div c
+lass="filters">
+      <button class="filter-b
+tn active" data-filter="all">All</button>
+   
+   <button class="filter-btn" data-filter="ac
+tive">Active</button>
+      <button class="fi
+lter-btn" data-filter="milestone">Milestones<
+/button>
+      <button class="filter-btn" dat
+a-filter="deliverable">Deliverables</button>
+
+      <button class="filter-btn" data-filter=
+"task">Tasks</button>
+      <button class="fi
+lter-btn" data-filter="decision">Decisions</b
+utton>
+      <button class="filter-btn" data-
+filter="pending">Pending</button>
+      <butt
+on class="filter-btn" data-filter="in-progres
+s">In Progress</button>
+      <button class="
+filter-btn" data-filter="complete">Complete</
+button>
     </div>
     
-    <div class="panel timeline-container" style="margin-bottom: 24px;">
+    <div class="panel
+ timeline-container" style="margin-bottom: 24
+px;">
       <div class="timeline">
-        <div class="timeline-header" id="timeline-phases"></div>
-        <div class="timeline-track">
-          <div class="timeline-progress" id="timeline-progress"></div>
-          <div class="timeline-today" id="timeline-today"></div>
+        <d
+iv class="timeline-header" id="timeline-phase
+s"></div>
+        <div class="timeline-track"
+>
+          <div class="timeline-progress" id
+="timeline-progress"></div>
+          <div cl
+ass="timeline-today" id="timeline-today"></di
+v>
         </div>
       </div>
     </div>
-    
+   
+ 
     <div class="main-grid">
-      <div class="task-area">
-        <div id="task-groups"></div>
+      <div clas
+s="task-area">
+        <div id="task-groups">
+</div>
       </div>
       
-      <div class="sidebar">
-        <div class="panel" style="margin-bottom: 24px;">
-          <div class="panel-title">📅 Today's Focus</div>
-          <div id="focus-today"></div>
-        </div>
+      <div class="
+sidebar">
+        <div class="panel" style="m
+argin-bottom: 24px;">
+          <div class="p
+anel-title">📅 Today's Focus</div>
         
-        <div class="panel" style="margin-bottom: 24px;">
-          <div class="panel-title">⚡ Coming Up</div>
-          <div id="focus-upcoming"></div>
+  <div id="focus-today"></div>
         </div>
+
         
+        <div class="panel" style="m
+argin-bottom: 24px;">
+          <div class="p
+anel-title">⚡ Coming Up</div>
+          <di
+v id="focus-upcoming"></div>
+        </div>
+ 
+       
         <div class="panel">
-          <div class="panel-title">🔗 Key Dependencies</div>
-          <div class="dep-graph" id="dependencies"></div>
+         
+ <div class="panel-title">🔗 Key Dependenci
+es</div>
+          <div class="dep-graph" id=
+"dependencies"></div>
         </div>
-      </div>
+      </
+div>
     </div>
   </div>
   
-  <!-- Settings Modal -->
-  <div class="modal-overlay" id="settings-modal">
+  <!-- Settings M
+odal -->
+  <div class="modal-overlay" id="set
+tings-modal">
     <div class="modal">
-      <button class="modal-close" onclick="closeSettings()">&times;</button>
-      <h2>⚙️ Settings</h2>
+      <
+button class="modal-close" onclick="closeSett
+ings()">&times;</button>
+      <h2>⚙️ Set
+tings</h2>
       
-      <div class="settings-field">
-        <label>GitHub Personal Access Token</label>
-        <input type="password" id="github-token" placeholder="ghp_xxxxxxxxxxxx">
+      <div class="settings-
+field">
+        <label>GitHub Personal Access
+ Token</label>
+        <input type="password"
+ id="github-token" placeholder="ghp_xxxxxxxxx
+xxx">
         <div class="settings-help">
-          Required for syncing edits across devices.<br>
-          <a href="https://github.com/settings/tokens/new?description=90-Day-Plan-Sync&scopes=repo" target="_blank">Create a token</a> with <strong>repo</strong> scope.
-        </div>
-        <div class="token-status" id="token-status"></div>
+   
+       Required for syncing edits across devi
+ces.<br>
+          <a href="https://github.co
+m/settings/tokens/new?description=90-Day-Plan
+-Sync&scopes=repo" target="_blank">Create a t
+oken</a> with <strong>repo</strong> scope.
+  
       </div>
-      
+        <div class="token-status
+" id="token-status"></div>
+      </div>
+     
+ 
       <div class="settings-field">
-        <label>Repository</label>
-        <input type="text" id="github-repo" value="ADI2D/special-strong-90day" readonly style="opacity: 0.7;">
+        
+<label>Repository</label>
+        <input type
+="text" id="github-repo" value="ADI2D/special
+-strong-90day" readonly style="opacity: 0.7;"
+>
       </div>
       
-      <div class="last-sync" id="last-sync-display"></div>
+      <div class="last-
+sync" id="last-sync-display"></div>
       
-      <div class="modal-actions">
-        <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
-        <button class="btn" style="background: var(--surface-hover);" onclick="testToken()">Test Connection</button>
+  
+    <div class="modal-actions">
+        <butt
+on class="btn btn-primary" onclick="saveSetti
+ngs()">Save Settings</button>
+        <button
+ class="btn" style="background: var(--surface
+-hover);" onclick="testToken()">Test Connecti
+on</button>
       </div>
     </div>
   </div>
+
 
   <!-- Lightbox for full-size images -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <button class="lightbox-close">&times;</button>
-    <img id="lightbox-img" src="" alt="Attachment">
+  <
+div class="lightbox" id="lightbox" onclick="c
+loseLightbox()">
+    <button class="lightbox-
+close">&times;</button>
+    <img id="lightbox
+-img" src="" alt="Attachment">
   </div>
 
-  <div class="modal-overlay" id="modal">
-    <div class="modal">
-      <button class="modal-close" onclick="closeModal()">&times;</button>
+  <d
+iv class="modal-overlay" id="modal">
+    <div
+ class="modal">
+      <button class="modal-cl
+ose" onclick="closeModal()">&times;</button>
+
       <h2 id="modal-title"></h2>
-      <div id="modal-content"></div>
+      <div i
+d="modal-content"></div>
       
-      <!-- Notes Section -->
-      <div class="field-label">Notes</div>
-      <textarea class="edit-field" id="notes-field" placeholder="Add notes..."></textarea>
+      <!-- No
+tes Section -->
+      <div class="field-label
+">Notes</div>
+      <textarea class="edit-fie
+ld" id="notes-field" placeholder="Add notes..
+."></textarea>
       
-      <!-- Attachments Section -->
-      <div class="attachments-section">
-        <div class="field-label">📎 Attachments</div>
-        <div id="attachments-list"></div>
+      <!-- Attachments 
+Section -->
+      <div class="attachments-sec
+tion">
+        <div class="field-label">📎 
+Attachments</div>
+        <div id="attachment
+s-list"></div>
       </div>
       
-      <!-- Contacts Section -->
-      <div class="contacts-section">
-        <div class="field-label">Contacts</div>
-        <div id="contacts-list"></div>
-        <div class="add-contact-form">
-          <input type="text" id="contact-name" placeholder="Name">
-          <input type="text" id="contact-role" placeholder="Role">
-          <input type="email" id="contact-email" placeholder="Email">
-          <button class="btn btn-primary btn-small" onclick="addContact()">+</button>
+      <!--
+ Contacts Section -->
+      <div class="conta
+cts-section">
+        <div class="field-label
+">Contacts</div>
+        <div id="contacts-li
+st"></div>
+        <div class="add-contact-fo
+rm">
+          <input type="text" id="contact
+-name" placeholder="Name">
+          <input t
+ype="text" id="contact-role" placeholder="Rol
+e">
+          <input type="email" id="contact
+-email" placeholder="Email">
+          <butto
+n class="btn btn-primary btn-small" onclick="
+addContact()">+</button>
         </div>
-      </div>
+     
+ </div>
       
-      <!-- Messages Accordion -->
-      <div class="accordion" id="messages-accordion">
-        <div class="accordion-header" onclick="toggleAccordion()">
-          <span class="accordion-title">
-            💬 Message History
-            <span class="message-count" id="message-count">0</span>
-          </span>
-          <span class="accordion-icon">▼</span>
+      <!-- Messages Accordion 
+-->
+      <div class="accordion" id="messages
+-accordion">
+        <div class="accordion-he
+ader" onclick="toggleAccordion()">
+          
+<span class="accordion-title">
+            �
+�� Message History
+            <span class="m
+essage-count" id="message-count">0</span>
+   
+       </span>
+          <span class="accordi
+on-icon">▼</span>
         </div>
-        <div class="accordion-content">
-          <div id="messages-list"></div>
-          <div class="add-message-form">
-            <div class="add-message-row">
-              <input type="date" id="message-date">
-              <select id="message-medium">
-                <option value="email">Email</option>
-                <option value="text">Text</option>
-                <option value="slack">Slack</option>
-                <option value="teams">Teams</option>
-                <option value="call">Call</option>
-                <option value="meeting">Meeting</option>
-              </select>
+        <d
+iv class="accordion-content">
+          <div 
+id="messages-list"></div>
+          <div clas
+s="add-message-form">
+            <div class=
+"add-message-row">
+              <input type=
+"date" id="message-date">
+              <sele
+ct id="message-medium">
+                <opti
+on value="email">Email</option>
+             
+   <option value="text">Text</option>
+       
+         <option value="slack">Slack</option>
+
+                <option value="teams">Teams<
+/option>
+                <option value="call"
+>Call</option>
+                <option value=
+"meeting">Meeting</option>
+              </se
+lect>
             </div>
-            <textarea class="message-input" id="message-text" placeholder="Add message summary..."></textarea>
-            <button class="btn btn-primary btn-small" style="margin-top: 8px;" onclick="addMessage()">Add Message</button>
-          </div>
+            <textare
+a class="message-input" id="message-text" pla
+ceholder="Add message summary..."></textarea>
+
+            <button class="btn btn-primary b
+tn-small" style="margin-top: 8px;" onclick="a
+ddMessage()">Add Message</button>
+          <
+/div>
         </div>
       </div>
       
-      <div class="modal-actions">
-        <button class="btn btn-primary" onclick="saveChanges()">Save Changes</button>
-        <button class="btn btn-success" onclick="toggleStatus()">Toggle Status</button>
+    
+  <div class="modal-actions">
+        <button
+ class="btn btn-primary" onclick="saveChanges
+()">Save Changes</button>
+        <button cla
+ss="btn btn-success" onclick="toggleStatus()"
+>Toggle Status</button>
       </div>
-    </div>
+    </di
+v>
   </div>
 
   <script>
     let data = null;
+
     let currentFilter = 'all';
-    let currentCategory = 'all';
-    let selectedTask = null;
-    let localData = {}; // For storing edits in localStorage
-    let categoryMap = {}; // Quick lookup for categories
+    let curren
+tCategory = 'all';
+    let selectedTask = nul
+l;
+    let localData = {}; // For storing edi
+ts in localStorage
+    let categoryMap = {}; 
+// Quick lookup for categories
     
-    const STORAGE_KEY = 'special-strong-90day-local';
-    const SETTINGS_KEY = 'special-strong-90day-settings';
-    const GITHUB_REPO = 'ADI2D/special-strong-90day';
-    const DATA_FILE = 'data.json';
+    const
+ STORAGE_KEY = 'special-strong-90day-local';
+
+    const SETTINGS_KEY = 'special-strong-90da
+y-settings';
+    const GITHUB_REPO = 'ADI2D/s
+pecial-strong-90day';
+    const DATA_FILE = '
+data.json';
     
     // Settings management
-    function getSettings() {
+ 
+   function getSettings() {
       try {
-        const stored = localStorage.getItem(SETTINGS_KEY);
-        return stored ? JSON.parse(stored) : {};
+     
+   const stored = localStorage.getItem(SETTIN
+GS_KEY);
+        return stored ? JSON.parse(s
+tored) : {};
       } catch (e) {
-        return {};
+        retu
+rn {};
       }
     }
     
-    function saveSettingsToStorage(settings) {
-      localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    function saveSe
+ttingsToStorage(settings) {
+      localStorag
+e.setItem(SETTINGS_KEY, JSON.stringify(settin
+gs));
     }
     
-    function loadLocalData() {
+    function loadLocalData()
+ {
       try {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) {
-          localData = JSON.parse(stored);
+        const stored = localSt
+orage.getItem(STORAGE_KEY);
+        if (store
+d) {
+          localData = JSON.parse(stored)
+;
         }
       } catch (e) {
-        console.error('Failed to load local data:', e);
-        localData = {};
+        conso
+le.error('Failed to load local data:', e);
+  
+      localData = {};
       }
     }
     
-    function saveLocalData() {
+    
+function saveLocalData() {
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(localData));
+      
+  localStorage.setItem(STORAGE_KEY, JSON.stri
+ngify(localData));
       } catch (e) {
-        console.error('Failed to save local data:', e);
+      
+  console.error('Failed to save local data:',
+ e);
       }
     }
     
-    function getTaskLocalData(taskId) {
-      if (!localData[taskId]) {
+    function getTaskL
+ocalData(taskId) {
+      if (!localData[taskI
+d]) {
         localData[taskId] = {
-          notes: '',
+         
+ notes: '',
           contacts: [],
-          messages: [],
+         
+ messages: [],
           attachments: [],
-          status: null
+   
+       status: null
         };
       }
-      // Ensure attachments array exists for older data
-      if (!localData[taskId].attachments) {
-        localData[taskId].attachments = [];
+      
+// Ensure attachments array exists for older 
+data
+      if (!localData[taskId].attachments
+) {
+        localData[taskId].attachments = [
+];
       }
       return localData[taskId];
-    }
+  
+  }
     
     async function loadData() {
-      loadLocalData();
-      updateLastSyncDisplay();
+    
+  loadLocalData();
+      updateLastSyncDispla
+y();
       
       try {
-        // Try to fetch with cache-busting
-        const resp = await fetch('data.json?t=' + Date.now());
-        data = await resp.json();
+        // Try to fet
+ch with cache-busting
+        const resp = aw
+ait fetch('data.json?t=' + Date.now());
+     
+   data = await resp.json();
         
-        // Apply userData from data.json if present (synced data)
+       
+ // Apply userData from data.json if present 
+(synced data)
         if (data.userData) {
-          // Merge remote userData into localData (remote wins for conflicts)
-          Object.keys(data.userData).forEach(taskId => {
-            if (!localData[taskId]) {
-              localData[taskId] = data.userData[taskId];
+  
+        // Merge remote userData into localDa
+ta (remote wins for conflicts)
+          Obje
+ct.keys(data.userData).forEach(taskId => {
+  
+          if (!localData[taskId]) {
+         
+     localData[taskId] = data.userData[taskId
+];
             } else {
-              // Merge: remote data takes precedence but keep local additions
-              const remote = data.userData[taskId];
-              const local = localData[taskId];
-              localData[taskId] = {
-                notes: remote.notes || local.notes,
-                contacts: remote.contacts || local.contacts || [],
-                messages: remote.messages || local.messages || [],
-                status: remote.status || local.status
+              // Merg
+e: remote data takes precedence but keep loca
+l additions
+              const remote = data
+.userData[taskId];
+              const local 
+= localData[taskId];
+              localData[
+taskId] = {
+                notes: remote.not
+es || local.notes,
+                contacts: 
+remote.contacts || local.contacts || [],
+    
+            messages: remote.messages || loca
+l.messages || [],
+                status: rem
+ote.status || local.status
               };
-            }
+ 
+           }
           });
-          saveLocalData();
+          saveLoca
+lData();
         }
         
-        // Apply local data to tasks
-        data.tasks.forEach(task => {
-          const local = localData[task.id];
+        // Apply 
+local data to tasks
+        data.tasks.forEac
+h(task => {
+          const local = localData
+[task.id];
           if (local) {
-            if (local.status) task.status = local.status;
-            if (local.notes) task.localNotes = local.notes;
+           
+ if (local.status) task.status = local.status
+;
+            if (local.notes) task.localNote
+s = local.notes;
           }
         });
-        
+    
+    
         render();
       } catch (e) {
-        console.error('Failed to load data:', e);
-        document.getElementById('task-groups').innerHTML = 
-          '<div class="empty-state">Failed to load data.json</div>';
-      }
+  
+      console.error('Failed to load data:', e
+);
+        document.getElementById('task-grou
+ps').innerHTML = 
+          '<div class="empt
+y-state">Failed to load data.json</div>';
+   
+   }
     }
     
     // Settings Modal
-    function openSettings() {
-      const settings = getSettings();
-      document.getElementById('github-token').value = settings.token || '';
-      document.getElementById('settings-modal').classList.add('open');
-      updateLastSyncDisplay();
+    fun
+ction openSettings() {
+      const settings =
+ getSettings();
+      document.getElementById
+('github-token').value = settings.token || ''
+;
+      document.getElementById('settings-mod
+al').classList.add('open');
+      updateLastS
+yncDisplay();
     }
     
-    function closeSettings() {
-      document.getElementById('settings-modal').classList.remove('open');
+    function closeSe
+ttings() {
+      document.getElementById('set
+tings-modal').classList.remove('open');
     }
+
     
     function saveSettings() {
-      const token = document.getElementById('github-token').value.trim();
-      saveSettingsToStorage({ token, lastSync: getSettings().lastSync });
+      con
+st token = document.getElementById('github-to
+ken').value.trim();
+      saveSettingsToStora
+ge({ token, lastSync: getSettings().lastSync 
+});
       alert('Settings saved!');
-      closeSettings();
+      clo
+seSettings();
     }
     
-    async function testToken() {
-      const token = document.getElementById('github-token').value.trim();
-      const statusEl = document.getElementById('token-status');
+    async function t
+estToken() {
+      const token = document.get
+ElementById('github-token').value.trim();
+   
+   const statusEl = document.getElementById('
+token-status');
       
       if (!token) {
-        statusEl.className = 'token-status invalid';
-        statusEl.textContent = '❌ No token entered';
+  
+      statusEl.className = 'token-status inva
+lid';
+        statusEl.textContent = '❌ No 
+token entered';
         return;
       }
-      
+     
+ 
       statusEl.className = 'token-status';
-      statusEl.textContent = '⏳ Testing...';
+
+      statusEl.textContent = '⏳ Testing...'
+;
       
       try {
-        const resp = await fetch(`https://api.github.com/repos/${GITHUB_REPO}`, {
+        const resp = awa
+it fetch(`https://api.github.com/repos/${GITH
+UB_REPO}`, {
           headers: {
-            'Authorization': `token ${token}`,
-            'Accept': 'application/vnd.github.v3+json'
+           
+ 'Authorization': `token ${token}`,
+         
+   'Accept': 'application/vnd.github.v3+json'
+
           }
         });
         
-        if (resp.ok) {
-          const data = await resp.json();
-          if (data.permissions && data.permissions.push) {
-            statusEl.className = 'token-status valid';
-            statusEl.textContent = '✅ Connected with write access';
+        if 
+(resp.ok) {
+          const data = await resp
+.json();
+          if (data.permissions && da
+ta.permissions.push) {
+            statusEl.c
+lassName = 'token-status valid';
+            
+statusEl.textContent = '✅ Connected with wr
+ite access';
           } else {
-            statusEl.className = 'token-status invalid';
-            statusEl.textContent = '⚠️ Connected but no write access';
+            s
+tatusEl.className = 'token-status invalid';
+ 
+           statusEl.textContent = '⚠️ Con
+nected but no write access';
           }
-        } else {
-          statusEl.className = 'token-status invalid';
-          statusEl.textContent = '❌ Invalid token or no repo access';
+    
+    } else {
+          statusEl.className = '
+token-status invalid';
+          statusEl.tex
+tContent = '❌ Invalid token or no repo acce
+ss';
         }
       } catch (e) {
-        statusEl.className = 'token-status invalid';
-        statusEl.textContent = '❌ Connection failed';
+        st
+atusEl.className = 'token-status invalid';
+  
+      statusEl.textContent = '❌ Connection 
+failed';
       }
     }
     
-    function updateLastSyncDisplay() {
-      const settings = getSettings();
-      const el = document.getElementById('last-sync-display');
-      if (settings.lastSync) {
-        const date = new Date(settings.lastSync);
-        el.textContent = `Last synced: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
-      } else {
+    function upda
+teLastSyncDisplay() {
+      const settings = 
+getSettings();
+      const el = document.getE
+lementById('last-sync-display');
+      if (se
+ttings.lastSync) {
+        const date = new D
+ate(settings.lastSync);
+        el.textConten
+t = `Last synced: ${date.toLocaleDateString()
+} ${date.toLocaleTimeString()}`;
+      } else
+ {
         el.textContent = 'Never synced';
-      }
+ 
+     }
     }
     
     // GitHub Sync
-    async function syncToGitHub() {
-      const settings = getSettings();
-      const token = settings.token;
+    asyn
+c function syncToGitHub() {
+      const setti
+ngs = getSettings();
+      const token = sett
+ings.token;
       
       if (!token) {
-        openSettings();
-        alert('Please add your GitHub token first');
-        return;
-      }
       
-      const syncBtn = document.getElementById('sync-btn');
-      const syncIcon = document.getElementById('sync-icon');
-      syncBtn.disabled = true;
-      syncIcon.textContent = '🔄';
+  openSettings();
+        alert('Please add y
+our GitHub token first');
+        return;
+   
+   }
+      
+      const syncBtn = document.ge
+tElementById('sync-btn');
+      const syncIco
+n = document.getElementById('sync-icon');
+   
+   syncBtn.disabled = true;
+      syncIcon.te
+xtContent = '🔄';
       
       try {
-        // Get current file SHA (needed for update)
-        const fileResp = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${DATA_FILE}`, {
+      
+  // Get current file SHA (needed for update)
+
+        const fileResp = await fetch(`https:
+//api.github.com/repos/${GITHUB_REPO}/content
+s/${DATA_FILE}`, {
           headers: {
-            'Authorization': `token ${token}`,
-            'Accept': 'application/vnd.github.v3+json'
+     
+       'Authorization': `token ${token}`,
+   
+         'Accept': 'application/vnd.github.v3
++json'
           }
         });
         
-        if (!fileResp.ok) {
-          throw new Error('Failed to get current file');
+     
+   if (!fileResp.ok) {
+          throw new Er
+ror('Failed to get current file');
         }
+
         
-        const fileData = await fileResp.json();
-        const currentSha = fileData.sha;
+        const fileData = await fileR
+esp.json();
+        const currentSha = fileDa
+ta.sha;
         
-        // Decode current content
-        const currentContent = JSON.parse(atob(fileData.content));
+        // Decode current co
+ntent
+        const currentContent = JSON.par
+se(atob(fileData.content));
         
-        // Merge localData into userData
-        currentContent.userData = localData;
         
-        // Encode new content
-        const newContent = btoa(unescape(encodeURIComponent(JSON.stringify(currentContent, null, 2))));
+// Merge localData into userData
+        curr
+entContent.userData = localData;
         
+   
+     // Encode new content
+        const newC
+ontent = btoa(unescape(encodeURIComponent(JSO
+N.stringify(currentContent, null, 2))));
+    
+    
         // Update file
-        const updateResp = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${DATA_FILE}`, {
+        const upd
+ateResp = await fetch(`https://api.github.com
+/repos/${GITHUB_REPO}/contents/${DATA_FILE}`,
+ {
           method: 'PUT',
-          headers: {
-            'Authorization': `token ${token}`,
-            'Accept': 'application/vnd.github.v3+json',
-            'Content-Type': 'application/json'
+          headers
+: {
+            'Authorization': `token ${tok
+en}`,
+            'Accept': 'application/vnd.
+github.v3+json',
+            'Content-Type': 
+'application/json'
           },
-          body: JSON.stringify({
-            message: `Sync user data - ${new Date().toISOString()}`,
-            content: newContent,
-            sha: currentSha
+          bod
+y: JSON.stringify({
+            message: `Syn
+c user data - ${new Date().toISOString()}`,
+ 
+           content: newContent,
+            s
+ha: currentSha
           })
         });
-        
+     
+   
         if (!updateResp.ok) {
-          const err = await updateResp.json();
-          throw new Error(err.message || 'Failed to update file');
+          c
+onst err = await updateResp.json();
+         
+ throw new Error(err.message || 'Failed to up
+date file');
         }
         
-        // Update last sync time
-        settings.lastSync = Date.now();
-        saveSettingsToStorage(settings);
+        // Up
+date last sync time
+        settings.lastSync
+ = Date.now();
+        saveSettingsToStorage(
+settings);
         updateLastSyncDisplay();
-        
+ 
+       
         syncIcon.textContent = '✅';
-        setTimeout(() => { syncIcon.textContent = '⬆️'; }, 2000);
+
+        setTimeout(() => { syncIcon.textCont
+ent = '⬆️'; }, 2000);
         
-      } catch (e) {
-        console.error('Sync failed:', e);
-        alert('Sync failed: ' + e.message);
+      } ca
+tch (e) {
+        console.error('Sync failed:
+', e);
+        alert('Sync failed: ' + e.mess
+age);
         syncIcon.textContent = '❌';
-        setTimeout(() => { syncIcon.textContent = '⬆️'; }, 2000);
+ 
+       setTimeout(() => { syncIcon.textConten
+t = '⬆️'; }, 2000);
       } finally {
-        syncBtn.disabled = false;
+   
+     syncBtn.disabled = false;
       }
     }
+
     
     function formatDate(dateStr) {
-      const d = new Date(dateStr + 'T00:00:00');
-      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+     
+ const d = new Date(dateStr + 'T00:00:00');
+ 
+     return d.toLocaleDateString('en-US', { m
+onth: 'short', day: 'numeric' });
     }
     
+
     function daysBetween(d1, d2) {
-      const date1 = new Date(d1 + 'T00:00:00');
-      const date2 = new Date(d2 + 'T00:00:00');
-      return Math.ceil((date2 - date1) / (1000 * 60 * 60 * 24));
+      cons
+t date1 = new Date(d1 + 'T00:00:00');
+      c
+onst date2 = new Date(d2 + 'T00:00:00');
+    
+  return Math.ceil((date2 - date1) / (1000 * 
+60 * 60 * 24));
     }
     
-    function getToday() {
-      return new Date().toISOString().split('T')[0];
+    function getTo
+day() {
+      return new Date().toISOString()
+.split('T')[0];
     }
     
-    function render() {
+    function rende
+r() {
       buildCategoryMap();
-      renderCategoryFilters();
+      renderC
+ategoryFilters();
       renderStats();
-      renderTimeline();
+      
+renderTimeline();
       renderTasks();
-      renderFocus();
+      
+renderFocus();
       renderDependencies();
-    }
+  
+  }
     
     function buildCategoryMap() {
-      categoryMap = {};
-      if (data.categories) {
-        data.categories.forEach(cat => {
+  
+    categoryMap = {};
+      if (data.categori
+es) {
+        data.categories.forEach(cat => 
+{
           categoryMap[cat.id] = cat;
-        });
+      
+  });
       }
     }
     
-    function getCategoryInfo(categoryId) {
-      return categoryMap[categoryId] || { name: categoryId, color: '#6b7280', icon: '📁' };
+    function getCate
+goryInfo(categoryId) {
+      return categoryM
+ap[categoryId] || { name: categoryId, color: 
+'#6b7280', icon: '📁' };
     }
     
-    function getSubcategoryName(categoryId, subcategoryId) {
-      const cat = categoryMap[categoryId];
+    fun
+ction getSubcategoryName(categoryId, subcateg
+oryId) {
+      const cat = categoryMap[catego
+ryId];
       if (cat && cat.subcategories) {
-        const sub = cat.subcategories.find(s => s.id === subcategoryId);
-        return sub ? sub.name : subcategoryId;
+
+        const sub = cat.subcategories.find(s 
+=> s.id === subcategoryId);
+        return su
+b ? sub.name : subcategoryId;
       }
-      return subcategoryId || '';
+      r
+eturn subcategoryId || '';
     }
     
-    function renderCategoryFilters() {
-      const container = document.getElementById('category-filters');
-      if (!data.categories || data.categories.length === 0) {
-        container.style.display = 'none';
+    fun
+ction renderCategoryFilters() {
+      const c
+ontainer = document.getElementById('category-
+filters');
+      if (!data.categories || data
+.categories.length === 0) {
+        container
+.style.display = 'none';
         return;
-      }
+    
+  }
       
-      let html = `<button class="category-filter-btn ${currentCategory === 'all' ? 'active' : ''}" 
-                          data-category="all" 
-                          style="background: var(--surface-hover); color: var(--text);">
-                    All Categories
+      let html = `<button class="c
+ategory-filter-btn ${currentCategory === 'all
+' ? 'active' : ''}" 
+                        
+  data-category="all" 
+                      
+    style="background: var(--surface-hover); 
+color: var(--text);">
+                    All
+ Categories
                   </button>`;
-      
+   
+   
       data.categories.forEach(cat => {
-        html += `<button class="category-filter-btn ${currentCategory === cat.id ? 'active' : ''}" 
-                         data-category="${cat.id}"
-                         style="background: ${cat.color}22; color: ${cat.color}; border-color: ${cat.color};">
-                   ${cat.icon} ${cat.name}
-                 </button>`;
+  
+      html += `<button class="category-filter
+-btn ${currentCategory === cat.id ? 'active' 
+: ''}" 
+                         data-categor
+y="${cat.id}"
+                         style=
+"background: ${cat.color}22; color: ${cat.col
+or}; border-color: ${cat.color};">
+          
+         ${cat.icon} ${cat.name}
+            
+     </button>`;
       });
       
-      container.innerHTML = html;
+      conta
+iner.innerHTML = html;
       
-      // Add click handlers
-      container.querySelectorAll('.category-filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          currentCategory = btn.dataset.category;
+      // Add cl
+ick handlers
+      container.querySelectorAll
+('.category-filter-btn').forEach(btn => {
+   
+     btn.addEventListener('click', () => {
+  
+        currentCategory = btn.dataset.categor
+y;
           renderCategoryFilters();
-          renderTasks();
+       
+   renderTasks();
         });
       });
     }
+
     
     function renderStats() {
-      const today = getToday();
-      const startDate = data.meta.startDate;
-      const daysUntil = daysBetween(today, startDate);
+      cons
+t today = getToday();
+      const startDate =
+ data.meta.startDate;
+      const daysUntil =
+ daysBetween(today, startDate);
       
-      document.getElementById('days-until').textContent = 
-        daysUntil > 0 ? daysUntil : (daysUntil === 0 ? 'TODAY!' : `Day ${Math.abs(daysUntil)}`);
       
-      const complete = data.tasks.filter(t => t.status === 'complete').length;
-      document.getElementById('tasks-complete').textContent = complete;
-      document.getElementById('tasks-total').textContent = data.tasks.length;
+document.getElementById('days-until').textCon
+tent = 
+        daysUntil > 0 ? daysUntil : (
+daysUntil === 0 ? 'TODAY!' : `Day ${Math.abs(
+daysUntil)}`);
+      
+      const complete = 
+data.tasks.filter(t => t.status === 'complete
+').length;
+      document.getElementById('tas
+ks-complete').textContent = complete;
+      d
+ocument.getElementById('tasks-total').textCon
+tent = data.tasks.length;
     }
     
-    function renderTimeline() {
-      const phasesEl = document.getElementById('timeline-phases');
-      phasesEl.innerHTML = data.phases.map(p => 
-        `<div class="timeline-phase" style="background: ${p.color}20; color: ${p.color};">
-          ${p.name}<br><small>${formatDate(p.startDate)} - ${formatDate(p.endDate)}</small>
+    func
+tion renderTimeline() {
+      const phasesEl 
+= document.getElementById('timeline-phases');
+
+      phasesEl.innerHTML = data.phases.map(p
+ => 
+        `<div class="timeline-phase" sty
+le="background: ${p.color}20; color: ${p.colo
+r};">
+          ${p.name}<br><small>${formatD
+ate(p.startDate)} - ${formatDate(p.endDate)}<
+/small>
         </div>`
       ).join('');
-      
+   
+   
       // Calculate progress
-      const today = getToday();
-      const totalStart = new Date(data.phases[0].startDate + 'T00:00:00');
-      const totalEnd = new Date(data.phases[data.phases.length - 1].endDate + 'T00:00:00');
-      const todayDate = new Date(today + 'T00:00:00');
+      const t
+oday = getToday();
+      const totalStart = n
+ew Date(data.phases[0].startDate + 'T00:00:00
+');
+      const totalEnd = new Date(data.phas
+es[data.phases.length - 1].endDate + 'T00:00:
+00');
+      const todayDate = new Date(today 
++ 'T00:00:00');
       
-      const totalDays = (totalEnd - totalStart) / (1000 * 60 * 60 * 24);
-      const elapsedDays = Math.max(0, (todayDate - totalStart) / (1000 * 60 * 60 * 24));
-      const progressPct = Math.min(100, (elapsedDays / totalDays) * 100);
+      const totalDays 
+= (totalEnd - totalStart) / (1000 * 60 * 60 *
+ 24);
+      const elapsedDays = Math.max(0, (
+todayDate - totalStart) / (1000 * 60 * 60 * 2
+4));
+      const progressPct = Math.min(100, 
+(elapsedDays / totalDays) * 100);
       
-      document.getElementById('timeline-progress').style.width = progressPct + '%';
-      document.getElementById('timeline-today').style.left = progressPct + '%';
+    
+  document.getElementById('timeline-progress'
+).style.width = progressPct + '%';
+      docu
+ment.getElementById('timeline-today').style.l
+eft = progressPct + '%';
     }
     
-    function filterTasks(tasks) {
-      let filtered = tasks;
+    funct
+ion filterTasks(tasks) {
+      let filtered =
+ tasks;
       
       // Category filter
-      if (currentCategory !== 'all') {
-        filtered = filtered.filter(t => t.category === currentCategory);
+     
+ if (currentCategory !== 'all') {
+        fil
+tered = filtered.filter(t => t.category === c
+urrentCategory);
       }
       
-      // Type/status filter
-      if (currentFilter !== 'all') {
-        if (currentFilter === 'active') {
-          filtered = filtered.filter(t => t.status !== 'complete');
-        } else if (['milestone', 'deliverable', 'task', 'decision'].includes(currentFilter)) {
-          filtered = filtered.filter(t => t.type === currentFilter);
-        } else if (['pending', 'in-progress', 'complete'].includes(currentFilter)) {
-          filtered = filtered.filter(t => t.status === currentFilter);
+      // Type
+/status filter
+      if (currentFilter !== 'a
+ll') {
+        if (currentFilter === 'active'
+) {
+          filtered = filtered.filter(t =>
+ t.status !== 'complete');
+        } else if 
+(['milestone', 'deliverable', 'task', 'decisi
+on'].includes(currentFilter)) {
+          fil
+tered = filtered.filter(t => t.type === curre
+ntFilter);
+        } else if (['pending', 'in
+-progress', 'complete'].includes(currentFilte
+r)) {
+          filtered = filtered.filter(t 
+=> t.status === currentFilter);
         }
-      }
+   
+   }
       
       return filtered;
     }
     
+
     function renderTasks() {
-      const groupsEl = document.getElementById('task-groups');
+      const gro
+upsEl = document.getElementById('task-groups'
+);
       const today = getToday();
       
-      let html = '';
+   
+   let html = '';
       
-      data.phases.forEach(phase => {
-        const phaseTasks = filterTasks(data.tasks.filter(t => t.phase === phase.id));
-        if (phaseTasks.length === 0) return;
+      data.phases.fo
+rEach(phase => {
+        const phaseTasks = f
+ilterTasks(data.tasks.filter(t => t.phase ===
+ phase.id));
+        if (phaseTasks.length ==
+= 0) return;
         
         html += `
-          <div class="phase-group">
-            <div class="phase-header">
-              <div class="phase-indicator" style="background: ${phase.color}"></div>
-              <span class="phase-name">${phase.name}</span>
-              <span class="phase-dates">${formatDate(phase.startDate)} - ${formatDate(phase.endDate)}</span>
+     
+     <div class="phase-group">
+            <d
+iv class="phase-header">
+              <div c
+lass="phase-indicator" style="background: ${p
+hase.color}"></div>
+              <span class
+="phase-name">${phase.name}</span>
+          
+    <span class="phase-dates">${formatDate(ph
+ase.startDate)} - ${formatDate(phase.endDate)
+}</span>
             </div>
-            <div class="task-list">
-              ${phaseTasks.map(task => {
-                const isOverdue = task.dueDate && task.dueDate < today && task.status !== 'complete';
-                const catInfo = getCategoryInfo(task.category);
-                const subName = getSubcategoryName(task.category, task.subcategory);
-                return `
-                  <div class="task-card ${task.status} ${isOverdue ? 'overdue' : ''}" 
-                       onclick="openTask('${task.id}')"
-                       style="border-left-color: ${task.status === 'complete' ? 'var(--success)' : task.status === 'in-progress' ? 'var(--warning)' : catInfo.color};">
-                    <div class="category-row">
-                      <span class="task-category" style="background: ${catInfo.color}22; color: ${catInfo.color};">
-                        ${catInfo.icon} ${catInfo.name}
+            <div 
+class="task-list">
+              ${phaseTasks
+.map(task => {
+                const isOverdu
+e = task.dueDate && task.dueDate < today && t
+ask.status !== 'complete';
+                co
+nst catInfo = getCategoryInfo(task.category);
+
+                const subName = getSubcatego
+ryName(task.category, task.subcategory);
+    
+            return `
+                  <div c
+lass="task-card ${task.status} ${isOverdue ? 
+'overdue' : ''}" 
+                       oncl
+ick="openTask('${task.id}')"
+                
+       style="border-left-color: ${task.statu
+s === 'complete' ? 'var(--success)' : task.st
+atus === 'in-progress' ? 'var(--warning)' : c
+atInfo.color};">
+                    <div cla
+ss="category-row">
+                      <spa
+n class="task-category" style="background: ${
+catInfo.color}22; color: ${catInfo.color};">
+
+                        ${catInfo.icon} ${cat
+Info.name}
                       </span>
-                      ${subName ? `<span class="task-subcategory">${subName}</span>` : ''}
-                    </div>
-                    <div class="task-header">
-                      <span class="task-title">${task.title}</span>
-                      <span class="task-type ${task.type}">${task.type}</span>
-                    </div>
-                    <div class="task-meta">
-                      <span class="status ${task.status}">
-                        <span class="status-dot"></span>
-                        ${task.status.replace('-', ' ')}
+    
+                  ${subName ? `<span class="t
+ask-subcategory">${subName}</span>` : ''}
+   
+                 </div>
+                    <
+div class="task-header">
+                    
+  <span class="task-title">${task.title}</spa
+n>
+                      <span class="task-ty
+pe ${task.type}">${task.type}</span>
+        
+            </div>
+                    <div c
+lass="task-meta">
+                      <span
+ class="status ${task.status}">
+             
+           <span class="status-dot"></span>
+ 
+                       ${task.status.replace(
+'-', ' ')}
                       </span>
-                      ${task.dueDate ? `<span>Due: ${formatDate(task.dueDate)}</span>` : ''}
-                      <span>Owner: ${task.owner}</span>
+    
+                  ${task.dueDate ? `<span>Due
+: ${formatDate(task.dueDate)}</span>` : ''}
+ 
+                     <span>Owner: ${task.owne
+r}</span>
                     </div>
-                    ${task.notes ? `<div class="task-notes">${task.notes}</div>` : ''}
-                  </div>
+        
+            ${task.notes ? `<div class="task-
+notes">${task.notes}</div>` : ''}
+           
+       </div>
                 `;
-              }).join('')}
+            
+  }).join('')}
             </div>
-          </div>
+          <
+/div>
         `;
       });
       
-      groupsEl.innerHTML = html || '<div class="empty-state">No tasks match this filter</div>';
+      group
+sEl.innerHTML = html || '<div class="empty-st
+ate">No tasks match this filter</div>';
     }
+
     
     function renderFocus() {
-      const today = getToday();
-      const todayEl = document.getElementById('focus-today');
-      const upcomingEl = document.getElementById('focus-upcoming');
+      cons
+t today = getToday();
+      const todayEl = d
+ocument.getElementById('focus-today');
       
-      // Tasks due today or overdue
-      const urgent = data.tasks.filter(t => 
-        t.status !== 'complete' && t.dueDate && t.dueDate <= today
+const upcomingEl = document.getElementById('f
+ocus-upcoming');
+      
+      // Tasks due to
+day or overdue
+      const urgent = data.task
+s.filter(t => 
+        t.status !== 'complete
+' && t.dueDate && t.dueDate <= today
       );
+
       
       // Tasks due in next 7 days
-      const nextWeek = new Date();
-      nextWeek.setDate(nextWeek.getDate() + 7);
-      const nextWeekStr = nextWeek.toISOString().split('T')[0];
+   
+   const nextWeek = new Date();
+      nextWee
+k.setDate(nextWeek.getDate() + 7);
+      cons
+t nextWeekStr = nextWeek.toISOString().split(
+'T')[0];
       
-      const upcoming = data.tasks.filter(t => 
-        t.status !== 'complete' && t.dueDate && t.dueDate > today && t.dueDate <= nextWeekStr
+      const upcoming = data.t
+asks.filter(t => 
+        t.status !== 'compl
+ete' && t.dueDate && t.dueDate > today && t.d
+ueDate <= nextWeekStr
       ).slice(0, 5);
-      
+  
+    
       if (urgent.length === 0) {
-        todayEl.innerHTML = '<div class="focus-item">✅ No urgent items</div>';
+       
+ todayEl.innerHTML = '<div class="focus-item"
+>✅ No urgent items</div>';
       } else {
-        todayEl.innerHTML = urgent.map(t => {
-          const catInfo = getCategoryInfo(t.category);
+ 
+       todayEl.innerHTML = urgent.map(t => {
+
+          const catInfo = getCategoryInfo(t.c
+ategory);
           return `
-            <div class="focus-item urgent" style="border-left-color: ${catInfo.color};">
-              <span class="task-category" style="background: ${catInfo.color}22; color: ${catInfo.color}; font-size: 10px; padding: 1px 6px; margin-bottom: 4px; display: inline-block;">
-                ${catInfo.icon} ${catInfo.name}
-              </span>
-              <div><strong>${t.title}</strong></div>
-              <div class="countdown">${t.dueDate === today ? 'Due today' : 'Overdue: ' + formatDate(t.dueDate)}</div>
+            <div
+ class="focus-item urgent" style="border-left
+-color: ${catInfo.color};">
+              <sp
+an class="task-category" style="background: $
+{catInfo.color}22; color: ${catInfo.color}; f
+ont-size: 10px; padding: 1px 6px; margin-bott
+om: 4px; display: inline-block;">
+           
+     ${catInfo.icon} ${catInfo.name}
+        
+      </span>
+              <div><strong>${t.
+title}</strong></div>
+              <div clas
+s="countdown">${t.dueDate === today ? 'Due to
+day' : 'Overdue: ' + formatDate(t.dueDate)}</
+div>
             </div>
           `;
-        }).join('');
+        
+}).join('');
       }
       
-      if (upcoming.length === 0) {
-        upcomingEl.innerHTML = '<div class="focus-item">No items in next 7 days</div>';
+      if (upcomin
+g.length === 0) {
+        upcomingEl.innerHTM
+L = '<div class="focus-item">No items in next
+ 7 days</div>';
       } else {
-        upcomingEl.innerHTML = upcoming.map(t => {
-          const catInfo = getCategoryInfo(t.category);
+        upcomi
+ngEl.innerHTML = upcoming.map(t => {
+        
+  const catInfo = getCategoryInfo(t.category)
+;
           return `
-            <div class="focus-item soon" style="border-left-color: ${catInfo.color};">
-              <span class="task-category" style="background: ${catInfo.color}22; color: ${catInfo.color}; font-size: 10px; padding: 1px 6px; margin-bottom: 4px; display: inline-block;">
-                ${catInfo.icon} ${catInfo.name}
-              </span>
-              <div><strong>${t.title}</strong></div>
-              <div class="countdown">${formatDate(t.dueDate)} (${daysBetween(today, t.dueDate)} days)</div>
-            </div>
+            <div class="
+focus-item soon" style="border-left-color: ${
+catInfo.color};">
+              <span class="
+task-category" style="background: ${catInfo.c
+olor}22; color: ${catInfo.color}; font-size: 
+10px; padding: 1px 6px; margin-bottom: 4px; d
+isplay: inline-block;">
+                ${cat
+Info.icon} ${catInfo.name}
+              </sp
+an>
+              <div><strong>${t.title}</st
+rong></div>
+              <div class="countdo
+wn">${formatDate(t.dueDate)} (${daysBetween(t
+oday, t.dueDate)} days)</div>
+            </d
+iv>
           `;
         }).join('');
       }
+
     }
     
-    function renderDependencies() {
-      const depEl = document.getElementById('dependencies');
+    function renderDependencies()
+ {
+      const depEl = document.getElementByI
+d('dependencies');
       
-      // Find tasks with dependencies
-      const withDeps = data.tasks.filter(t => t.dependencies && t.dependencies.length > 0).slice(0, 8);
+      // Find tasks
+ with dependencies
+      const withDeps = dat
+a.tasks.filter(t => t.dependencies && t.depen
+dencies.length > 0).slice(0, 8);
       
-      if (withDeps.length === 0) {
-        depEl.innerHTML = '<div class="focus-item">No dependencies tracked</div>';
+     
+ if (withDeps.length === 0) {
+        depEl.i
+nnerHTML = '<div class="focus-item">No depend
+encies tracked</div>';
         return;
-      }
       
-      depEl.innerHTML = withDeps.map(t => {
-        const depNames = t.dependencies.map(depId => {
-          const dep = data.tasks.find(x => x.id === depId);
-          return dep ? dep.title.substring(0, 30) + (dep.title.length > 30 ? '...' : '') : depId;
-        });
+}
+      
+      depEl.innerHTML = withDeps.map
+(t => {
+        const depNames = t.dependenci
+es.map(depId => {
+          const dep = data.
+tasks.find(x => x.id === depId);
+          re
+turn dep ? dep.title.substring(0, 30) + (dep.
+title.length > 30 ? '...' : '') : depId;
+    
+    });
         return `
-          <div class="dep-item">
-            <span style="flex:1">${t.title.substring(0, 25)}${t.title.length > 25 ? '...' : ''}</span>
-            <span class="dep-arrow">←</span>
-            <span style="color: var(--text-muted); font-size: 11px;">${depNames[0]}</span>
+          <div class
+="dep-item">
+            <span style="flex:1"
+>${t.title.substring(0, 25)}${t.title.length 
+> 25 ? '...' : ''}</span>
+            <span c
+lass="dep-arrow">←</span>
+            <span
+ style="color: var(--text-muted); font-size: 
+11px;">${depNames[0]}</span>
           </div>
+
         `;
       }).join('');
     }
     
-    function openTask(id) {
-      selectedTask = data.tasks.find(t => t.id === id);
-      if (!selectedTask) return;
+   
+ function openTask(id) {
+      selectedTask =
+ data.tasks.find(t => t.id === id);
+      if 
+(!selectedTask) return;
       
-      const taskLocal = getTaskLocalData(id);
+      const ta
+skLocal = getTaskLocalData(id);
       
-      document.getElementById('modal-title').textContent = selectedTask.title;
       
-      const deps = (selectedTask.dependencies || []).map(depId => {
-        const dep = data.tasks.find(x => x.id === depId);
-        return dep ? dep.title : depId;
+document.getElementById('modal-title').textCo
+ntent = selectedTask.title;
+      
+      cons
+t deps = (selectedTask.dependencies || []).ma
+p(depId => {
+        const dep = data.tasks.f
+ind(x => x.id === depId);
+        return dep 
+? dep.title : depId;
       });
       
-      const blockedBy = data.tasks.filter(t => 
-        (t.dependencies || []).includes(selectedTask.id)
+      c
+onst blockedBy = data.tasks.filter(t => 
+    
+    (t.dependencies || []).includes(selectedT
+ask.id)
       ).map(t => t.title);
       
-      const catInfo = getCategoryInfo(selectedTask.category);
-      const subName = getSubcategoryName(selectedTask.category, selectedTask.subcategory);
+   
+   const catInfo = getCategoryInfo(selectedTa
+sk.category);
+      const subName = getSubcat
+egoryName(selectedTask.category, selectedTask
+.subcategory);
       
-      document.getElementById('modal-content').innerHTML = `
-        <div class="category-row" style="margin-bottom: 16px;">
-          <span class="task-category" style="background: ${catInfo.color}22; color: ${catInfo.color}; font-size: 13px; padding: 4px 12px;">
-            ${catInfo.icon} ${catInfo.name}
+      document.getEleme
+ntById('modal-content').innerHTML = `
+       
+ <div class="category-row" style="margin-bott
+om: 16px;">
+          <span class="task-categ
+ory" style="background: ${catInfo.color}22; c
+olor: ${catInfo.color}; font-size: 13px; padd
+ing: 4px 12px;">
+            ${catInfo.icon} 
+${catInfo.name}
           </span>
-          ${subName ? `<span class="task-subcategory" style="font-size: 12px; padding: 4px 10px;">${subName}</span>` : ''}
+          $
+{subName ? `<span class="task-subcategory" st
+yle="font-size: 12px; padding: 4px 10px;">${s
+ubName}</span>` : ''}
         </div>
-        <p><strong>Type:</strong> ${selectedTask.type}</p>
-        <p><strong>Status:</strong> <span class="status ${selectedTask.status}"><span class="status-dot"></span> ${selectedTask.status.replace('-', ' ')}</span></p>
-        <p><strong>Owner:</strong> ${selectedTask.owner}</p>
-        ${selectedTask.dueDate ? `<p><strong>Due:</strong> ${formatDate(selectedTask.dueDate)}</p>` : ''}
-        ${deps.length ? `<p><strong>Depends on:</strong> ${deps.join(', ')}</p>` : ''}
-        ${blockedBy.length ? `<p><strong>Blocks:</strong> ${blockedBy.join(', ')}</p>` : ''}
+        
+<p><strong>Type:</strong> ${selectedTask.type
+}</p>
+        <p><strong>Status:</strong> <sp
+an class="status ${selectedTask.status}"><spa
+n class="status-dot"></span> ${selectedTask.s
+tatus.replace('-', ' ')}</span></p>
+        <
+p><strong>Owner:</strong> ${selectedTask.owne
+r}</p>
+        ${selectedTask.dueDate ? `<p><
+strong>Due:</strong> ${formatDate(selectedTas
+k.dueDate)}</p>` : ''}
+        ${deps.length 
+? `<p><strong>Depends on:</strong> ${deps.joi
+n(', ')}</p>` : ''}
+        ${blockedBy.lengt
+h ? `<p><strong>Blocks:</strong> ${blockedBy.
+join(', ')}</p>` : ''}
       `;
       
-      // Set notes (combine base notes + local notes)
-      const baseNotes = selectedTask.notes || '';
-      const localNotes = taskLocal.notes || '';
-      document.getElementById('notes-field').value = localNotes || baseNotes;
       
-      // Render attachments (merge from data.json and localStorage, respecting hidden)
-      const baseAttachments = (selectedTask.attachments || []).filter(a => 
-        !(taskLocal.hiddenAttachments || []).includes(a.path)
+// Set notes (combine base notes + local note
+s)
+      const baseNotes = selectedTask.notes
+ || '';
+      const localNotes = taskLocal.no
+tes || '';
+      document.getElementById('not
+es-field').value = localNotes || baseNotes;
+ 
+     
+      // Render attachments (merge from
+ data.json and localStorage, respecting hidde
+n)
+      const baseAttachments = (selectedTas
+k.attachments || []).filter(a => 
+        !(t
+askLocal.hiddenAttachments || []).includes(a.
+path)
       );
-      const localAttachments = taskLocal.attachments || [];
-      // Combine, avoiding duplicates by path
-      const existingPaths = new Set(baseAttachments.map(a => a.path));
-      const mergedAttachments = [...baseAttachments, ...localAttachments.filter(a => !existingPaths.has(a.path))];
-      renderAttachments(mergedAttachments);
+      const localAttachments =
+ taskLocal.attachments || [];
+      // Combin
+e, avoiding duplicates by path
+      const ex
+istingPaths = new Set(baseAttachments.map(a =
+> a.path));
+      const mergedAttachments = [
+...baseAttachments, ...localAttachments.filte
+r(a => !existingPaths.has(a.path))];
+      re
+nderAttachments(mergedAttachments);
       
-      // Render contacts
-      renderContacts(taskLocal.contacts || []);
+  
+    // Render contacts
+      renderContacts(t
+askLocal.contacts || []);
       
-      // Render messages
-      renderMessages(taskLocal.messages || []);
+      // Ren
+der messages
+      renderMessages(taskLocal.m
+essages || []);
       
-      // Set default date for new message
-      document.getElementById('message-date').value = getToday();
-      
+      // Set default d
+ate for new message
+      document.getElement
+ById('message-date').value = getToday();
+    
+  
       // Reset accordion state
-      document.getElementById('messages-accordion').classList.remove('open');
+      docum
+ent.getElementById('messages-accordion').clas
+sList.remove('open');
       
-      document.getElementById('modal').classList.add('open');
+      document.g
+etElementById('modal').classList.add('open');
+
     }
     
-    function renderAttachments(attachments) {
-      const container = document.getElementById('attachments-list');
+    function renderAttachments(at
+tachments) {
+      const container = document
+.getElementById('attachments-list');
       
-      let html = '';
+ 
+     let html = '';
       
-      if (attachments && attachments.length > 0) {
-        html += `<div class="attachments-grid">
-          ${attachments.map((att, idx) => `
-            <div class="attachment-item">
-              <img src="${escapeHtml(att.path)}" alt="${escapeHtml(att.name || 'Attachment')}" 
-                   onclick="openLightbox('${escapeHtml(att.path)}')" 
-                   onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect fill=%22%23334155%22 width=%22100%22 height=%22100%22/><text x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%2394a3b8%22 font-size=%2212%22>Error</text></svg>'">
-              <button class="attachment-remove" onclick="removeAttachment(${idx})">&times;</button>
-              <div class="attachment-name">${escapeHtml(att.name || att.path.split('/').pop())}</div>
-            </div>
+      if (attachme
+nts && attachments.length > 0) {
+        html
+ += `<div class="attachments-grid">
+         
+ ${attachments.map((att, idx) => `
+          
+  <div class="attachment-item">
+             
+ <img src="${escapeHtml(att.path)}" alt="${es
+capeHtml(att.name || 'Attachment')}" 
+       
+            onclick="openLightbox('${escapeHt
+ml(att.path)}')" 
+                   onerror=
+"this.src='data:image/svg+xml,<svg xmlns=%22h
+ttp://www.w3.org/2000/svg%22 width=%22100%22 
+height=%22100%22><rect fill=%22%23334155%22 w
+idth=%22100%22 height=%22100%22/><text x=%225
+0%22 y=%2255%22 text-anchor=%22middle%22 fill
+=%22%2394a3b8%22 font-size=%2212%22>Error</te
+xt></svg>'">
+              <button class="att
+achment-remove" onclick="removeAttachment(${i
+dx})">&times;</button>
+              <div cla
+ss="attachment-name">${escapeHtml(att.name ||
+ att.path.split('/').pop())}</div>
+          
+  </div>
           `).join('')}
-        </div>`;
+        </div
+>`;
       } else {
-        html += '<div class="attachment-empty">No attachments</div>';
-      }
+        html += '<div clas
+s="attachment-empty">No attachments</div>';
+ 
+     }
       
       // Add attachment form
-      html += `
-        <div class="add-attachment-form" style="margin-top: 12px;">
-          <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-            <input type="text" id="attachment-name" placeholder="Name (optional)" 
-                   style="flex: 1; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); padding: 8px; font-size: 13px;">
-            <input type="text" id="attachment-path" placeholder="Image URL or path" 
-                   style="flex: 2; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); padding: 8px; font-size: 13px;">
-            <button class="btn btn-primary btn-small" onclick="addAttachment()">+ Add</button>
+  
+    html += `
+        <div class="add-attachm
+ent-form" style="margin-top: 12px;">
+        
+  <div style="display: flex; gap: 8px; margin
+-bottom: 8px;">
+            <input type="text
+" id="attachment-name" placeholder="Name (opt
+ional)" 
+                   style="flex: 1; b
+ackground: var(--bg); border: 1px solid var(-
+-border); border-radius: 4px; color: var(--te
+xt); padding: 8px; font-size: 13px;">
+       
+     <input type="text" id="attachment-path" 
+placeholder="Image URL or path" 
+            
+       style="flex: 2; background: var(--bg);
+ border: 1px solid var(--border); border-radi
+us: 4px; color: var(--text); padding: 8px; fo
+nt-size: 13px;">
+            <button class="b
+tn btn-primary btn-small" onclick="addAttachm
+ent()">+ Add</button>
           </div>
-          <div style="font-size: 11px; color: var(--text-muted);">
-            Paste an image URL or relative path (e.g., attachments/photo.jpg)
+      
+    <div style="font-size: 11px; color: var(-
+-text-muted);">
+            Paste an image UR
+L or relative path (e.g., attachments/photo.j
+pg)
           </div>
         </div>`;
       
+
       container.innerHTML = html;
     }
     
+
     function addAttachment() {
-      if (!selectedTask) return;
+      if (!sel
+ectedTask) return;
       
-      const name = document.getElementById('attachment-name').value.trim();
-      const path = document.getElementById('attachment-path').value.trim();
-      
+      const name = 
+document.getElementById('attachment-name').va
+lue.trim();
+      const path = document.getEl
+ementById('attachment-path').value.trim();
+  
+    
       if (!path) {
-        alert('Please enter an image URL or path');
-        return;
+        alert('Please
+ enter an image URL or path');
+        return
+;
       }
       
-      const taskLocal = getTaskLocalData(selectedTask.id);
-      if (!taskLocal.attachments) taskLocal.attachments = [];
+      const taskLocal = getT
+askLocalData(selectedTask.id);
+      if (!tas
+kLocal.attachments) taskLocal.attachments = [
+];
       
       taskLocal.attachments.push({ 
-        name: name || path.split('/').pop(), 
+
+        name: name || path.split('/').pop(),
+ 
         path: path 
       });
-      saveLocalData();
+      saveLoc
+alData();
       
       // Clear inputs
-      document.getElementById('attachment-name').value = '';
-      document.getElementById('attachment-path').value = '';
       
-      renderAttachments(taskLocal.attachments);
+document.getElementById('attachment-name').va
+lue = '';
+      document.getElementById('atta
+chment-path').value = '';
+      
+      render
+Attachments(taskLocal.attachments);
     }
-    
+   
+ 
     function openLightbox(src) {
-      document.getElementById('lightbox-img').src = src;
-      document.getElementById('lightbox').classList.add('open');
+      docu
+ment.getElementById('lightbox-img').src = src
+;
+      document.getElementById('lightbox').c
+lassList.add('open');
     }
     
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
-    }
+    function
+ closeLightbox() {
+      document.getElementB
+yId('lightbox').classList.remove('open');
+   
+ }
     
     function removeAttachment(idx) {
+
       if (!selectedTask) return;
       
-      // Get merged attachments (same logic as rendering)
-      const baseAttachments = selectedTask.attachments || [];
-      const taskLocal = getTaskLocalData(selectedTask.id);
-      const localAttachments = taskLocal.attachments || [];
-      const existingPaths = new Set(baseAttachments.map(a => a.path));
-      const mergedAttachments = [...baseAttachments, ...localAttachments.filter(a => !existingPaths.has(a.path))];
+     
+ // Get merged attachments (same logic as ren
+dering)
+      const baseAttachments = selecte
+dTask.attachments || [];
+      const taskLoca
+l = getTaskLocalData(selectedTask.id);
       
-      if (idx < 0 || idx >= mergedAttachments.length) return;
+const localAttachments = taskLocal.attachment
+s || [];
+      const existingPaths = new Set(
+baseAttachments.map(a => a.path));
+      cons
+t mergedAttachments = [...baseAttachments, ..
+.localAttachments.filter(a => !existingPaths.
+has(a.path))];
       
-      const toRemove = mergedAttachments[idx];
+      if (idx < 0 || id
+x >= mergedAttachments.length) return;
       
-      // If it's a base attachment (from data.json), track it as hidden
-      if (idx < baseAttachments.length) {
-        if (!taskLocal.hiddenAttachments) taskLocal.hiddenAttachments = [];
-        taskLocal.hiddenAttachments.push(toRemove.path);
-      } else {
-        // It's a local attachment, remove it directly
-        const localIdx = idx - baseAttachments.length;
-        if (taskLocal.attachments && taskLocal.attachments[localIdx] !== undefined) {
-          taskLocal.attachments.splice(localIdx, 1);
+
+      const toRemove = mergedAttachments[idx
+];
+      
+      // If it's a base attachment 
+(from data.json), track it as hidden
+      if
+ (idx < baseAttachments.length) {
+        if 
+(!taskLocal.hiddenAttachments) taskLocal.hidd
+enAttachments = [];
+        taskLocal.hiddenA
+ttachments.push(toRemove.path);
+      } else 
+{
+        // It's a local attachment, remove 
+it directly
+        const localIdx = idx - ba
+seAttachments.length;
+        if (taskLocal.a
+ttachments && taskLocal.attachments[localIdx]
+ !== undefined) {
+          taskLocal.attachm
+ents.splice(localIdx, 1);
         }
       }
-      
+ 
+     
       saveLocalData();
       
-      // Re-render with updated data
-      const newBaseAttachments = baseAttachments.filter(a => 
-        !(taskLocal.hiddenAttachments || []).includes(a.path)
+      // 
+Re-render with updated data
+      const newBa
+seAttachments = baseAttachments.filter(a => 
+
+        !(taskLocal.hiddenAttachments || []).
+includes(a.path)
       );
-      const newLocalAttachments = taskLocal.attachments || [];
-      const newExistingPaths = new Set(newBaseAttachments.map(a => a.path));
-      const newMergedAttachments = [...newBaseAttachments, ...newLocalAttachments.filter(a => !newExistingPaths.has(a.path))];
+      const newLoca
+lAttachments = taskLocal.attachments || [];
+ 
+     const newExistingPaths = new Set(newBase
+Attachments.map(a => a.path));
+      const ne
+wMergedAttachments = [...newBaseAttachments, 
+...newLocalAttachments.filter(a => !newExisti
+ngPaths.has(a.path))];
       
-      renderAttachments(newMergedAttachments);
+      renderAtt
+achments(newMergedAttachments);
     }
     
-    function renderContacts(contacts) {
-      const container = document.getElementById('contacts-list');
-      if (contacts.length === 0) {
-        container.innerHTML = '<div style="color: var(--text-muted); font-size: 13px; margin-bottom: 8px;">No contacts added</div>';
+  
+  function renderContacts(contacts) {
+      c
+onst container = document.getElementById('con
+tacts-list');
+      if (contacts.length === 0
+) {
+        container.innerHTML = '<div style
+="color: var(--text-muted); font-size: 13px; 
+margin-bottom: 8px;">No contacts added</div>'
+;
         return;
       }
       
-      container.innerHTML = contacts.map((c, idx) => `
-        <div class="contact-card">
-          <div class="contact-info">
-            <div class="contact-name">${escapeHtml(c.name)}</div>
-            ${c.role ? `<div class="contact-role">${escapeHtml(c.role)}</div>` : ''}
-            ${c.email ? `<a href="mailto:${escapeHtml(c.email)}" class="contact-email">${escapeHtml(c.email)}</a>` : ''}
+      contai
+ner.innerHTML = contacts.map((c, idx) => `
+  
+      <div class="contact-card">
+          <d
+iv class="contact-info">
+            <div cla
+ss="contact-name">${escapeHtml(c.name)}</div>
+
+            ${c.role ? `<div class="contact-
+role">${escapeHtml(c.role)}</div>` : ''}
+    
+        ${c.email ? `<a href="mailto:${escape
+Html(c.email)}" class="contact-email">${escap
+eHtml(c.email)}</a>` : ''}
           </div>
-          <button class="contact-remove" onclick="removeContact(${idx})">&times;</button>
-        </div>
+ 
+         <button class="contact-remove" oncli
+ck="removeContact(${idx})">&times;</button>
+ 
+       </div>
       `).join('');
     }
     
-    function renderMessages(messages) {
-      const container = document.getElementById('messages-list');
-      const countEl = document.getElementById('message-count');
-      countEl.textContent = messages.length;
+ 
+   function renderMessages(messages) {
       
-      if (messages.length === 0) {
-        container.innerHTML = '<div style="color: var(--text-muted); font-size: 13px;">No messages logged</div>';
+const container = document.getElementById('me
+ssages-list');
+      const countEl = document
+.getElementById('message-count');
+      count
+El.textContent = messages.length;
+      
+    
+  if (messages.length === 0) {
+        contai
+ner.innerHTML = '<div style="color: var(--tex
+t-muted); font-size: 13px;">No messages logge
+d</div>';
         return;
       }
       
-      // Sort by date descending (newest first)
-      const sorted = [...messages].sort((a, b) => new Date(b.date) - new Date(a.date));
-      
-      container.innerHTML = sorted.map((m, idx) => `
-        <div class="message-item">
+    
+  // Sort by date descending (newest first)
+ 
+     const sorted = [...messages].sort((a, b)
+ => new Date(b.date) - new Date(a.date));
+   
+   
+      container.innerHTML = sorted.map((m
+, idx) => `
+        <div class="message-item"
+>
           <div class="message-meta">
-            <span class="message-date">${formatDate(m.date)}</span>
-            <span class="message-medium ${m.medium}">${m.medium}</span>
-          </div>
-          <div class="message-text">${escapeHtml(m.text)}</div>
-        </div>
+      
+      <span class="message-date">${formatDate
+(m.date)}</span>
+            <span class="mes
+sage-medium ${m.medium}">${m.medium}</span>
+ 
+         </div>
+          <div class="message
+-text">${escapeHtml(m.text)}</div>
+        </
+div>
       `).join('');
     }
     
-    function escapeHtml(str) {
-      if (!str) return '';
+    functi
+on escapeHtml(str) {
+      if (!str) return '
+';
       return str.replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#039;');
+  
+              .replace(/</g, '&lt;')
+        
+        .replace(/>/g, '&gt;')
+              
+  .replace(/"/g, '&quot;')
+                .r
+eplace(/'/g, '&#039;');
     }
     
-    function addContact() {
-      if (!selectedTask) return;
+    functi
+on addContact() {
+      if (!selectedTask) re
+turn;
       
-      const name = document.getElementById('contact-name').value.trim();
-      const role = document.getElementById('contact-role').value.trim();
-      const email = document.getElementById('contact-email').value.trim();
+      const name = document.getE
+lementById('contact-name').value.trim();
+    
+  const role = document.getElementById('conta
+ct-role').value.trim();
+      const email = d
+ocument.getElementById('contact-email').value
+.trim();
       
       if (!name) {
-        alert('Please enter a name');
+        al
+ert('Please enter a name');
         return;
-      }
+ 
+     }
       
-      const taskLocal = getTaskLocalData(selectedTask.id);
-      if (!taskLocal.contacts) taskLocal.contacts = [];
+      const taskLocal = getTask
+LocalData(selectedTask.id);
+      if (!taskLo
+cal.contacts) taskLocal.contacts = [];
       
-      taskLocal.contacts.push({ name, role, email });
+
+      taskLocal.contacts.push({ name, role, 
+email });
       saveLocalData();
       
-      // Clear inputs
-      document.getElementById('contact-name').value = '';
-      document.getElementById('contact-role').value = '';
-      document.getElementById('contact-email').value = '';
+     
+ // Clear inputs
+      document.getElementByI
+d('contact-name').value = '';
+      document.
+getElementById('contact-role').value = '';
+  
+    document.getElementById('contact-email').
+value = '';
       
-      renderContacts(taskLocal.contacts);
+      renderContacts(taskL
+ocal.contacts);
     }
     
-    function removeContact(idx) {
-      if (!selectedTask) return;
+    function remov
+eContact(idx) {
+      if (!selectedTask) retu
+rn;
       
-      const taskLocal = getTaskLocalData(selectedTask.id);
-      if (taskLocal.contacts && taskLocal.contacts[idx] !== undefined) {
-        taskLocal.contacts.splice(idx, 1);
+      const taskLocal = getTaskLoc
+alData(selectedTask.id);
+      if (taskLocal.
+contacts && taskLocal.contacts[idx] !== undef
+ined) {
+        taskLocal.contacts.splice(idx
+, 1);
         saveLocalData();
-        renderContacts(taskLocal.contacts);
+        render
+Contacts(taskLocal.contacts);
       }
     }
-    
+ 
+   
     function addMessage() {
-      if (!selectedTask) return;
+      if (!se
+lectedTask) return;
       
-      const date = document.getElementById('message-date').value;
-      const medium = document.getElementById('message-medium').value;
-      const text = document.getElementById('message-text').value.trim();
+      const date =
+ document.getElementById('message-date').valu
+e;
+      const medium = document.getElementBy
+Id('message-medium').value;
+      const text 
+= document.getElementById('message-text').val
+ue.trim();
       
       if (!text) {
-        alert('Please enter a message');
-        return;
+        
+alert('Please enter a message');
+        retu
+rn;
       }
       
-      const taskLocal = getTaskLocalData(selectedTask.id);
-      if (!taskLocal.messages) taskLocal.messages = [];
-      
-      taskLocal.messages.push({ date: date || getToday(), medium, text });
-      saveLocalData();
+      const taskLocal = ge
+tTaskLocalData(selectedTask.id);
+      if (!t
+askLocal.messages) taskLocal.messages = [];
+ 
+     
+      taskLocal.messages.push({ date: d
+ate || getToday(), medium, text });
+      sav
+eLocalData();
       
       // Clear input
-      document.getElementById('message-text').value = '';
+   
+   document.getElementById('message-text').va
+lue = '';
       
-      renderMessages(taskLocal.messages);
+      renderMessages(taskLoc
+al.messages);
     }
     
-    function toggleAccordion() {
-      document.getElementById('messages-accordion').classList.toggle('open');
+    function toggleA
+ccordion() {
+      document.getElementById('m
+essages-accordion').classList.toggle('open');
+
     }
     
     function saveChanges() {
-      if (!selectedTask) return;
+    
+  if (!selectedTask) return;
       
-      const taskLocal = getTaskLocalData(selectedTask.id);
-      taskLocal.notes = document.getElementById('notes-field').value;
-      saveLocalData();
+      con
+st taskLocal = getTaskLocalData(selectedTask.
+id);
+      taskLocal.notes = document.getElem
+entById('notes-field').value;
+      saveLocal
+Data();
       
-      // Update the task's local notes for display
-      selectedTask.localNotes = taskLocal.notes;
+      // Update the task's loc
+al notes for display
+      selectedTask.local
+Notes = taskLocal.notes;
       
-      alert('Changes saved locally!');
+      alert('
+Changes saved locally!');
     }
     
-    function closeModal() {
-      // Auto-save notes on close
+    func
+tion closeModal() {
+      // Auto-save notes 
+on close
       if (selectedTask) {
-        const taskLocal = getTaskLocalData(selectedTask.id);
-        taskLocal.notes = document.getElementById('notes-field').value;
-        saveLocalData();
+        co
+nst taskLocal = getTaskLocalData(selectedTask
+.id);
+        taskLocal.notes = document.getE
+lementById('notes-field').value;
+        save
+LocalData();
       }
       
-      document.getElementById('modal').classList.remove('open');
+      document.ge
+tElementById('modal').classList.remove('open'
+);
       selectedTask = null;
     }
     
-    function toggleStatus() {
-      if (!selectedTask) return;
+    
+function toggleStatus() {
+      if (!selected
+Task) return;
       
-      const statuses = ['pending', 'in-progress', 'complete'];
-      const currentIdx = statuses.indexOf(selectedTask.status);
-      selectedTask.status = statuses[(currentIdx + 1) % statuses.length];
+      const statuses = [
+'pending', 'in-progress', 'complete'];
       
+const currentIdx = statuses.indexOf(selectedT
+ask.status);
+      selectedTask.status = stat
+uses[(currentIdx + 1) % statuses.length];
+   
+   
       // Save status to local storage
-      const taskLocal = getTaskLocalData(selectedTask.id);
-      taskLocal.status = selectedTask.status;
+   
+   const taskLocal = getTaskLocalData(selecte
+dTask.id);
+      taskLocal.status = selectedT
+ask.status;
       saveLocalData();
       
-      render();
+   
+   render();
       openTask(selectedTask.id);
+
     }
     
     // Filter handlers
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    docume
+nt.querySelectorAll('.filter-btn').forEach(bt
+n => {
+      btn.addEventListener('click', ()
+ => {
+        document.querySelectorAll('.fil
+ter-btn').forEach(b => b.classList.remove('ac
+tive'));
         btn.classList.add('active');
+
         currentFilter = btn.dataset.filter;
+
         renderTasks();
       });
     });
     
+
     // Close modal on overlay click
-    document.getElementById('modal').addEventListener('click', (e) => {
-      if (e.target.id === 'modal') closeModal();
+    docu
+ment.getElementById('modal').addEventListener
+('click', (e) => {
+      if (e.target.id === 
+'modal') closeModal();
     });
     
-    document.getElementById('settings-modal').addEventListener('click', (e) => {
-      if (e.target.id === 'settings-modal') closeSettings();
-    });
+    docum
+ent.getElementById('settings-modal').addEvent
+Listener('click', (e) => {
+      if (e.target
+.id === 'settings-modal') closeSettings();
+  
+  });
     
     // Load data on start
-    loadData();
+    load
+Data();
   </script>
 </body>
 </html>
+
+
+
