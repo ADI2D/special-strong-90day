@@ -463,6 +463,270 @@
       gap: 12px;
       margin-top: 20px;
     }
+    
+    /* Editable fields */
+    .edit-field {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      padding: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      resize: vertical;
+      min-height: 80px;
+      margin-top: 8px;
+    }
+    
+    .edit-field:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    .field-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 16px;
+      margin-bottom: 4px;
+    }
+    
+    /* Contacts section */
+    .contacts-section {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    
+    .contact-card {
+      background: var(--bg);
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .contact-info {
+      flex: 1;
+    }
+    
+    .contact-name {
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .contact-role {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    
+    .contact-email {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    .contact-email:hover {
+      text-decoration: underline;
+    }
+    
+    .contact-remove {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 18px;
+      padding: 4px 8px;
+    }
+    
+    .contact-remove:hover {
+      color: var(--danger);
+    }
+    
+    .add-contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    
+    .add-contact-form input {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      padding: 8px;
+      font-size: 13px;
+    }
+    
+    .add-contact-form input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    .add-contact-form input::placeholder {
+      color: var(--text-muted);
+    }
+    
+    .btn-small {
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+    
+    /* Accordion for messages */
+    .accordion {
+      margin-top: 16px;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+    
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      padding: 10px 0;
+    }
+    
+    .accordion-header:hover {
+      color: var(--accent);
+    }
+    
+    .accordion-title {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .accordion-icon {
+      transition: transform 0.2s;
+    }
+    
+    .accordion.open .accordion-icon {
+      transform: rotate(180deg);
+    }
+    
+    .accordion-content {
+      display: none;
+      padding-top: 8px;
+    }
+    
+    .accordion.open .accordion-content {
+      display: block;
+    }
+    
+    .message-item {
+      background: var(--bg);
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 8px;
+      border-left: 3px solid var(--border);
+    }
+    
+    .message-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    
+    .message-date {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    
+    .message-medium {
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    
+    .message-medium.email { background: var(--accent); }
+    .message-medium.text { background: var(--success); }
+    .message-medium.slack { background: var(--purple); }
+    .message-medium.call { background: var(--warning); color: #000; }
+    .message-medium.meeting { background: var(--danger); }
+    .message-medium.teams { background: #5c5cff; }
+    
+    .message-text {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    
+    .add-message-form {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    
+    .add-message-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    
+    .add-message-row select {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      padding: 8px;
+      font-size: 13px;
+    }
+    
+    .add-message-row input[type="date"] {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      padding: 8px;
+      font-size: 13px;
+    }
+    
+    .message-input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      padding: 8px;
+      font-family: inherit;
+      font-size: 13px;
+      resize: vertical;
+      min-height: 60px;
+    }
+    
+    .message-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    .message-count {
+      background: var(--surface-hover);
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 11px;
+    }
+
+    @media (max-width: 600px) {
+      .add-contact-form {
+        grid-template-columns: 1fr;
+      }
+      .add-message-row {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
@@ -538,7 +802,54 @@
       <button class="modal-close" onclick="closeModal()">&times;</button>
       <h2 id="modal-title"></h2>
       <div id="modal-content"></div>
+      
+      <!-- Notes Section -->
+      <div class="field-label">Notes</div>
+      <textarea class="edit-field" id="notes-field" placeholder="Add notes..."></textarea>
+      
+      <!-- Contacts Section -->
+      <div class="contacts-section">
+        <div class="field-label">Contacts</div>
+        <div id="contacts-list"></div>
+        <div class="add-contact-form">
+          <input type="text" id="contact-name" placeholder="Name">
+          <input type="text" id="contact-role" placeholder="Role">
+          <input type="email" id="contact-email" placeholder="Email">
+          <button class="btn btn-primary btn-small" onclick="addContact()">+</button>
+        </div>
+      </div>
+      
+      <!-- Messages Accordion -->
+      <div class="accordion" id="messages-accordion">
+        <div class="accordion-header" onclick="toggleAccordion()">
+          <span class="accordion-title">
+            💬 Message History
+            <span class="message-count" id="message-count">0</span>
+          </span>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div id="messages-list"></div>
+          <div class="add-message-form">
+            <div class="add-message-row">
+              <input type="date" id="message-date">
+              <select id="message-medium">
+                <option value="email">Email</option>
+                <option value="text">Text</option>
+                <option value="slack">Slack</option>
+                <option value="teams">Teams</option>
+                <option value="call">Call</option>
+                <option value="meeting">Meeting</option>
+              </select>
+            </div>
+            <textarea class="message-input" id="message-text" placeholder="Add message summary..."></textarea>
+            <button class="btn btn-primary btn-small" style="margin-top: 8px;" onclick="addMessage()">Add Message</button>
+          </div>
+        </div>
+      </div>
+      
       <div class="modal-actions">
+        <button class="btn btn-primary" onclick="saveChanges()">Save Changes</button>
         <button class="btn btn-success" onclick="toggleStatus()">Toggle Status</button>
       </div>
     </div>
@@ -548,11 +859,60 @@
     let data = null;
     let currentFilter = 'all';
     let selectedTask = null;
+    let localData = {}; // For storing edits in localStorage
+    
+    const STORAGE_KEY = 'special-strong-90day-local';
+    
+    function loadLocalData() {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+          localData = JSON.parse(stored);
+        }
+      } catch (e) {
+        console.error('Failed to load local data:', e);
+        localData = {};
+      }
+    }
+    
+    function saveLocalData() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(localData));
+      } catch (e) {
+        console.error('Failed to save local data:', e);
+      }
+    }
+    
+    function getTaskLocalData(taskId) {
+      if (!localData[taskId]) {
+        localData[taskId] = {
+          notes: '',
+          contacts: [],
+          messages: [],
+          status: null
+        };
+      }
+      return localData[taskId];
+    }
     
     async function loadData() {
+      loadLocalData();
       try {
         const resp = await fetch('data.json');
         data = await resp.json();
+        
+        // Merge local status overrides
+        data.tasks.forEach(task => {
+          const local = localData[task.id];
+          if (local && local.status) {
+            task.status = local.status;
+          }
+          // Merge local notes with base notes
+          if (local && local.notes) {
+            task.localNotes = local.notes;
+          }
+        });
+        
         render();
       } catch (e) {
         console.error('Failed to load data:', e);
@@ -749,6 +1109,8 @@
       selectedTask = data.tasks.find(t => t.id === id);
       if (!selectedTask) return;
       
+      const taskLocal = getTaskLocalData(id);
+      
       document.getElementById('modal-title').textContent = selectedTask.title;
       
       const deps = (selectedTask.dependencies || []).map(depId => {
@@ -762,18 +1124,171 @@
       
       document.getElementById('modal-content').innerHTML = `
         <p><strong>Type:</strong> ${selectedTask.type}</p>
-        <p><strong>Status:</strong> ${selectedTask.status}</p>
+        <p><strong>Status:</strong> <span class="status ${selectedTask.status}"><span class="status-dot"></span> ${selectedTask.status.replace('-', ' ')}</span></p>
         <p><strong>Owner:</strong> ${selectedTask.owner}</p>
         ${selectedTask.dueDate ? `<p><strong>Due:</strong> ${formatDate(selectedTask.dueDate)}</p>` : ''}
-        ${selectedTask.notes ? `<p><strong>Notes:</strong> ${selectedTask.notes}</p>` : ''}
         ${deps.length ? `<p><strong>Depends on:</strong> ${deps.join(', ')}</p>` : ''}
         ${blockedBy.length ? `<p><strong>Blocks:</strong> ${blockedBy.join(', ')}</p>` : ''}
       `;
       
+      // Set notes (combine base notes + local notes)
+      const baseNotes = selectedTask.notes || '';
+      const localNotes = taskLocal.notes || '';
+      document.getElementById('notes-field').value = localNotes || baseNotes;
+      
+      // Render contacts
+      renderContacts(taskLocal.contacts || []);
+      
+      // Render messages
+      renderMessages(taskLocal.messages || []);
+      
+      // Set default date for new message
+      document.getElementById('message-date').value = getToday();
+      
+      // Reset accordion state
+      document.getElementById('messages-accordion').classList.remove('open');
+      
       document.getElementById('modal').classList.add('open');
     }
     
+    function renderContacts(contacts) {
+      const container = document.getElementById('contacts-list');
+      if (contacts.length === 0) {
+        container.innerHTML = '<div style="color: var(--text-muted); font-size: 13px; margin-bottom: 8px;">No contacts added</div>';
+        return;
+      }
+      
+      container.innerHTML = contacts.map((c, idx) => `
+        <div class="contact-card">
+          <div class="contact-info">
+            <div class="contact-name">${escapeHtml(c.name)}</div>
+            ${c.role ? `<div class="contact-role">${escapeHtml(c.role)}</div>` : ''}
+            ${c.email ? `<a href="mailto:${escapeHtml(c.email)}" class="contact-email">${escapeHtml(c.email)}</a>` : ''}
+          </div>
+          <button class="contact-remove" onclick="removeContact(${idx})">&times;</button>
+        </div>
+      `).join('');
+    }
+    
+    function renderMessages(messages) {
+      const container = document.getElementById('messages-list');
+      const countEl = document.getElementById('message-count');
+      countEl.textContent = messages.length;
+      
+      if (messages.length === 0) {
+        container.innerHTML = '<div style="color: var(--text-muted); font-size: 13px;">No messages logged</div>';
+        return;
+      }
+      
+      // Sort by date descending (newest first)
+      const sorted = [...messages].sort((a, b) => new Date(b.date) - new Date(a.date));
+      
+      container.innerHTML = sorted.map((m, idx) => `
+        <div class="message-item">
+          <div class="message-meta">
+            <span class="message-date">${formatDate(m.date)}</span>
+            <span class="message-medium ${m.medium}">${m.medium}</span>
+          </div>
+          <div class="message-text">${escapeHtml(m.text)}</div>
+        </div>
+      `).join('');
+    }
+    
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+    }
+    
+    function addContact() {
+      if (!selectedTask) return;
+      
+      const name = document.getElementById('contact-name').value.trim();
+      const role = document.getElementById('contact-role').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      
+      if (!name) {
+        alert('Please enter a name');
+        return;
+      }
+      
+      const taskLocal = getTaskLocalData(selectedTask.id);
+      if (!taskLocal.contacts) taskLocal.contacts = [];
+      
+      taskLocal.contacts.push({ name, role, email });
+      saveLocalData();
+      
+      // Clear inputs
+      document.getElementById('contact-name').value = '';
+      document.getElementById('contact-role').value = '';
+      document.getElementById('contact-email').value = '';
+      
+      renderContacts(taskLocal.contacts);
+    }
+    
+    function removeContact(idx) {
+      if (!selectedTask) return;
+      
+      const taskLocal = getTaskLocalData(selectedTask.id);
+      if (taskLocal.contacts && taskLocal.contacts[idx] !== undefined) {
+        taskLocal.contacts.splice(idx, 1);
+        saveLocalData();
+        renderContacts(taskLocal.contacts);
+      }
+    }
+    
+    function addMessage() {
+      if (!selectedTask) return;
+      
+      const date = document.getElementById('message-date').value;
+      const medium = document.getElementById('message-medium').value;
+      const text = document.getElementById('message-text').value.trim();
+      
+      if (!text) {
+        alert('Please enter a message');
+        return;
+      }
+      
+      const taskLocal = getTaskLocalData(selectedTask.id);
+      if (!taskLocal.messages) taskLocal.messages = [];
+      
+      taskLocal.messages.push({ date: date || getToday(), medium, text });
+      saveLocalData();
+      
+      // Clear input
+      document.getElementById('message-text').value = '';
+      
+      renderMessages(taskLocal.messages);
+    }
+    
+    function toggleAccordion() {
+      document.getElementById('messages-accordion').classList.toggle('open');
+    }
+    
+    function saveChanges() {
+      if (!selectedTask) return;
+      
+      const taskLocal = getTaskLocalData(selectedTask.id);
+      taskLocal.notes = document.getElementById('notes-field').value;
+      saveLocalData();
+      
+      // Update the task's local notes for display
+      selectedTask.localNotes = taskLocal.notes;
+      
+      alert('Changes saved locally!');
+    }
+    
     function closeModal() {
+      // Auto-save notes on close
+      if (selectedTask) {
+        const taskLocal = getTaskLocalData(selectedTask.id);
+        taskLocal.notes = document.getElementById('notes-field').value;
+        saveLocalData();
+      }
+      
       document.getElementById('modal').classList.remove('open');
       selectedTask = null;
     }
@@ -785,7 +1300,11 @@
       const currentIdx = statuses.indexOf(selectedTask.status);
       selectedTask.status = statuses[(currentIdx + 1) % statuses.length];
       
-      // Update data.json would require server - just re-render for now
+      // Save status to local storage
+      const taskLocal = getTaskLocalData(selectedTask.id);
+      taskLocal.status = selectedTask.status;
+      saveLocalData();
+      
       render();
       openTask(selectedTask.id);
     }
