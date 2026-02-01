@@ -337,5 +337,82 @@
     {"name": "Dwayne Stoltzfus", "role": "Managing Member", "email": "dwayne@ethnoholdings.com"},
     {"name": "Graham", "role": "Sales/Workflows", "email": ""},
     {"name": "Judah", "role": "SGP Architecture", "email": ""}
-  ]
+  ],
+  "userData": {
+    "t1": {
+      "notes": "Signed with Adaptive Fitness LLC. Base salary + Q3 bonus structure tied to deliverables.",
+      "contacts": [
+        {"name": "Daniel Stein", "role": "CEO", "email": "daniel@specialstrong.com"},
+        {"name": "Dwayne Stoltzfus", "role": "Managing Member (Ethno Holdings)", "email": "dwayne@ethnoholdings.com"}
+      ],
+      "messages": [
+        {"date": "2026-01-24", "medium": "email", "text": "Received final offer letter from Daniel with compensation breakdown"},
+        {"date": "2026-01-25", "medium": "call", "text": "Call with Dwayne to discuss Q3 bonus deliverables and approval process"},
+        {"date": "2026-01-27", "medium": "email", "text": "Signed agreement returned. Start date confirmed Feb 23."}
+      ],
+      "status": "complete"
+    },
+    "t2": {
+      "notes": "Moving truck scheduled. Storage unit secured in Dallas area.",
+      "contacts": [
+        {"name": "Two Men and a Truck", "role": "Moving Company", "email": ""}
+      ],
+      "messages": [
+        {"date": "2026-01-28", "medium": "call", "text": "Booked moving company. Pickup Feb 9, delivery Feb 10-11."},
+        {"date": "2026-01-30", "medium": "text", "text": "Confirmed packing supplies delivery for Feb 7"}
+      ],
+      "status": "in-progress"
+    },
+    "t4": {
+      "notes": "Judah is the technical lead on SGP. Need to understand data flow, lead routing logic, and integration points.",
+      "contacts": [
+        {"name": "Judah", "role": "SGP Architecture Lead", "email": ""}
+      ],
+      "messages": [
+        {"date": "2026-01-29", "medium": "email", "text": "Intro email from Daniel connecting me with Judah"},
+        {"date": "2026-01-30", "medium": "text", "text": "Judah confirmed availability for Feb 4 deep dive session"}
+      ],
+      "status": "pending"
+    },
+    "t5": {
+      "notes": "Pre-start onboarding to get up to speed. 15-30 hours expected. $5k signing bonus for completion.",
+      "contacts": [
+        {"name": "Graham", "role": "Sales/Workflows Lead", "email": ""}
+      ],
+      "messages": [
+        {"date": "2026-01-27", "medium": "meeting", "text": "Initial onboarding call with Graham - overview of sales process and current workflows"},
+        {"date": "2026-01-29", "medium": "slack", "text": "Graham shared access to sales playbook and CRM documentation"},
+        {"date": "2026-01-31", "medium": "meeting", "text": "Second session with Graham - lead scoring and follow-up sequences"}
+      ],
+      "status": "in-progress"
+    },
+    "t6": {
+      "notes": "Need contractor access for marketing support hires",
+      "contacts": [
+        {"name": "Daniel Stein", "role": "CEO", "email": "daniel@specialstrong.com"}
+      ],
+      "messages": [
+        {"date": "2026-01-30", "medium": "email", "text": "Requested Upwork job posting access from Daniel"}
+      ],
+      "status": "pending"
+    },
+    "t7": {
+      "notes": "Critical for budget allocation model deliverable",
+      "contacts": [
+        {"name": "Daniel Stein", "role": "CEO", "email": "daniel@specialstrong.com"}
+      ],
+      "messages": [
+        {"date": "2026-01-31", "medium": "email", "text": "Sent request for full 2026 marketing budget and P&L access"}
+      ],
+      "status": "pending"
+    },
+    "t10": {
+      "notes": "BLEEDING NECK ISSUE - Leads going to wrong franchisees. Priority #1 after start.",
+      "contacts": [],
+      "messages": [
+        {"date": "2026-01-28", "medium": "meeting", "text": "Daniel flagged lead routing as critical issue during pre-start call. Franchisees frustrated with misrouted leads."}
+      ],
+      "status": "pending"
+    }
+  }
 }
