@@ -1291,6 +1291,35 @@
       text-align: right;
       margin-top: 4px;
     }
+    /* Toast notifications */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-size: 14px;
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    
+    .toast.success { border-left: 4px solid var(--success); }
+    .toast.error { border-left: 4px solid var(--danger); }
+    
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes fadeOut {
+      to { opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -1494,6 +1523,20 @@
     const GITHUB_REPO = 'ADI2D/DAMB-plan';
     const DATA_FILE = 'data.json';
     
+
+    // Toast notification
+    function showToast(message, type = 'success') {
+      const existing = document.querySelector('.toast');
+      if (existing) existing.remove();
+      
+      const toast = document.createElement('div');
+      toast.className = 'toast ' + type;
+      toast.innerHTML = (type === 'success' ? '✓' : '✗') + ' ' + message;
+      document.body.appendChild(toast);
+      
+      setTimeout(() => toast.remove(), 3000);
+    }
+    
     // Settings management
     function getSettings() {
       try {
@@ -1663,13 +1706,13 @@
     }
     
     // GitHub Sync
-    async function syncToGitHub() {
+    async function syncToGitHub(silent = false) {
       const settings = getSettings();
       const token = settings.token;
       
       if (!token) {
         openSettings();
-        alert('Please add your GitHub token first');
+        if (!silent) alert('Please add your GitHub token first');
         return;
       }
       
@@ -1733,7 +1776,7 @@
         
       } catch (e) {
         console.error('Sync failed:', e);
-        alert('Sync failed: ' + e.message);
+        if (!silent) alert('Sync failed: ' + e.message); else console.error('Sync failed:', e.message);
         syncIcon.textContent = '❌';
         setTimeout(() => { syncIcon.textContent = '⬆️'; }, 2000);
       } finally {
