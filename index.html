@@ -409,6 +409,124 @@
       background: currentColor;
     }
     
+    /* Draggable task cards */
+    .task-card[draggable="true"] {
+      cursor: grab;
+    }
+    
+    .task-card[draggable="true"]:active {
+      cursor: grabbing;
+    }
+    
+    .task-card.dragging {
+      opacity: 0.5;
+      transform: scale(0.98);
+    }
+    
+    .task-card.drag-over {
+      border-top: 3px solid var(--accent);
+      margin-top: -3px;
+    }
+    
+    .task-drag-handle {
+      position: absolute;
+      left: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.2s;
+      cursor: grab;
+      padding: 8px 4px;
+    }
+    
+    .task-card:hover .task-drag-handle {
+      opacity: 0.5;
+    }
+    
+    .task-drag-handle:hover {
+      opacity: 1 !important;
+      color: var(--accent);
+    }
+    
+    /* Add task button */
+    .add-task-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: 2px dashed var(--border);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    
+    .add-task-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Add task modal */
+    .add-task-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    
+    .form-field.full-width {
+      grid-column: 1 / -1;
+    }
+    
+    .form-field label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      padding: 10px;
+      font-size: 14px;
+    }
+    
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    .form-field textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
     /* Priority badges */
     .priority-badge {
       display: inline-flex;
@@ -1783,6 +1901,69 @@
     </div>
   </div>
 
+  <!-- Add Task Modal -->
+  <div class="modal-overlay" id="add-task-modal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeAddTask()">&times;</button>
+      <h2>➕ Add New Task</h2>
+      <div class="add-task-form">
+        <div class="form-field full-width">
+          <label>Task Title *</label>
+          <input type="text" id="new-task-title" placeholder="e.g., Complete market research">
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Phase *</label>
+            <select id="new-task-phase"></select>
+          </div>
+          <div class="form-field">
+            <label>Category</label>
+            <select id="new-task-category"></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Type</label>
+            <select id="new-task-type">
+              <option value="task">Task</option>
+              <option value="milestone">Milestone</option>
+              <option value="deliverable">Deliverable</option>
+              <option value="decision">Decision</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Owner</label>
+            <input type="text" id="new-task-owner" value="Alex">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Due Date</label>
+            <input type="date" id="new-task-due">
+          </div>
+          <div class="form-field">
+            <label>Priority</label>
+            <select id="new-task-priority">
+              <option value="1">🔥 Urgent</option>
+              <option value="2">⚡ High</option>
+              <option value="3" selected>➖ Medium</option>
+              <option value="4">📋 Low</option>
+              <option value="5">📦 Backlog</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field full-width">
+          <label>Notes</label>
+          <textarea id="new-task-notes" placeholder="Additional details..."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-primary" onclick="submitAddTask()">Add Task</button>
+          <button class="btn" style="background: var(--surface-hover);" onclick="closeAddTask()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="modal-overlay" id="modal">
     <div class="modal">
       <button class="modal-close" onclick="closeModal()">&times;</button>
@@ -2544,17 +2725,19 @@
       data.phases.forEach(phase => {
         // Filter out subtasks from main list, only show parent tasks
         const phaseTasks = filterTasks(data.tasks.filter(t => t.phase === phase.id && !t.parent));
-        if (phaseTasks.length === 0) return;
+        
+        // Apply custom ordering
+        const orderedTasks = getOrderedTasks(phaseTasks, phase.id);
         
         html += `
-          <div class="phase-group">
+          <div class="phase-group" data-phase="${phase.id}">
             <div class="phase-header">
               <div class="phase-indicator" style="background: ${phase.color}"></div>
               <span class="phase-name">${phase.name}</span>
               <span class="phase-dates">${formatDate(phase.startDate)} - ${formatDate(phase.endDate)}</span>
             </div>
-            <div class="task-list">
-              ${phaseTasks.map(task => {
+            <div class="task-list" data-phase="${phase.id}">
+              ${orderedTasks.map((task, idx) => {
                 const isOverdue = task.dueDate && task.dueDate < today && task.status !== 'complete';
                 const catInfo = getCategoryInfo(task.category);
                 const subName = getSubcategoryName(task.category, task.subcategory);
@@ -2566,8 +2749,12 @@
                 
                 return `
                   <div class="task-card ${task.status} ${isOverdue ? 'overdue' : ''}" 
+                       draggable="true"
+                       data-task-id="${task.id}"
+                       data-task-index="${idx}"
                        onclick="openTask('${task.id}')"
-                       style="border-left-color: ${task.status === 'complete' ? 'var(--success)' : task.status === 'in-progress' ? 'var(--warning)' : catInfo.color};">
+                       style="position: relative; border-left-color: ${task.status === 'complete' ? 'var(--success)' : task.status === 'in-progress' ? 'var(--warning)' : catInfo.color};">
+                    <span class="task-drag-handle" title="Drag to reorder">⋮⋮</span>
                     <div class="category-row">
                       <span class="task-category" style="background: ${catInfo.color}22; color: ${catInfo.color};">
                         ${catInfo.icon} ${catInfo.name}
@@ -2600,6 +2787,9 @@
                   </div>
                 `;
               }).join('')}
+              <button class="add-task-btn" onclick="openAddTask('${phase.id}')">
+                + Add Task
+              </button>
             </div>
           </div>
         `;
@@ -3406,6 +3596,218 @@
     document.getElementById('settings-modal').addEventListener('click', (e) => {
       if (e.target.id === 'settings-modal') closeSettings();
     });
+    
+    document.getElementById('add-task-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'add-task-modal') closeAddTask();
+    });
+    
+    // ========== Task Ordering & Drag-Drop ==========
+    
+    function getTaskOrder(phaseId) {
+      const key = `_taskOrder_${phaseId}`;
+      return localData[key] || [];
+    }
+    
+    function saveTaskOrder(phaseId, order) {
+      const key = `_taskOrder_${phaseId}`;
+      localData[key] = order;
+      saveLocalData();
+    }
+    
+    function getOrderedTasks(tasks, phaseId) {
+      const savedOrder = getTaskOrder(phaseId);
+      if (!savedOrder || savedOrder.length === 0) return tasks;
+      
+      // Sort by saved order, putting unknown tasks at end
+      const orderMap = {};
+      savedOrder.forEach((id, idx) => orderMap[id] = idx);
+      
+      return [...tasks].sort((a, b) => {
+        const aOrder = orderMap[a.id] !== undefined ? orderMap[a.id] : 9999;
+        const bOrder = orderMap[b.id] !== undefined ? orderMap[b.id] : 9999;
+        return aOrder - bOrder;
+      });
+    }
+    
+    function initTaskDragDrop() {
+      document.querySelectorAll('.task-list[data-phase]').forEach(list => {
+        const phaseId = list.dataset.phase;
+        const cards = list.querySelectorAll('.task-card[draggable="true"]');
+        let draggedCard = null;
+        
+        cards.forEach(card => {
+          card.addEventListener('dragstart', (e) => {
+            draggedCard = card;
+            card.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', card.dataset.taskId);
+          });
+          
+          card.addEventListener('dragend', () => {
+            card.classList.remove('dragging');
+            cards.forEach(c => c.classList.remove('drag-over'));
+            draggedCard = null;
+          });
+          
+          card.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            if (draggedCard && draggedCard !== card) {
+              card.classList.add('drag-over');
+            }
+          });
+          
+          card.addEventListener('dragleave', () => {
+            card.classList.remove('drag-over');
+          });
+          
+          card.addEventListener('drop', (e) => {
+            e.preventDefault();
+            card.classList.remove('drag-over');
+            
+            if (draggedCard && draggedCard !== card) {
+              reorderTasks(phaseId, draggedCard.dataset.taskId, card.dataset.taskId);
+            }
+          });
+        });
+      });
+    }
+    
+    function reorderTasks(phaseId, fromId, toId) {
+      // Get current tasks in this phase
+      const phaseTasks = data.tasks.filter(t => t.phase === phaseId && !t.parent);
+      const currentOrder = getOrderedTasks(phaseTasks, phaseId).map(t => t.id);
+      
+      const fromIndex = currentOrder.indexOf(fromId);
+      const toIndex = currentOrder.indexOf(toId);
+      
+      if (fromIndex === -1 || toIndex === -1) return;
+      
+      // Move the task
+      currentOrder.splice(fromIndex, 1);
+      currentOrder.splice(toIndex, 0, fromId);
+      
+      // Save new order
+      saveTaskOrder(phaseId, currentOrder);
+      
+      // Re-render
+      render();
+      showToast('Task order updated', 'success');
+      
+      // Sync
+      syncToGitHub(true);
+    }
+    
+    // ========== Add Task Functions ==========
+    
+    function openAddTask(presetPhase) {
+      // Populate phase dropdown
+      const phaseSelect = document.getElementById('new-task-phase');
+      phaseSelect.innerHTML = data.phases.map(p => 
+        `<option value="${p.id}" ${p.id === presetPhase ? 'selected' : ''}>${p.name}</option>`
+      ).join('');
+      
+      // Populate category dropdown
+      const catSelect = document.getElementById('new-task-category');
+      catSelect.innerHTML = '<option value="">-- None --</option>' + 
+        data.categories.map(c => 
+          `<option value="${c.id}">${c.icon} ${c.name}</option>`
+        ).join('');
+      
+      // Reset form
+      document.getElementById('new-task-title').value = '';
+      document.getElementById('new-task-owner').value = 'Alex';
+      document.getElementById('new-task-due').value = '';
+      document.getElementById('new-task-priority').value = '3';
+      document.getElementById('new-task-notes').value = '';
+      document.getElementById('new-task-type').value = 'task';
+      
+      document.getElementById('add-task-modal').classList.add('open');
+      document.getElementById('new-task-title').focus();
+    }
+    
+    function closeAddTask() {
+      document.getElementById('add-task-modal').classList.remove('open');
+    }
+    
+    function generateTaskId() {
+      // Generate unique task ID
+      const existingIds = data.tasks.map(t => t.id);
+      let counter = data.tasks.length + 1;
+      let newId = `t${counter}`;
+      while (existingIds.includes(newId)) {
+        counter++;
+        newId = `t${counter}`;
+      }
+      return `custom-${Date.now()}`;
+    }
+    
+    function submitAddTask() {
+      const title = document.getElementById('new-task-title').value.trim();
+      const phase = document.getElementById('new-task-phase').value;
+      const category = document.getElementById('new-task-category').value;
+      const type = document.getElementById('new-task-type').value;
+      const owner = document.getElementById('new-task-owner').value.trim() || 'Alex';
+      const dueDate = document.getElementById('new-task-due').value;
+      const priority = parseInt(document.getElementById('new-task-priority').value) || 3;
+      const notes = document.getElementById('new-task-notes').value.trim();
+      
+      if (!title) {
+        alert('Please enter a task title');
+        return;
+      }
+      
+      if (!phase) {
+        alert('Please select a phase');
+        return;
+      }
+      
+      const newId = generateTaskId();
+      
+      const newTask = {
+        id: newId,
+        title: title,
+        phase: phase,
+        type: type,
+        status: 'pending',
+        owner: owner,
+        dueDate: dueDate || null,
+        dependencies: [],
+        category: category || 'special-strong',
+        notes: notes
+      };
+      
+      // Add to data
+      data.tasks.push(newTask);
+      
+      // Save priority to local data
+      const taskLocal = getTaskLocalData(newId);
+      taskLocal.priority = priority;
+      taskLocal.notes = notes;
+      taskLocal.status = 'pending';
+      
+      // Track new tasks for sync
+      if (!localData._newTasks) localData._newTasks = [];
+      localData._newTasks.push(newTask);
+      
+      saveLocalData();
+      
+      // Close and re-render
+      closeAddTask();
+      render();
+      
+      showToast(`Added task: ${title}`, 'success');
+      
+      // Sync
+      syncToGitHub(true);
+    }
+    
+    // Override render to initialize drag-drop after rendering
+    const originalRender = render;
+    render = function() {
+      originalRender();
+      setTimeout(initTaskDragDrop, 100);
+    };
     
     // Load data on start
     loadData();
