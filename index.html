@@ -1842,6 +1842,10 @@
       </div>
       
       <div class="sidebar">
+        <button class="add-task-btn" onclick="openAddTask()" style="margin-bottom: 24px;">
+          + Add Task
+        </button>
+        
         <div class="panel" style="margin-bottom: 24px;">
           <div class="panel-title">📅 Today's Focus</div>
           <div id="focus-today"></div>
@@ -2762,7 +2766,6 @@
               <div class="phase-indicator" style="background: ${phase.color}"></div>
               <span class="phase-name">${phase.name}</span>
               <span class="phase-dates">${formatDate(phase.startDate)} - ${formatDate(phase.endDate)}</span>
-              <button class="phase-add-btn" onclick="openAddTask('${phase.id}')" title="Add task to this phase">+</button>
             </div>
             <div class="task-list" data-phase="${phase.id}">
               ${orderedTasks.map((task, idx) => {
@@ -2815,9 +2818,6 @@
                   </div>
                 `;
               }).join('')}
-              <button class="add-task-btn" onclick="openAddTask('${phase.id}')">
-                + Add Task
-              </button>
             </div>
           </div>
         `;
