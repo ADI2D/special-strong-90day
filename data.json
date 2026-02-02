@@ -1047,6 +1047,18 @@
                       "notes":  "Summer 1 term begins. Runs through Jul 4."
                   },
                   {
+                      "id":  "unemployment-0202",
+                      "title":  "Complete Kansas unemployment form",
+                      "phase":  "pre-start",
+                      "type":  "task",
+                      "status":  "pending",
+                      "owner":  "Alex",
+                      "dueDate":  "2026-02-02",
+                      "dependencies":  [],
+                      "category":  "dallas-move",
+                      "notes":  "Weekly unemployment certification"
+                  },
+                  {
                       "id":  "unemployment-0209",
                       "title":  "Complete Kansas unemployment form",
                       "phase":  "pre-start",
