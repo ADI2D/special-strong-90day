@@ -1,1406 +1,1429 @@
 {
-    "meta":  {
-                 "title":  "DAMB Plan",
-                 "role":  "VP of Sales \u0026 Marketing",
-                 "startDate":  "2026-02-23",
-                 "endDate":  "2026-05-24",
-                 "lastUpdated":  "2026-02-01"
-             },
-    "categories":  [
-                       {
-                           "id":  "uncategorized",
-                           "name":  "Uncategorized",
-                           "color":  "#6b7280",
-                           "icon":  "📋"
-                       },
-                       {
-                           "id":  "dallas-move",
-                           "name":  "Dallas Move",
-                           "color":  "#ec4899",
-                           "icon":  "🏠"
-                       },
-                       {
-                           "id":  "special-strong",
-                           "name":  "Special Strong",
-                           "color":  "#3b82f6",
-                           "icon":  "💪",
-                           "subcategories":  [
-                                                 {
-                                                     "id":  "onboarding",
-                                                     "name":  "Onboarding"
-                                                 },
-                                                 {
-                                                     "id":  "90-day-plan",
-                                                     "name":  "90 Day Plan"
-                                                 },
-                                                 {
-                                                     "id":  "admin",
-                                                     "name":  "Admin/Setup"
-                                                 },
-                                                 {
-                                                     "id":  "strategy",
-                                                     "name":  "Strategy"
-                                                 },
-                                                 {
-                                                     "id":  "funnel",
-                                                     "name":  "Funnel/Marketing"
-                                                 },
-                                                 {
-                                                     "id":  "systems",
-                                                     "name":  "Systems/CRM"
-                                                 },
-                                                 {
-                                                     "id":  "leadership",
-                                                     "name":  "Leadership"
-                                                 }
-                                             ]
-                       },
-                       {
-                           "id":  "avila",
-                           "name":  "Avila University",
-                           "color":  "#8b5cf6",
-                           "icon":  "🎓",
-                           "subcategories":  [
-                                                 {
-                                                     "id":  "spring-1",
-                                                     "name":  "Spring 1"
-                                                 },
-                                                 {
-                                                     "id":  "spring-2",
-                                                     "name":  "Spring 2"
-                                                 },
-                                                 {
-                                                     "id":  "summer-1",
-                                                     "name":  "Summer 1"
-                                                 },
-                                                 {
-                                                     "id":  "summer-2",
-                                                     "name":  "Summer 2"
-                                                 },
-                                                 {
-                                                     "id":  "fall-1",
-                                                     "name":  "Fall 1"
-                                                 },
-                                                 {
-                                                     "id":  "fall-2",
-                                                     "name":  "Fall 2"
-                                                 }
-                                             ]
-                       }
-                   ],
-    "phases":  [
-                   {
-                       "id":  "pre-start",
-                       "name":  "Pre-Start",
-                       "startDate":  "2026-01-27",
-                       "endDate":  "2026-02-22",
-                       "color":  "#6366f1"
-                   },
-                   {
-                       "id":  "phase-1",
-                       "name":  "Days 1-30: Foundation",
-                       "startDate":  "2026-02-23",
-                       "endDate":  "2026-03-24",
-                       "color":  "#22c55e"
-                   },
-                   {
-                       "id":  "phase-2",
-                       "name":  "Days 31-60: Build",
-                       "startDate":  "2026-03-25",
-                       "endDate":  "2026-04-23",
-                       "color":  "#f59e0b"
-                   },
-                   {
-                       "id":  "phase-3",
-                       "name":  "Days 61-90: Execute",
-                       "startDate":  "2026-04-24",
-                       "endDate":  "2026-05-24",
-                       "color":  "#ef4444"
-                   }
-               ],
-    "tasks":  [
-                  {
-                      "id":  "t1",
-                      "title":  "Sign Employment Agreement",
-                      "phase":  "pre-start",
-                      "type":  "milestone",
-                      "status":  "complete",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-01-27",
-                      "dependencies":  [
-
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "onboarding",
-                      "notes":  "Signed with Adaptive Fitness LLC"
-                  },
-                  {
-                      "id":  "t28",
-                      "title":  "Call Window World - Order 2 replacement windows",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-02",
-                      "dependencies":  [
-
-                                       ],
-                      "category":  "dallas-move",
-                      "notes":  "📞 1-800-639-8946 (1-800-WINDOWWORLD) | Window 1: S/N 126-4-21270, 48 7/8 x 17 1/4 | Window 2: S/N 126-4-20369, 35 3/4 x 53 1/2 | PO: B261 | Original install: 03/14/11",
-                      "attachments":  [
-                                          {
-                                              "name":  "Window 1 - S/N 126-4-21270",
-                                              "path":  "attachments/window-1-sn-126-4-21270.jpg"
-                                          },
-                                          {
-                                              "name":  "Window 2 - S/N 126-4-20369",
-                                              "path":  "attachments/window-2-sn-126-4-20369.jpg"
-                                          }
-                                      ]
-                  },
-                  {
-                      "id":  "t2",
-                      "title":  "Dallas Relocation - Household",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "in-progress",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-09",
-                      "dependencies":  [
-
-                                       ],
-                      "category":  "dallas-move",
-                      "notes":  "Truck departs Olathe with belongings"
-                  },
-                  {
-                      "id":  "t3",
-                      "title":  "Dallas Relocation - Melanie",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Melanie",
-                      "dueDate":  "2026-02-14",
-                      "dependencies":  [
-                                           "t2"
-                                       ],
-                      "category":  "dallas-move",
-                      "notes":  "Melanie follows after truck"
-                  },
-                  {
-                      "id":  "t4",
-                      "title":  "Deep dive with Judah (SGP architecture)",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-04",
-                      "dependencies":  [
-
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "onboarding",
-                      "notes":  "Understand Strong Growth Platform data flow"
-                  },
-                  {
-                      "id":  "t5",
-                      "title":  "Graham onboarding sessions",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "in-progress",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-22",
-                      "dependencies":  [
-
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "onboarding",
-                      "notes":  "15-30 hours pre-start work, $5k signing bonus"
-                  },
-                  {
-                      "id":  "t6",
-                      "title":  "Get Upwork job posting access",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "complete",
-                      "owner":  "Daniel",
-                      "dueDate":  "2026-02-02",
-                      "dependencies":  [
-
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "admin",
-                      "notes":  "Confirmed access Feb 2. Can view and contact applicants."
-                  },
-                  {
-                      "id":  "t7",
-                      "title":  "Request full 2026 Marketing Budget/P\u0026L",
-                      "phase":  "pre-start",
-                      "type":  "decision",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dependencies":  [
-
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "admin",
-                      "notes":  "Need visibility into budget allocation"
-                  },
-                  {
-                      "id":  "t8",
-                      "title":  "Get added to Zoom corporate account",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dependencies":  [
-
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "admin",
-                      "notes":  ""
-                  },
-                  {
-                      "id":  "t9",
-                      "title":  "OFFICIAL START DATE",
-                      "phase":  "phase-1",
-                      "type":  "milestone",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-23",
-                      "dependencies":  [
-                                           "t2",
-                                           "t3"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "90-day-plan",
-                      "notes":  "First day at Adaptive Fitness"
-                  },
-                  {
-                      "id":  "t10",
-                      "title":  "Lead Flow Audit",
-                      "phase":  "phase-1",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-01",
-                      "dependencies":  [
-                                           "t9",
-                                           "t4"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "systems",
-                      "notes":  "Bleeding neck - leads going to wrong franchisees"
-                  },
-                  {
-                      "id":  "t11",
-                      "title":  "End-to-end growth strategy document",
-                      "phase":  "phase-1",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-15",
-                      "dependencies":  [
-                                           "t10"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "strategy",
-                      "notes":  "Q3 Bonus Deliverable A.1 - Requires Managing Member approval",
-                      "subtasks":  [
-                                       "t11-a",
-                                       "t11-b",
-                                       "t11-c",
-                                       "t11-d",
-                                       "t11-e"
-                                   ]
-                  },
-                  {
-                      "id":  "t11-a",
-                      "title":  "Research \u0026 Discovery",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-02",
-                      "dependencies":  [
-                                           "t10"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "strategy",
-                      "parent":  "t11",
-                      "notes":  "Gather existing docs, interview stakeholders, analyze current state"
-                  },
-                  {
-                      "id":  "t11-b",
-                      "title":  "Draft Outline",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-06",
-                      "dependencies":  [
-                                           "t11-a"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "strategy",
-                      "parent":  "t11",
-                      "notes":  "Create structure and key sections for strategy document"
-                  },
-                  {
-                      "id":  "t11-c",
-                      "title":  "Stakeholder Input",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-09",
-                      "dependencies":  [
-                                           "t11-b"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "strategy",
-                      "parent":  "t11",
-                      "notes":  "Review outline with Daniel, Dwayne, and key team members"
-                  },
-                  {
-                      "id":  "t11-d",
-                      "title":  "First Draft",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-12",
-                      "dependencies":  [
-                                           "t11-c"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "strategy",
-                      "parent":  "t11",
-                      "notes":  "Complete first draft incorporating feedback"
-                  },
-                  {
-                      "id":  "t11-e",
-                      "title":  "Review \u0026 Finalize",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-15",
-                      "dependencies":  [
-                                           "t11-d"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "strategy",
-                      "parent":  "t11",
-                      "notes":  "Final review, polish, and submit for approval"
-                  },
-                  {
-                      "id":  "t12",
-                      "title":  "Athlete \u0026 franchise funnel design",
-                      "phase":  "phase-1",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-15",
-                      "dependencies":  [
-                                           "t10"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "notes":  "Q3 Bonus Deliverable A.2",
-                      "subtasks":  [
-                                       "t12-a",
-                                       "t12-b",
-                                       "t12-c",
-                                       "t12-d",
-                                       "t12-e"
-                                   ]
-                  },
-                  {
-                      "id":  "t12-a",
-                      "title":  "Current State Mapping",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-03",
-                      "dependencies":  [
-                                           "t10"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "parent":  "t12",
-                      "notes":  "Document existing athlete and franchise funnels end-to-end"
-                  },
-                  {
-                      "id":  "t12-b",
-                      "title":  "Funnel Architecture Design",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-07",
-                      "dependencies":  [
-                                           "t12-a"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "parent":  "t12",
-                      "notes":  "Design improved funnel structure with conversion optimization"
-                  },
-                  {
-                      "id":  "t12-c",
-                      "title":  "Stakeholder Review",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-10",
-                      "dependencies":  [
-                                           "t12-b"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "parent":  "t12",
-                      "notes":  "Present funnel designs to sales and marketing team"
-                  },
-                  {
-                      "id":  "t12-d",
-                      "title":  "Design Refinement",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-13",
-                      "dependencies":  [
-                                           "t12-c"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "parent":  "t12",
-                      "notes":  "Incorporate feedback and refine designs"
-                  },
-                  {
-                      "id":  "t12-e",
-                      "title":  "Final Documentation",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-15",
-                      "dependencies":  [
-                                           "t12-d"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "parent":  "t12",
-                      "notes":  "Complete final funnel documentation package"
-                  },
-                  {
-                      "id":  "t13",
-                      "title":  "Channel alignment (paid, SEO, social, remarketing)",
-                      "phase":  "phase-1",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-20",
-                      "dependencies":  [
-                                           "t11",
-                                           "t12"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "notes":  "Q3 Bonus Deliverable A.3",
-                      "subtasks":  [
-                                       "t13-a",
-                                       "t13-b",
-                                       "t13-c",
-                                       "t13-d"
-                                   ]
-                  },
-                  {
-                      "id":  "t13-a",
-                      "title":  "Channel Audit",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-16",
-                      "dependencies":  [
-                                           "t11",
-                                           "t12"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "parent":  "t13",
-                      "notes":  "Audit all current marketing channels and performance"
-                  },
-                  {
-                      "id":  "t13-b",
-                      "title":  "Performance Analysis",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-17",
-                      "dependencies":  [
-                                           "t13-a"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "parent":  "t13",
-                      "notes":  "Analyze ROI and effectiveness of each channel"
-                  },
-                  {
-                      "id":  "t13-c",
-                      "title":  "Alignment Strategy Draft",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-18",
-                      "dependencies":  [
-                                           "t13-b"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "parent":  "t13",
-                      "notes":  "Draft channel alignment recommendations"
-                  },
-                  {
-                      "id":  "t13-d",
-                      "title":  "Review \u0026 Finalize",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-20",
-                      "dependencies":  [
-                                           "t13-c"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "parent":  "t13",
-                      "notes":  "Final review and channel alignment document"
-                  },
-                  {
-                      "id":  "t14",
-                      "title":  "Budget allocation model",
-                      "phase":  "phase-1",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-20",
-                      "dependencies":  [
-                                           "t7",
-                                           "t11"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "strategy",
-                      "notes":  "Q3 Bonus Deliverable A.4",
-                      "subtasks":  [
-                                       "t14-a",
-                                       "t14-b",
-                                       "t14-c",
-                                       "t14-d",
-                                       "t14-e"
-                                   ]
-                  },
-                  {
-                      "id":  "t14-a",
-                      "title":  "Historical Spend Analysis",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-16",
-                      "dependencies":  [
-                                           "t7",
-                                           "t11"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "strategy",
-                      "parent":  "t14",
-                      "notes":  "Analyze 2025 marketing spend and outcomes"
-                  },
-                  {
-                      "id":  "t14-b",
-                      "title":  "ROI Modeling",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-17",
-                      "dependencies":  [
-                                           "t14-a"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "strategy",
-                      "parent":  "t14",
-                      "notes":  "Build ROI models for each channel/initiative"
-                  },
-                  {
-                      "id":  "t14-c",
-                      "title":  "Allocation Framework",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-18",
-                      "dependencies":  [
-                                           "t14-b"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "strategy",
-                      "parent":  "t14",
-                      "notes":  "Create budget allocation framework and recommendations"
-                  },
-                  {
-                      "id":  "t14-d",
-                      "title":  "Stakeholder Review",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-19",
-                      "dependencies":  [
-                                           "t14-c"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "strategy",
-                      "parent":  "t14",
-                      "notes":  "Review model with Daniel and finance"
-                  },
-                  {
-                      "id":  "t14-e",
-                      "title":  "Final Model",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-20",
-                      "dependencies":  [
-                                           "t14-d"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "strategy",
-                      "parent":  "t14",
-                      "notes":  "Finalize budget allocation model"
-                  },
-                  {
-                      "id":  "t15",
-                      "title":  "90-day execution roadmap",
-                      "phase":  "phase-1",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-24",
-                      "dependencies":  [
-                                           "t11",
-                                           "t12",
-                                           "t13",
-                                           "t14"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "90-day-plan",
-                      "notes":  "Q3 Bonus Deliverable A.5 - Rolling roadmap required",
-                      "subtasks":  [
-                                       "t15-a",
-                                       "t15-b",
-                                       "t15-c",
-                                       "t15-d"
-                                   ]
-                  },
-                  {
-                      "id":  "t15-a",
-                      "title":  "Compile Deliverable Outputs",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-21",
-                      "dependencies":  [
-                                           "t11",
-                                           "t12",
-                                           "t13",
-                                           "t14"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "90-day-plan",
-                      "parent":  "t15",
-                      "notes":  "Gather all Phase 1 deliverable outputs for integration"
-                  },
-                  {
-                      "id":  "t15-b",
-                      "title":  "Timeline \u0026 Milestone Mapping",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-22",
-                      "dependencies":  [
-                                           "t15-a"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "90-day-plan",
-                      "parent":  "t15",
-                      "notes":  "Map out 90-day timeline with key milestones"
-                  },
-                  {
-                      "id":  "t15-c",
-                      "title":  "Resource Allocation",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-23",
-                      "dependencies":  [
-                                           "t15-b"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "90-day-plan",
-                      "parent":  "t15",
-                      "notes":  "Define resource needs and assignments"
-                  },
-                  {
-                      "id":  "t15-d",
-                      "title":  "Final Roadmap \u0026 Presentation",
-                      "phase":  "phase-1",
-                      "type":  "subtask",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-24",
-                      "dependencies":  [
-                                           "t15-c"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "90-day-plan",
-                      "parent":  "t15",
-                      "notes":  "Complete roadmap document and presentation deck"
-                  },
-                  {
-                      "id":  "t16",
-                      "title":  "Athlete Sales Funnel documentation",
-                      "phase":  "phase-2",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-04-07",
-                      "dependencies":  [
-                                           "t12"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "notes":  "Q3 Bonus Deliverable B.1 - Traffic sources, capture flows, automation"
-                  },
-                  {
-                      "id":  "t17",
-                      "title":  "End-to-end tracking (ad → trial → enrollment)",
-                      "phase":  "phase-2",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-04-10",
-                      "dependencies":  [
-                                           "t16",
-                                           "t4"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "systems",
-                      "notes":  "Q3 Bonus Deliverable B.3"
-                  },
-                  {
-                      "id":  "t18",
-                      "title":  "Rebuilt paid advertising framework",
-                      "phase":  "phase-2",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-04-15",
-                      "dependencies":  [
-                                           "t16",
-                                           "t14"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "notes":  "Q3 Bonus Deliverable B.4"
-                  },
-                  {
-                      "id":  "t19",
-                      "title":  "CRM \u0026 SGP integrations + reporting",
-                      "phase":  "phase-2",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-04-20",
-                      "dependencies":  [
-                                           "t17",
-                                           "t4"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "systems",
-                      "notes":  "Q3 Bonus Deliverable B.5"
-                  },
-                  {
-                      "id":  "t20",
-                      "title":  "Franchise Sales Funnel mapping",
-                      "phase":  "phase-2",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-04-15",
-                      "dependencies":  [
-                                           "t12"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "notes":  "Q3 Bonus Deliverable C.1 - Traffic → close with benchmarks"
-                  },
-                  {
-                      "id":  "t21",
-                      "title":  "Speed to lead system (\u003c5 min)",
-                      "phase":  "phase-3",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-05-01",
-                      "dependencies":  [
-                                           "t16",
-                                           "t19"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "systems",
-                      "notes":  "Q3 Bonus Deliverable D.1"
-                  },
-                  {
-                      "id":  "t22",
-                      "title":  "Automated follow-up \u0026 re-engagement workflows",
-                      "phase":  "phase-3",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-05-08",
-                      "dependencies":  [
-                                           "t21"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "systems",
-                      "notes":  "Q3 Bonus Deliverable D.2"
-                  },
-                  {
-                      "id":  "t23",
-                      "title":  "Athlete \u0026 franchise remarketing strategies",
-                      "phase":  "phase-3",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-05-10",
-                      "dependencies":  [
-                                           "t18",
-                                           "t20"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "notes":  "Q3 Bonus Deliverable D.3"
-                  },
-                  {
-                      "id":  "t24",
-                      "title":  "Defined roles, KPI structure, performance dashboards",
-                      "phase":  "phase-3",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-05-15",
-                      "dependencies":  [
-                                           "t19"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "leadership",
-                      "notes":  "Q3 Bonus Deliverable E.1"
-                  },
-                  {
-                      "id":  "t25",
-                      "title":  "Unified marketing roadmap (cross-departmental)",
-                      "phase":  "phase-3",
-                      "type":  "deliverable",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-05-20",
-                      "dependencies":  [
-                                           "t15",
-                                           "t24"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "leadership",
-                      "notes":  "Q3 Bonus Deliverable E.2"
-                  },
-                  {
-                      "id":  "t26",
-                      "title":  "Executive leadership approval",
-                      "phase":  "phase-3",
-                      "type":  "decision",
-                      "status":  "pending",
-                      "owner":  "Daniel",
-                      "dueDate":  "2026-05-24",
-                      "dependencies":  [
-                                           "t25"
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "leadership",
-                      "notes":  "Q3 Bonus Deliverable E.3 - CRITICAL: No bonus without written approval"
-                  },
-                  {
-                      "id":  "t27",
-                      "title":  "90-DAY CHECKPOINT",
-                      "phase":  "phase-3",
-                      "type":  "milestone",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-05-24",
-                      "dependencies":  [
-
-                                       ],
-                      "category":  "special-strong",
-                      "subcategory":  "90-day-plan",
-                      "notes":  "End of initial 90-day period"
-                  },
-                  {
-                      "id":  "avila-sp1-grades",
-                      "title":  "📚 Spring 1 - Grades Due",
-                      "phase":  "phase-1",
-                      "type":  "milestone",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-10",
-                      "dependencies":  [
-
-                                       ],
-                      "category":  "avila",
-                      "subcategory":  "spring-1",
-                      "notes":  "Term ended Mar 7. Submit final grades."
-                  },
-                  {
-                      "id":  "avila-sp2-syllabus",
-                      "title":  "📚 Spring 2 - Course Published \u0026 Syllabus Due",
-                      "phase":  "phase-1",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-02",
-                      "dependencies":  [
-
-                                       ],
-                      "category":  "avila",
-                      "subcategory":  "spring-2",
-                      "notes":  "Course must be published and syllabus uploaded before term starts Mar 16."
-                  },
-                  {
-                      "id":  "avila-sp2-start",
-                      "title":  "📚 Spring 2 - Term Starts",
-                      "phase":  "phase-1",
-                      "type":  "milestone",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-16",
-                      "dependencies":  [
-                                           "avila-sp2-syllabus"
-                                       ],
-                      "category":  "avila",
-                      "subcategory":  "spring-2",
-                      "notes":  "Spring 2 term begins. Runs through May 9."
-                  },
-                  {
-                      "id":  "avila-su1-syllabus",
-                      "title":  "📚 Summer 1 - Course Published \u0026 Syllabus Due",
-                      "phase":  "phase-2",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-04-27",
-                      "dependencies":  [
-
-                                       ],
-                      "category":  "avila",
-                      "subcategory":  "summer-1",
-                      "notes":  "Course must be published and syllabus uploaded before term starts May 11."
-                  },
-                  {
-                      "id":  "avila-sp2-grades",
-                      "title":  "📚 Spring 2 - Grades Due",
-                      "phase":  "phase-3",
-                      "type":  "milestone",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-05-12",
-                      "dependencies":  [
-
-                                       ],
-                      "category":  "avila",
-                      "subcategory":  "spring-2",
-                      "notes":  "Term ended May 9. Submit final grades."
-                  },
-                  {
-                      "id":  "avila-su1-start",
-                      "title":  "📚 Summer 1 - Term Starts",
-                      "phase":  "phase-3",
-                      "type":  "milestone",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-05-11",
-                      "dependencies":  [
-                                           "avila-su1-syllabus"
-                                       ],
-                      "category":  "avila",
-                      "subcategory":  "summer-1",
-                      "notes":  "Summer 1 term begins. Runs through Jul 4."
-                  },
-                  {
-                      "id":  "unemployment-0202",
-                      "title":  "Complete Kansas unemployment form",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-02",
-                      "dependencies":  [],
-                      "category":  "uncategorized",
-                      "notes":  "Weekly unemployment certification | https://www.kansasui.gov"
-                  },
-                  {
-                      "id":  "unemployment-0209",
-                      "title":  "Complete Kansas unemployment form",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-09",
-                      "dependencies":  [],
-                      "category":  "uncategorized",
-                      "notes":  "Weekly unemployment certification | https://www.kansasui.gov"
-                  },
-                  {
-                      "id":  "t29",
-                      "title":  "Call Eli at You Move Me - confirm truck ready Feb 9",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-02",
-                      "dependencies":  [],
-                      "category":  "dallas-move",
-                      "notes":  "📞 Call Eli to confirm everything is set for the moving truck to arrive Feb 9th first thing. Make sure he has everything he needs."
-                  },
-                  {
-                      "id":  "t30",
-                      "title":  "Drop off Amazon returns",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-02",
-                      "dependencies":  [],
-                      "category":  "uncategorized",
-                      "notes":  "📦 Amazon returns drop-off"
-                  },
-                  {
-                      "id":  "t31",
-                      "title":  "Review Upwork Paid Media candidates",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-05",
-                      "priority":  "high",
-                      "dependencies":  ["t6"],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "notes":  "Review 5 shortlisted + full 43 proposals for Paid Media & Funnel Optimization Expert role. URGENT: No active ads management = declining leads."
-                  },
-                  {
-                      "id":  "t32",
-                      "title":  "Send screening messages to top Upwork candidates",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-06",
-                      "priority":  "high",
-                      "dependencies":  ["t31"],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "notes":  "Send screening messages to top 5-7 candidates from review."
-                  },
-                  {
-                      "id":  "t33",
-                      "title":  "Paid Media contractor video interviews",
-                      "phase":  "pre-start",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-14",
-                      "priority":  "high",
-                      "dependencies":  ["t32"],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "notes":  "Schedule 20-min video calls with top 3-4 candidates (Feb 10-14). Daniel, Dwayne, or others may join."
-                  },
-                  {
-                      "id":  "t34",
-                      "title":  "Present Paid Media contractor recommendation",
-                      "phase":  "pre-start",
-                      "type":  "decision",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-14",
-                      "priority":  "high",
-                      "dependencies":  ["t33"],
-                      "category":  "special-strong",
-                      "subcategory":  "funnel",
-                      "notes":  "Present hiring recommendation to Daniel and Dwayne. Role: $100-150/hr, 5-10 hrs/week, managing franchise + corporate ad accounts."
-                  },
-                  {
-                      "id":  "t35",
-                      "title":  "Meet Devaune Bohall (Culture and Care Leader)",
-                      "phase":  "phase-1",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-07",
-                      "dependencies":  ["t9"],
-                      "category":  "special-strong",
-                      "subcategory":  "leadership",
-                      "notes":  "Culture and Care Leader. Leads corporate prayer, connection rhythms, birthday/anniversary recognition, hardship care. Key relationship for understanding team culture."
-                  },
-                  {
-                      "id":  "t36",
-                      "title":  "Meet Misti Herring",
-                      "phase":  "phase-1",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-03-07",
-                      "dependencies":  ["t9"],
-                      "category":  "special-strong",
-                      "subcategory":  "leadership",
-                      "notes":  "Provided feedback that helped Daniel/Dwayne define and clarify office culture. Influential voice in the organization."
-                  },
-                  {
-                      "id":  "t37",
-                      "title":  "Weekly Ownership Check-In",
-                      "phase":  "phase-1",
-                      "type":  "task",
-                      "status":  "pending",
-                      "owner":  "Alex",
-                      "dueDate":  "2026-02-27",
-                      "dependencies":  ["t9"],
-                      "category":  "special-strong",
-                      "subcategory":  "admin",
-                      "notes":  "RECURRING: Due every Friday by EOD. 1-2 sentences per section, 5 min max. Submit: https://form.jotform.com/specialstrong/weekly-ownership-check-in | Sections: Top Win, Priorities At Risk, Decisions/Problems Owned, Primary Challenge, Support Needed, Spiritual Reflections (optional)"
-                  }
-              ],
-    "contacts":  [
-                     {
-                         "name":  "Daniel Stein",
-                         "role":  "CEO",
-                         "email":  "daniel@specialstrong.com"
-                     },
-                     {
-                         "name":  "Dwayne Stoltzfus",
-                         "role":  "Managing Member",
-                         "email":  "dwayne@ethnoholdings.com"
-                     },
-                     {
-                         "name":  "Graham",
-                         "role":  "Sales/Workflows",
-                         "email":  ""
-                     },
-                     {
-                         "name":  "Judah",
-                         "role":  "SGP Architecture",
-                         "email":  ""
-                     }
-                 ],
-    "userData":  {
-                     "t1":  {
-                                "notes":  "Signed with Adaptive Fitness LLC. Base salary + Q3 bonus structure tied to deliverables.",
-                                "contacts":  [
-                                                 {
-                                                     "name":  "Daniel Stein",
-                                                     "role":  "CEO",
-                                                     "email":  "daniel@specialstrong.com"
-                                                 },
-                                                 {
-                                                     "name":  "Dwayne Stoltzfus",
-                                                     "role":  "Managing Member (Ethno Holdings)",
-                                                     "email":  "dwayne@ethnoholdings.com"
-                                                 }
-                                             ],
-                                "messages":  [
-                                                 {
-                                                     "date":  "2026-01-24",
-                                                     "medium":  "email",
-                                                     "text":  "Received final offer letter from Daniel with compensation breakdown"
-                                                 },
-                                                 {
-                                                     "date":  "2026-01-25",
-                                                     "medium":  "call",
-                                                     "text":  "Call with Dwayne to discuss Q3 bonus deliverables and approval process"
-                                                 },
-                                                 {
-                                                     "date":  "2026-01-27",
-                                                     "medium":  "email",
-                                                     "text":  "Signed agreement returned. Start date confirmed Feb 23."
-                                                 }
-                                             ],
-                                "status":  "complete"
-                            },
-                     "t2":  {
-                                "notes":  "Moving truck scheduled. Storage unit secured in Dallas area.",
-                                "contacts":  [
-                                                 {
-                                                     "name":  "Two Men and a Truck",
-                                                     "role":  "Moving Company",
-                                                     "email":  ""
-                                                 }
-                                             ],
-                                "messages":  [
-                                                 {
-                                                     "date":  "2026-01-28",
-                                                     "medium":  "call",
-                                                     "text":  "Booked moving company. Pickup Feb 9, delivery Feb 10-11."
-                                                 },
-                                                 {
-                                                     "date":  "2026-01-30",
-                                                     "medium":  "text",
-                                                     "text":  "Confirmed packing supplies delivery for Feb 7"
-                                                 }
-                                             ],
-                                "status":  "in-progress"
-                            },
-                     "t4":  {
-                                "notes":  "Judah is the technical lead on SGP. Need to understand data flow, lead routing logic, and integration points.",
-                                "contacts":  [
-                                                 {
-                                                     "name":  "Judah",
-                                                     "role":  "SGP Architecture Lead",
-                                                     "email":  ""
-                                                 }
-                                             ],
-                                "messages":  [
-                                                 {
-                                                     "date":  "2026-01-29",
-                                                     "medium":  "email",
-                                                     "text":  "Intro email from Daniel connecting me with Judah"
-                                                 },
-                                                 {
-                                                     "date":  "2026-01-30",
-                                                     "medium":  "text",
-                                                     "text":  "Judah confirmed availability for Feb 4 deep dive session"
-                                                 }
-                                             ],
-                                "status":  "pending"
-                            },
-                     "t5":  {
-                                "notes":  "Pre-start onboarding to get up to speed. 15-30 hours expected. $5k signing bonus for completion.",
-                                "contacts":  [
-                                                 {
-                                                     "name":  "Graham",
-                                                     "role":  "Sales/Workflows Lead",
-                                                     "email":  ""
-                                                 }
-                                             ],
-                                "messages":  [
-                                                 {
-                                                     "date":  "2026-01-27",
-                                                     "medium":  "meeting",
-                                                     "text":  "Initial onboarding call with Graham - overview of sales process and current workflows"
-                                                 },
-                                                 {
-                                                     "date":  "2026-01-29",
-                                                     "medium":  "slack",
-                                                     "text":  "Graham shared access to sales playbook and CRM documentation"
-                                                 },
-                                                 {
-                                                     "date":  "2026-01-31",
-                                                     "medium":  "meeting",
-                                                     "text":  "Second session with Graham - lead scoring and follow-up sequences"
-                                                 }
-                                             ],
-                                "status":  "in-progress"
-                            },
-                     "t6":  {
-                                "notes":  "Confirmed access Feb 2. Paid Media & Funnel Optimization Expert role - 43 proposals, 5 shortlisted.",
-                                "contacts":  [
-                                                 {
-                                                     "name":  "Daniel Stein",
-                                                     "role":  "CEO",
-                                                     "email":  "daniel@specialstrong.com"
-                                                 }
-                                             ],
-                                "messages":  [
-                                                 {
-                                                     "date":  "2026-01-30",
-                                                     "medium":  "email",
-                                                     "text":  "Requested Upwork job posting access from Daniel"
-                                                 },
-                                                 {
-                                                     "date":  "2026-02-02",
-                                                     "medium":  "email",
-                                                     "text":  "Daniel confirmed Upwork access granted. Alex confirmed can view and contact applicants."
-                                                 }
-                                             ],
-                                "status":  "complete"
-                            },
-                     "t7":  {
-                                "notes":  "Critical for budget allocation model deliverable",
-                                "contacts":  [
-                                                 {
-                                                     "name":  "Daniel Stein",
-                                                     "role":  "CEO",
-                                                     "email":  "daniel@specialstrong.com"
-                                                 }
-                                             ],
-                                "messages":  [
-                                                 {
-                                                     "date":  "2026-01-31",
-                                                     "medium":  "email",
-                                                     "text":  "Sent request for full 2026 marketing budget and P\u0026L access"
-                                                 }
-                                             ],
-                                "status":  "pending"
-                            },
-                     "t10":  {
-                                 "notes":  "BLEEDING NECK ISSUE - Leads going to wrong franchisees. Priority #1 after start.",
-                                 "contacts":  [
-
-                                              ],
-                                 "messages":  [
-                                                  {
-                                                      "date":  "2026-01-28",
-                                                      "medium":  "meeting",
-                                                      "text":  "Daniel flagged lead routing as critical issue during pre-start call. Franchisees frustrated with misrouted leads."
-                                                  }
-                                              ],
-                                 "status":  "pending"
-                             },
-                     "t28":  {
-                                 "notes":  "ðŸ“ž 1-800-639-8946 (1-800-WINDOWWORLD) | Window 1: S/N 126-4-21270, 48 7/8 x 17 1/4 | Window 2: S/N 126-4-20369, 35 3/4 x 53 1/2 | PO: B261 | Original install: 03/14/11",
-                                 "contacts":  [
-
-                                              ],
-                                 "messages":  [
-
-                                              ],
-                                 "status":  null
-                             },
-                     "t12":  {
-                                 "notes":  "Q3 Bonus Deliverable A.2",
-                                 "contacts":  [
-
-                                              ],
-                                 "messages":  [
-
-                                              ],
-                                 "status":  null
-                             }
-                 }
+  "meta": {
+    "title": "DAMB Plan",
+    "role": "VP of Sales & Marketing",
+    "startDate": "2026-02-23",
+    "endDate": "2026-05-24",
+    "lastUpdated": "2026-02-01"
+  },
+  "categories": [
+    {
+      "id": "uncategorized",
+      "name": "Uncategorized",
+      "color": "#6b7280",
+      "icon": "ð"
+    },
+    {
+      "id": "dallas-move",
+      "name": "Dallas Move",
+      "color": "#ec4899",
+      "icon": "ð "
+    },
+    {
+      "id": "special-strong",
+      "name": "Special Strong",
+      "color": "#3b82f6",
+      "icon": "ðª",
+      "subcategories": [
+        {
+          "id": "onboarding",
+          "name": "Onboarding"
+        },
+        {
+          "id": "90-day-plan",
+          "name": "90 Day Plan"
+        },
+        {
+          "id": "admin",
+          "name": "Admin/Setup"
+        },
+        {
+          "id": "strategy",
+          "name": "Strategy"
+        },
+        {
+          "id": "funnel",
+          "name": "Funnel/Marketing"
+        },
+        {
+          "id": "systems",
+          "name": "Systems/CRM"
+        },
+        {
+          "id": "leadership",
+          "name": "Leadership"
+        }
+      ]
+    },
+    {
+      "id": "avila",
+      "name": "Avila University",
+      "color": "#8b5cf6",
+      "icon": "ð",
+      "subcategories": [
+        {
+          "id": "spring-1",
+          "name": "Spring 1"
+        },
+        {
+          "id": "spring-2",
+          "name": "Spring 2"
+        },
+        {
+          "id": "summer-1",
+          "name": "Summer 1"
+        },
+        {
+          "id": "summer-2",
+          "name": "Summer 2"
+        },
+        {
+          "id": "fall-1",
+          "name": "Fall 1"
+        },
+        {
+          "id": "fall-2",
+          "name": "Fall 2"
+        }
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "pre-start",
+      "name": "Pre-Start",
+      "startDate": "2026-01-27",
+      "endDate": "2026-02-22",
+      "color": "#6366f1"
+    },
+    {
+      "id": "phase-1",
+      "name": "Days 1-30: Foundation",
+      "startDate": "2026-02-23",
+      "endDate": "2026-03-24",
+      "color": "#22c55e"
+    },
+    {
+      "id": "phase-2",
+      "name": "Days 31-60: Build",
+      "startDate": "2026-03-25",
+      "endDate": "2026-04-23",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "phase-3",
+      "name": "Days 61-90: Execute",
+      "startDate": "2026-04-24",
+      "endDate": "2026-05-24",
+      "color": "#ef4444"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "Sign Employment Agreement",
+      "phase": "pre-start",
+      "type": "milestone",
+      "status": "complete",
+      "owner": "Alex",
+      "dueDate": "2026-01-27",
+      "dependencies": [],
+      "category": "special-strong",
+      "subcategory": "onboarding",
+      "notes": "Signed with Adaptive Fitness LLC"
+    },
+    {
+      "id": "t28",
+      "title": "Call Window World - Order 2 replacement windows",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-02",
+      "dependencies": [],
+      "category": "dallas-move",
+      "notes": "ð 1-800-639-8946 (1-800-WINDOWWORLD) | Window 1: S/N 126-4-21270, 48 7/8 x 17 1/4 | Window 2: S/N 126-4-20369, 35 3/4 x 53 1/2 | PO: B261 | Original install: 03/14/11",
+      "attachments": [
+        {
+          "name": "Window 1 - S/N 126-4-21270",
+          "path": "attachments/window-1-sn-126-4-21270.jpg"
+        },
+        {
+          "name": "Window 2 - S/N 126-4-20369",
+          "path": "attachments/window-2-sn-126-4-20369.jpg"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "Dallas Relocation - Household",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "in-progress",
+      "owner": "Alex",
+      "dueDate": "2026-02-09",
+      "dependencies": [],
+      "category": "dallas-move",
+      "notes": "Truck departs Olathe with belongings"
+    },
+    {
+      "id": "t3",
+      "title": "Dallas Relocation - Melanie",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Melanie",
+      "dueDate": "2026-02-14",
+      "dependencies": [
+        "t2"
+      ],
+      "category": "dallas-move",
+      "notes": "Melanie follows after truck"
+    },
+    {
+      "id": "t4",
+      "title": "Deep dive with Judah (SGP architecture)",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-04",
+      "dependencies": [],
+      "category": "special-strong",
+      "subcategory": "onboarding",
+      "notes": "Understand Strong Growth Platform data flow"
+    },
+    {
+      "id": "t5",
+      "title": "Graham onboarding sessions",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "in-progress",
+      "owner": "Alex",
+      "dueDate": "2026-02-22",
+      "dependencies": [],
+      "category": "special-strong",
+      "subcategory": "onboarding",
+      "notes": "15-30 hours pre-start work, $5k signing bonus"
+    },
+    {
+      "id": "t6",
+      "title": "Get Upwork job posting access",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "complete",
+      "owner": "Daniel",
+      "dueDate": "2026-02-02",
+      "dependencies": [],
+      "category": "special-strong",
+      "subcategory": "admin",
+      "notes": "Confirmed access Feb 2. Can view and contact applicants."
+    },
+    {
+      "id": "t7",
+      "title": "Request full 2026 Marketing Budget/P&L",
+      "phase": "pre-start",
+      "type": "decision",
+      "status": "pending",
+      "owner": "Alex",
+      "dependencies": [],
+      "category": "special-strong",
+      "subcategory": "admin",
+      "notes": "Need visibility into budget allocation"
+    },
+    {
+      "id": "t8",
+      "title": "Get added to Zoom corporate account",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dependencies": [],
+      "category": "special-strong",
+      "subcategory": "admin",
+      "notes": ""
+    },
+    {
+      "id": "t9",
+      "title": "OFFICIAL START DATE",
+      "phase": "phase-1",
+      "type": "milestone",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-23",
+      "dependencies": [
+        "t2",
+        "t3"
+      ],
+      "category": "special-strong",
+      "subcategory": "90-day-plan",
+      "notes": "First day at Adaptive Fitness"
+    },
+    {
+      "id": "t10",
+      "title": "Lead Flow Audit",
+      "phase": "phase-1",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-01",
+      "dependencies": [
+        "t9",
+        "t4"
+      ],
+      "category": "special-strong",
+      "subcategory": "systems",
+      "notes": "Bleeding neck - leads going to wrong franchisees"
+    },
+    {
+      "id": "t11",
+      "title": "End-to-end growth strategy document",
+      "phase": "phase-1",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-15",
+      "dependencies": [
+        "t10"
+      ],
+      "category": "special-strong",
+      "subcategory": "strategy",
+      "notes": "Q3 Bonus Deliverable A.1 - Requires Managing Member approval",
+      "subtasks": [
+        "t11-a",
+        "t11-b",
+        "t11-c",
+        "t11-d",
+        "t11-e"
+      ]
+    },
+    {
+      "id": "t11-a",
+      "title": "Research & Discovery",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-02",
+      "dependencies": [
+        "t10"
+      ],
+      "category": "special-strong",
+      "subcategory": "strategy",
+      "parent": "t11",
+      "notes": "Gather existing docs, interview stakeholders, analyze current state"
+    },
+    {
+      "id": "t11-b",
+      "title": "Draft Outline",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-06",
+      "dependencies": [
+        "t11-a"
+      ],
+      "category": "special-strong",
+      "subcategory": "strategy",
+      "parent": "t11",
+      "notes": "Create structure and key sections for strategy document"
+    },
+    {
+      "id": "t11-c",
+      "title": "Stakeholder Input",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-09",
+      "dependencies": [
+        "t11-b"
+      ],
+      "category": "special-strong",
+      "subcategory": "strategy",
+      "parent": "t11",
+      "notes": "Review outline with Daniel, Dwayne, and key team members"
+    },
+    {
+      "id": "t11-d",
+      "title": "First Draft",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-12",
+      "dependencies": [
+        "t11-c"
+      ],
+      "category": "special-strong",
+      "subcategory": "strategy",
+      "parent": "t11",
+      "notes": "Complete first draft incorporating feedback"
+    },
+    {
+      "id": "t11-e",
+      "title": "Review & Finalize",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-15",
+      "dependencies": [
+        "t11-d"
+      ],
+      "category": "special-strong",
+      "subcategory": "strategy",
+      "parent": "t11",
+      "notes": "Final review, polish, and submit for approval"
+    },
+    {
+      "id": "t12",
+      "title": "Athlete & franchise funnel design",
+      "phase": "phase-1",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-15",
+      "dependencies": [
+        "t10"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "notes": "Q3 Bonus Deliverable A.2",
+      "subtasks": [
+        "t12-a",
+        "t12-b",
+        "t12-c",
+        "t12-d",
+        "t12-e"
+      ]
+    },
+    {
+      "id": "t12-a",
+      "title": "Current State Mapping",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-03",
+      "dependencies": [
+        "t10"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "parent": "t12",
+      "notes": "Document existing athlete and franchise funnels end-to-end"
+    },
+    {
+      "id": "t12-b",
+      "title": "Funnel Architecture Design",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-07",
+      "dependencies": [
+        "t12-a"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "parent": "t12",
+      "notes": "Design improved funnel structure with conversion optimization"
+    },
+    {
+      "id": "t12-c",
+      "title": "Stakeholder Review",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-10",
+      "dependencies": [
+        "t12-b"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "parent": "t12",
+      "notes": "Present funnel designs to sales and marketing team"
+    },
+    {
+      "id": "t12-d",
+      "title": "Design Refinement",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-13",
+      "dependencies": [
+        "t12-c"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "parent": "t12",
+      "notes": "Incorporate feedback and refine designs"
+    },
+    {
+      "id": "t12-e",
+      "title": "Final Documentation",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-15",
+      "dependencies": [
+        "t12-d"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "parent": "t12",
+      "notes": "Complete final funnel documentation package"
+    },
+    {
+      "id": "t13",
+      "title": "Channel alignment (paid, SEO, social, remarketing)",
+      "phase": "phase-1",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-20",
+      "dependencies": [
+        "t11",
+        "t12"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "notes": "Q3 Bonus Deliverable A.3",
+      "subtasks": [
+        "t13-a",
+        "t13-b",
+        "t13-c",
+        "t13-d"
+      ]
+    },
+    {
+      "id": "t13-a",
+      "title": "Channel Audit",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-16",
+      "dependencies": [
+        "t11",
+        "t12"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "parent": "t13",
+      "notes": "Audit all current marketing channels and performance"
+    },
+    {
+      "id": "t13-b",
+      "title": "Performance Analysis",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-17",
+      "dependencies": [
+        "t13-a"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "parent": "t13",
+      "notes": "Analyze ROI and effectiveness of each channel"
+    },
+    {
+      "id": "t13-c",
+      "title": "Alignment Strategy Draft",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-18",
+      "dependencies": [
+        "t13-b"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "parent": "t13",
+      "notes": "Draft channel alignment recommendations"
+    },
+    {
+      "id": "t13-d",
+      "title": "Review & Finalize",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-20",
+      "dependencies": [
+        "t13-c"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "parent": "t13",
+      "notes": "Final review and channel alignment document"
+    },
+    {
+      "id": "t14",
+      "title": "Budget allocation model",
+      "phase": "phase-1",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-20",
+      "dependencies": [
+        "t7",
+        "t11"
+      ],
+      "category": "special-strong",
+      "subcategory": "strategy",
+      "notes": "Q3 Bonus Deliverable A.4",
+      "subtasks": [
+        "t14-a",
+        "t14-b",
+        "t14-c",
+        "t14-d",
+        "t14-e"
+      ]
+    },
+    {
+      "id": "t14-a",
+      "title": "Historical Spend Analysis",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-16",
+      "dependencies": [
+        "t7",
+        "t11"
+      ],
+      "category": "special-strong",
+      "subcategory": "strategy",
+      "parent": "t14",
+      "notes": "Analyze 2025 marketing spend and outcomes"
+    },
+    {
+      "id": "t14-b",
+      "title": "ROI Modeling",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-17",
+      "dependencies": [
+        "t14-a"
+      ],
+      "category": "special-strong",
+      "subcategory": "strategy",
+      "parent": "t14",
+      "notes": "Build ROI models for each channel/initiative"
+    },
+    {
+      "id": "t14-c",
+      "title": "Allocation Framework",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-18",
+      "dependencies": [
+        "t14-b"
+      ],
+      "category": "special-strong",
+      "subcategory": "strategy",
+      "parent": "t14",
+      "notes": "Create budget allocation framework and recommendations"
+    },
+    {
+      "id": "t14-d",
+      "title": "Stakeholder Review",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-19",
+      "dependencies": [
+        "t14-c"
+      ],
+      "category": "special-strong",
+      "subcategory": "strategy",
+      "parent": "t14",
+      "notes": "Review model with Daniel and finance"
+    },
+    {
+      "id": "t14-e",
+      "title": "Final Model",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-20",
+      "dependencies": [
+        "t14-d"
+      ],
+      "category": "special-strong",
+      "subcategory": "strategy",
+      "parent": "t14",
+      "notes": "Finalize budget allocation model"
+    },
+    {
+      "id": "t15",
+      "title": "90-day execution roadmap",
+      "phase": "phase-1",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-24",
+      "dependencies": [
+        "t11",
+        "t12",
+        "t13",
+        "t14"
+      ],
+      "category": "special-strong",
+      "subcategory": "90-day-plan",
+      "notes": "Q3 Bonus Deliverable A.5 - Rolling roadmap required",
+      "subtasks": [
+        "t15-a",
+        "t15-b",
+        "t15-c",
+        "t15-d"
+      ]
+    },
+    {
+      "id": "t15-a",
+      "title": "Compile Deliverable Outputs",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-21",
+      "dependencies": [
+        "t11",
+        "t12",
+        "t13",
+        "t14"
+      ],
+      "category": "special-strong",
+      "subcategory": "90-day-plan",
+      "parent": "t15",
+      "notes": "Gather all Phase 1 deliverable outputs for integration"
+    },
+    {
+      "id": "t15-b",
+      "title": "Timeline & Milestone Mapping",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-22",
+      "dependencies": [
+        "t15-a"
+      ],
+      "category": "special-strong",
+      "subcategory": "90-day-plan",
+      "parent": "t15",
+      "notes": "Map out 90-day timeline with key milestones"
+    },
+    {
+      "id": "t15-c",
+      "title": "Resource Allocation",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-23",
+      "dependencies": [
+        "t15-b"
+      ],
+      "category": "special-strong",
+      "subcategory": "90-day-plan",
+      "parent": "t15",
+      "notes": "Define resource needs and assignments"
+    },
+    {
+      "id": "t15-d",
+      "title": "Final Roadmap & Presentation",
+      "phase": "phase-1",
+      "type": "subtask",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-24",
+      "dependencies": [
+        "t15-c"
+      ],
+      "category": "special-strong",
+      "subcategory": "90-day-plan",
+      "parent": "t15",
+      "notes": "Complete roadmap document and presentation deck"
+    },
+    {
+      "id": "t16",
+      "title": "Athlete Sales Funnel documentation",
+      "phase": "phase-2",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-04-07",
+      "dependencies": [
+        "t12"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "notes": "Q3 Bonus Deliverable B.1 - Traffic sources, capture flows, automation"
+    },
+    {
+      "id": "t17",
+      "title": "End-to-end tracking (ad â trial â enrollment)",
+      "phase": "phase-2",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-04-10",
+      "dependencies": [
+        "t16",
+        "t4"
+      ],
+      "category": "special-strong",
+      "subcategory": "systems",
+      "notes": "Q3 Bonus Deliverable B.3"
+    },
+    {
+      "id": "t18",
+      "title": "Rebuilt paid advertising framework",
+      "phase": "phase-2",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-04-15",
+      "dependencies": [
+        "t16",
+        "t14"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "notes": "Q3 Bonus Deliverable B.4"
+    },
+    {
+      "id": "t19",
+      "title": "CRM & SGP integrations + reporting",
+      "phase": "phase-2",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-04-20",
+      "dependencies": [
+        "t17",
+        "t4"
+      ],
+      "category": "special-strong",
+      "subcategory": "systems",
+      "notes": "Q3 Bonus Deliverable B.5"
+    },
+    {
+      "id": "t20",
+      "title": "Franchise Sales Funnel mapping",
+      "phase": "phase-2",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-04-15",
+      "dependencies": [
+        "t12"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "notes": "Q3 Bonus Deliverable C.1 - Traffic â close with benchmarks"
+    },
+    {
+      "id": "t21",
+      "title": "Speed to lead system (<5 min)",
+      "phase": "phase-3",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-01",
+      "dependencies": [
+        "t16",
+        "t19"
+      ],
+      "category": "special-strong",
+      "subcategory": "systems",
+      "notes": "Q3 Bonus Deliverable D.1"
+    },
+    {
+      "id": "t22",
+      "title": "Automated follow-up & re-engagement workflows",
+      "phase": "phase-3",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-08",
+      "dependencies": [
+        "t21"
+      ],
+      "category": "special-strong",
+      "subcategory": "systems",
+      "notes": "Q3 Bonus Deliverable D.2"
+    },
+    {
+      "id": "t23",
+      "title": "Athlete & franchise remarketing strategies",
+      "phase": "phase-3",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-10",
+      "dependencies": [
+        "t18",
+        "t20"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "notes": "Q3 Bonus Deliverable D.3"
+    },
+    {
+      "id": "t24",
+      "title": "Defined roles, KPI structure, performance dashboards",
+      "phase": "phase-3",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-15",
+      "dependencies": [
+        "t19"
+      ],
+      "category": "special-strong",
+      "subcategory": "leadership",
+      "notes": "Q3 Bonus Deliverable E.1"
+    },
+    {
+      "id": "t25",
+      "title": "Unified marketing roadmap (cross-departmental)",
+      "phase": "phase-3",
+      "type": "deliverable",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-20",
+      "dependencies": [
+        "t15",
+        "t24"
+      ],
+      "category": "special-strong",
+      "subcategory": "leadership",
+      "notes": "Q3 Bonus Deliverable E.2"
+    },
+    {
+      "id": "t26",
+      "title": "Executive leadership approval",
+      "phase": "phase-3",
+      "type": "decision",
+      "status": "pending",
+      "owner": "Daniel",
+      "dueDate": "2026-05-24",
+      "dependencies": [
+        "t25"
+      ],
+      "category": "special-strong",
+      "subcategory": "leadership",
+      "notes": "Q3 Bonus Deliverable E.3 - CRITICAL: No bonus without written approval"
+    },
+    {
+      "id": "t27",
+      "title": "90-DAY CHECKPOINT",
+      "phase": "phase-3",
+      "type": "milestone",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-24",
+      "dependencies": [],
+      "category": "special-strong",
+      "subcategory": "90-day-plan",
+      "notes": "End of initial 90-day period"
+    },
+    {
+      "id": "avila-sp1-grades",
+      "title": "ð Spring 1 - Grades Due",
+      "phase": "phase-1",
+      "type": "milestone",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-10",
+      "dependencies": [],
+      "category": "avila",
+      "subcategory": "spring-1",
+      "notes": "Term ended Mar 7. Submit final grades."
+    },
+    {
+      "id": "avila-sp2-syllabus",
+      "title": "ð Spring 2 - Course Published & Syllabus Due",
+      "phase": "phase-1",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-02",
+      "dependencies": [],
+      "category": "avila",
+      "subcategory": "spring-2",
+      "notes": "Course must be published and syllabus uploaded before term starts Mar 16."
+    },
+    {
+      "id": "avila-sp2-start",
+      "title": "ð Spring 2 - Term Starts",
+      "phase": "phase-1",
+      "type": "milestone",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-16",
+      "dependencies": [
+        "avila-sp2-syllabus"
+      ],
+      "category": "avila",
+      "subcategory": "spring-2",
+      "notes": "Spring 2 term begins. Runs through May 9."
+    },
+    {
+      "id": "avila-su1-syllabus",
+      "title": "ð Summer 1 - Course Published & Syllabus Due",
+      "phase": "phase-2",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-04-27",
+      "dependencies": [],
+      "category": "avila",
+      "subcategory": "summer-1",
+      "notes": "Course must be published and syllabus uploaded before term starts May 11."
+    },
+    {
+      "id": "avila-sp2-grades",
+      "title": "ð Spring 2 - Grades Due",
+      "phase": "phase-3",
+      "type": "milestone",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-12",
+      "dependencies": [],
+      "category": "avila",
+      "subcategory": "spring-2",
+      "notes": "Term ended May 9. Submit final grades."
+    },
+    {
+      "id": "avila-su1-start",
+      "title": "ð Summer 1 - Term Starts",
+      "phase": "phase-3",
+      "type": "milestone",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-05-11",
+      "dependencies": [
+        "avila-su1-syllabus"
+      ],
+      "category": "avila",
+      "subcategory": "summer-1",
+      "notes": "Summer 1 term begins. Runs through Jul 4."
+    },
+    {
+      "id": "unemployment-0202",
+      "title": "Complete Kansas unemployment form",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-02",
+      "dependencies": [],
+      "category": "uncategorized",
+      "notes": "Weekly unemployment certification | https://www.kansasui.gov"
+    },
+    {
+      "id": "unemployment-0209",
+      "title": "Complete Kansas unemployment form",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-09",
+      "dependencies": [],
+      "category": "uncategorized",
+      "notes": "Weekly unemployment certification | https://www.kansasui.gov"
+    },
+    {
+      "id": "t29",
+      "title": "Call Eli at You Move Me - confirm truck ready Feb 9",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-02",
+      "dependencies": [],
+      "category": "dallas-move",
+      "notes": "ð Call Eli to confirm everything is set for the moving truck to arrive Feb 9th first thing. Make sure he has everything he needs."
+    },
+    {
+      "id": "t30",
+      "title": "Drop off Amazon returns",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-02",
+      "dependencies": [],
+      "category": "uncategorized",
+      "notes": "ð¦ Amazon returns drop-off"
+    },
+    {
+      "id": "t31",
+      "title": "Review Upwork Paid Media candidates",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-05",
+      "priority": "high",
+      "dependencies": [
+        "t6"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "notes": "Review 5 shortlisted + full 43 proposals for Paid Media & Funnel Optimization Expert role. URGENT: No active ads management = declining leads."
+    },
+    {
+      "id": "t32",
+      "title": "Send screening messages to top Upwork candidates",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-06",
+      "priority": "high",
+      "dependencies": [
+        "t31"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "notes": "Send screening messages to top 5-7 candidates from review."
+    },
+    {
+      "id": "t33",
+      "title": "Paid Media contractor video interviews",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-14",
+      "priority": "high",
+      "dependencies": [
+        "t32"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "notes": "Schedule 20-min video calls with top 3-4 candidates (Feb 10-14). Daniel, Dwayne, or others may join."
+    },
+    {
+      "id": "t34",
+      "title": "Present Paid Media contractor recommendation",
+      "phase": "pre-start",
+      "type": "decision",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-14",
+      "priority": "high",
+      "dependencies": [
+        "t33"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "notes": "Present hiring recommendation to Daniel and Dwayne. Role: $100-150/hr, 5-10 hrs/week, managing franchise + corporate ad accounts."
+    },
+    {
+      "id": "t35",
+      "title": "Meet Devaune Bohall (Culture and Care Leader)",
+      "phase": "phase-1",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-07",
+      "dependencies": [
+        "t9"
+      ],
+      "category": "special-strong",
+      "subcategory": "leadership",
+      "notes": "Culture and Care Leader. Leads corporate prayer, connection rhythms, birthday/anniversary recognition, hardship care. Key relationship for understanding team culture."
+    },
+    {
+      "id": "t36",
+      "title": "Meet Misti Herring",
+      "phase": "phase-1",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-07",
+      "dependencies": [
+        "t9"
+      ],
+      "category": "special-strong",
+      "subcategory": "leadership",
+      "notes": "Provided feedback that helped Daniel/Dwayne define and clarify office culture. Influential voice in the organization."
+    },
+    {
+      "id": "t37",
+      "title": "Weekly Ownership Check-In",
+      "phase": "phase-1",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-27",
+      "dependencies": [
+        "t9"
+      ],
+      "category": "special-strong",
+      "subcategory": "admin",
+      "notes": "RECURRING: Due every Friday by EOD. 1-2 sentences per section, 5 min max. Submit: https://form.jotform.com/specialstrong/weekly-ownership-check-in | Sections: Top Win, Priorities At Risk, Decisions/Problems Owned, Primary Challenge, Support Needed, Spiritual Reflections (optional)"
+    }
+  ],
+  "contacts": [
+    {
+      "name": "Daniel Stein",
+      "role": "CEO",
+      "email": "daniel@specialstrong.com"
+    },
+    {
+      "name": "Dwayne Stoltzfus",
+      "role": "Managing Member",
+      "email": "dwayne@ethnoholdings.com"
+    },
+    {
+      "name": "Graham",
+      "role": "Sales/Workflows",
+      "email": ""
+    },
+    {
+      "name": "Judah",
+      "role": "SGP Architecture",
+      "email": ""
+    }
+  ],
+  "userData": {
+    "t1": {
+      "notes": "Signed with Adaptive Fitness LLC. Base salary + Q3 bonus structure tied to deliverables.",
+      "contacts": [
+        {
+          "name": "Daniel Stein",
+          "role": "CEO",
+          "email": "daniel@specialstrong.com"
+        },
+        {
+          "name": "Dwayne Stoltzfus",
+          "role": "Managing Member (Ethno Holdings)",
+          "email": "dwayne@ethnoholdings.com"
+        }
+      ],
+      "messages": [
+        {
+          "date": "2026-01-24",
+          "medium": "email",
+          "text": "Received final offer letter from Daniel with compensation breakdown"
+        },
+        {
+          "date": "2026-01-25",
+          "medium": "call",
+          "text": "Call with Dwayne to discuss Q3 bonus deliverables and approval process"
+        },
+        {
+          "date": "2026-01-27",
+          "medium": "email",
+          "text": "Signed agreement returned. Start date confirmed Feb 23."
+        }
+      ],
+      "status": "complete"
+    },
+    "t7": {
+      "notes": "Critical for budget allocation model deliverable",
+      "contacts": [
+        {
+          "name": "Daniel Stein",
+          "role": "CEO",
+          "email": "daniel@specialstrong.com"
+        }
+      ],
+      "messages": [
+        {
+          "date": "2026-01-31",
+          "medium": "email",
+          "text": "Sent request for full 2026 marketing budget and P&L access"
+        }
+      ],
+      "status": "pending"
+    },
+    "t16": {
+      "notes": "Q3 Bonus Deliverable B.1 - Traffic sources, capture flows, automation",
+      "contacts": [],
+      "messages": [],
+      "status": null
+    },
+    "t5": {
+      "notes": "Pre-start onboarding to get up to speed. 15-30 hours expected. $5k signing bonus for completion.",
+      "contacts": [
+        {
+          "name": "Graham",
+          "role": "Sales/Workflows Lead",
+          "email": ""
+        }
+      ],
+      "messages": [
+        {
+          "date": "2026-01-27",
+          "medium": "meeting",
+          "text": "Initial onboarding call with Graham - overview of sales process and current workflows"
+        },
+        {
+          "date": "2026-01-29",
+          "medium": "slack",
+          "text": "Graham shared access to sales playbook and CRM documentation"
+        },
+        {
+          "date": "2026-01-31",
+          "medium": "meeting",
+          "text": "Second session with Graham - lead scoring and follow-up sequences"
+        }
+      ],
+      "status": "pending",
+      "attachments": [],
+      "priority": 3
+    },
+    "t2": {
+      "notes": "Moving truck scheduled. Storage unit secured in Dallas area.",
+      "contacts": [
+        {
+          "name": "Two Men and a Truck",
+          "role": "Moving Company",
+          "email": ""
+        }
+      ],
+      "messages": [
+        {
+          "date": "2026-01-28",
+          "medium": "call",
+          "text": "Booked moving company. Pickup Feb 9, delivery Feb 10-11."
+        },
+        {
+          "date": "2026-01-30",
+          "medium": "text",
+          "text": "Confirmed packing supplies delivery for Feb 7"
+        }
+      ],
+      "status": "in-progress"
+    },
+    "t4": {
+      "notes": "Judah is the technical lead on SGP. Need to understand data flow, lead routing logic, and integration points.",
+      "contacts": [
+        {
+          "name": "Judah",
+          "role": "SGP Architecture Lead",
+          "email": ""
+        }
+      ],
+      "messages": [
+        {
+          "date": "2026-01-29",
+          "medium": "email",
+          "text": "Intro email from Daniel connecting me with Judah"
+        },
+        {
+          "date": "2026-01-30",
+          "medium": "text",
+          "text": "Judah confirmed availability for Feb 4 deep dive session"
+        }
+      ],
+      "status": "pending"
+    },
+    "t6": {
+      "notes": "Confirmed access Feb 2. Paid Media & Funnel Optimization Expert role - 43 proposals, 5 shortlisted.",
+      "contacts": [
+        {
+          "name": "Daniel Stein",
+          "role": "CEO",
+          "email": "daniel@specialstrong.com"
+        }
+      ],
+      "messages": [
+        {
+          "date": "2026-01-30",
+          "medium": "email",
+          "text": "Requested Upwork job posting access from Daniel"
+        },
+        {
+          "date": "2026-02-02",
+          "medium": "email",
+          "text": "Daniel confirmed Upwork access granted. Alex confirmed can view and contact applicants."
+        }
+      ],
+      "status": "complete"
+    },
+    "t10": {
+      "notes": "BLEEDING NECK ISSUE - Leads going to wrong franchisees. Priority #1 after start.",
+      "contacts": [],
+      "messages": [
+        {
+          "date": "2026-01-28",
+          "medium": "meeting",
+          "text": "Daniel flagged lead routing as critical issue during pre-start call. Franchisees frustrated with misrouted leads."
+        }
+      ],
+      "status": "pending"
+    },
+    "t28": {
+      "notes": "ðŸ“ž 1-800-639-8946 (1-800-WINDOWWORLD) | Window 1: S/N 126-4-21270, 48 7/8 x 17 1/4 | Window 2: S/N 126-4-20369, 35 3/4 x 53 1/2 | PO: B261 | Original install: 03/14/11",
+      "contacts": [],
+      "messages": [],
+      "status": "complete"
+    },
+    "t12": {
+      "notes": "Q3 Bonus Deliverable A.2",
+      "contacts": [],
+      "messages": [],
+      "status": null
+    },
+    "_taskOrder_pre-start": [
+      "t1",
+      "t28",
+      "t2",
+      "t3",
+      "t4",
+      "t5",
+      "t6",
+      "t7",
+      "t8",
+      "unemployment-0202",
+      "unemployment-0209"
+    ],
+    "t3": {
+      "notes": "Melanie follows after truck",
+      "contacts": [],
+      "messages": [],
+      "attachments": [],
+      "status": null,
+      "priority": 3
+    },
+    "unemployment-0209": {
+      "notes": "Weekly unemployment certification | https://www.kansasui.gov",
+      "contacts": [],
+      "messages": [],
+      "attachments": [],
+      "status": "pending",
+      "priority": 3
+    },
+    "unemployment-0202": {
+      "notes": "Weekly unemployment certification | https://www.kansasui.gov",
+      "contacts": [],
+      "messages": [],
+      "attachments": [],
+      "status": "complete",
+      "priority": 3
+    }
+  }
 }
