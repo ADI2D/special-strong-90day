@@ -1056,7 +1056,7 @@
                       "dueDate":  "2026-02-02",
                       "dependencies":  [],
                       "category":  "dallas-move",
-                      "notes":  "Weekly unemployment certification"
+                      "notes":  "Weekly unemployment certification | https://www.getkansasbenefits.gov"
                   },
                   {
                       "id":  "unemployment-0209",
@@ -1068,7 +1068,7 @@
                       "dueDate":  "2026-02-09",
                       "dependencies":  [],
                       "category":  "dallas-move",
-                      "notes":  "Weekly unemployment certification"
+                      "notes":  "Weekly unemployment certification | https://www.getkansasbenefits.gov"
                   }
               ],
     "contacts":  [
