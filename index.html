@@ -1973,7 +1973,6 @@
       <!-- Top Action Buttons -->
       <div class="modal-actions" style="margin-top: 12px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border);">
         <button class="btn btn-primary" onclick="saveChanges()">Save Changes</button>
-        <button class="btn btn-success" onclick="toggleStatus()">Toggle Status</button>
       </div>
       
       <!-- Work Plan Section (for deliverables with subtasks) -->
@@ -2048,7 +2047,6 @@
       
       <div class="modal-actions">
         <button class="btn btn-primary" onclick="saveChanges()">Save Changes</button>
-        <button class="btn btn-success" onclick="toggleStatus()">Toggle Status</button>
       </div>
     </div>
   </div>
@@ -2936,7 +2934,7 @@
           ${subName ? `<span class="task-subcategory" style="font-size: 12px; padding: 4px 10px;">${subName}</span>` : ''}
         </div>
         <p><strong>Type:</strong> ${selectedTask.type}</p>
-        <p><strong>Status:</strong> <span class="status ${selectedTask.status}"><span class="status-dot"></span> ${selectedTask.status.replace('-', ' ')}</span></p>
+        <p><strong>Status:</strong> <span class="status ${selectedTask.status}" onclick="toggleStatus()" style="cursor: pointer;" title="Click to change status"><span class="status-dot"></span> ${selectedTask.status.replace('-', ' ')}</span></p>
         <p><strong>Owner:</strong> ${selectedTask.owner}</p>
         ${selectedTask.dueDate ? `<p><strong>Due:</strong> ${formatDate(selectedTask.dueDate)}</p>` : ''}
         ${deps.length ? `<p><strong>Depends on:</strong> ${deps.join(', ')}</p>` : ''}
