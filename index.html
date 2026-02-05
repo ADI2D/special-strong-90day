@@ -2290,6 +2290,8 @@
           if (local) {
             if (local.status) task.status = local.status;
             if (local.notes) task.localNotes = local.notes;
+            if (local.dueDate !== undefined) task.dueDate = local.dueDate;
+            if (local.category) task.category = local.category;
           }
         });
         
@@ -3084,17 +3086,28 @@
       const catInfo = getCategoryInfo(selectedTask.category);
       const subName = getSubcategoryName(selectedTask.category, selectedTask.subcategory);
       
+      // Build category options
+      const categoryOptions = data.categories.map(c => 
+        `<option value="${c.id}" ${c.id === selectedTask.category ? 'selected' : ''}>${c.icon} ${c.name}</option>`
+      ).join('');
+      
       document.getElementById('modal-content').innerHTML = `
-        <div class="category-row" style="margin-bottom: 16px;">
-          <span class="task-category" style="background: ${catInfo.color}22; color: ${catInfo.color}; font-size: 13px; padding: 4px 12px;">
-            ${catInfo.icon} ${catInfo.name}
-          </span>
-          ${subName ? `<span class="task-subcategory" style="font-size: 12px; padding: 4px 10px;">${subName}</span>` : ''}
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+          <div class="form-field">
+            <label style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; display: block;">Category</label>
+            <select id="category-field" class="priority-select" onchange="updateCategoryPreview()">
+              ${categoryOptions}
+            </select>
+          </div>
+          <div class="form-field">
+            <label style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; display: block;">Due Date</label>
+            <input type="date" id="due-date-field" value="${selectedTask.dueDate || ''}" 
+                   style="background: var(--bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); padding: 8px 12px; font-size: 14px; width: 100%;">
+          </div>
         </div>
         <p><strong>Type:</strong> ${selectedTask.type}</p>
         <p><strong>Status:</strong> <span class="status ${selectedTask.status}" onclick="toggleStatus()" style="cursor: pointer;" title="Click to change status"><span class="status-dot"></span> ${selectedTask.status.replace('-', ' ')}</span></p>
         <p><strong>Owner:</strong> ${selectedTask.owner}</p>
-        ${selectedTask.dueDate ? `<p><strong>Due:</strong> ${formatDate(selectedTask.dueDate)}</p>` : ''}
         ${deps.length ? `<p><strong>Depends on:</strong> ${deps.join(', ')}</p>` : ''}
         ${blockedBy.length ? `<p><strong>Blocks:</strong> ${blockedBy.join(', ')}</p>` : ''}
       `;
@@ -3581,29 +3594,58 @@
       const taskLocal = getTaskLocalData(selectedTask.id);
       taskLocal.notes = document.getElementById('notes-field').value;
       taskLocal.priority = parseInt(document.getElementById('priority-field').value) || 3;
+      
+      // Save due date
+      const newDueDate = document.getElementById('due-date-field').value;
+      taskLocal.dueDate = newDueDate || null;
+      selectedTask.dueDate = newDueDate || null;
+      
+      // Save category
+      const newCategory = document.getElementById('category-field').value;
+      taskLocal.category = newCategory;
+      selectedTask.category = newCategory;
+      
       saveLocalData();
       
       // Update the task's local notes for display
       selectedTask.localNotes = taskLocal.notes;
       
-      // Re-render to show updated priority
+      // Re-render to show updated priority, due date, category
       render();
       
-      alert('Changes saved locally!');
+      showToast('Changes saved!', 'success');
+      
+      // Sync to GitHub
+      syncToGitHub(true);
     }
     
     function closeModal() {
-      // Auto-save notes and priority on close
+      // Auto-save notes, priority, due date, and category on close
       if (selectedTask) {
         const taskLocal = getTaskLocalData(selectedTask.id);
         taskLocal.notes = document.getElementById('notes-field').value;
         taskLocal.priority = parseInt(document.getElementById('priority-field').value) || 3;
+        
+        // Auto-save due date
+        const newDueDate = document.getElementById('due-date-field').value;
+        taskLocal.dueDate = newDueDate || null;
+        selectedTask.dueDate = newDueDate || null;
+        
+        // Auto-save category
+        const newCategory = document.getElementById('category-field').value;
+        taskLocal.category = newCategory;
+        selectedTask.category = newCategory;
+        
         saveLocalData();
-        render(); // Update display with new priority
+        render(); // Update display with changes
       }
       
       document.getElementById('modal').classList.remove('open');
       selectedTask = null;
+    }
+    
+    function updateCategoryPreview() {
+      // Optional: could update a preview display if needed
     }
     
     function toggleStatus() {
