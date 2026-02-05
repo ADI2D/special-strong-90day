@@ -4,7 +4,7 @@
     "role": "VP of Sales & Marketing",
     "startDate": "2026-02-23",
     "endDate": "2026-05-24",
-    "lastUpdated": "2026-02-02"
+    "lastUpdated": "2026-02-05"
   },
   "categories": [
     {
@@ -1801,6 +1801,19 @@
       "category": "special-strong",
       "subcategory": "funnel",
       "notes": "Submit leads, track response time. Feel the friction. Baseline data before Day 1. Full secret shop (interview-03) continues post-start."
+    },
+    {
+      "id": "direct-reports-1on1",
+      "title": "Set up 1:1 cadence with direct reports",
+      "phase": "phase-1",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-01",
+      "dependencies": ["t9"],
+      "category": "special-strong",
+      "subcategory": "leadership",
+      "notes": "Set up recurring 1:1 meetings with Madelyn Incomio (Social Media), Kyla Hora (Admin), and Josh Campos (SEO). They've been submitting weekly reports pre-start; now establish regular cadence."
     }
   ],
   "contacts": [
