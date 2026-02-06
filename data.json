@@ -4,7 +4,7 @@
     "role": "VP of Sales & Marketing",
     "startDate": "2026-02-23",
     "endDate": "2026-05-24",
-    "lastUpdated": "2026-02-05"
+    "lastUpdated": "2026-02-06"
   },
   "categories": [
     {
@@ -1816,6 +1816,60 @@
       "category": "special-strong",
       "subcategory": "leadership",
       "notes": "Set up recurring 1:1 meetings with Madelyn Incomio (Social Media), Kyla Hora (Admin), and Josh Campos (SEO). They've been submitting weekly reports pre-start; now establish regular cadence."
+    },
+    {
+      "id": "t37",
+      "title": "FollowupGrahamdocuments",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Graham",
+      "dueDate": "2026-02-14",
+      "dependencies": [],
+      "category": "special-strong",
+      "subcategory": "onboarding",
+      "notes": "Awaiting from Graham: Strategic plan, PowerPoint, registration forms, pre-registration forms, business documents."
+    },
+    {
+      "id": "t38",
+      "title": "Leadformimprovementsdraft",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-14",
+      "dependencies": [],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "notes": "Draft proposal: Remove false promises, reframe CTA to 'Express interest in a free Special Strong session', add value props (atmosphere, certified trainer, no pressure, fun workout, complimentary resources), capture challenge type appropriately."
+    },
+    {
+      "id": "t39",
+      "title": "BrandStandardsreview",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-14",
+      "dependencies": [],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "notes": "Review Brand Standards v2.3 (Jan 2026). Reference: memory/special-strong/brand-standards.md. Key: Use 'adaptive needs/challenges/abundant life', never 'disability/special needs'."
+    },
+    {
+      "id": "t40",
+      "title": "MarketingPlaybookreviewandedit",
+      "phase": "pre-start",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-02-18",
+      "dependencies": [
+        "t39"
+      ],
+      "category": "special-strong",
+      "subcategory": "funnel",
+      "notes": "Review and edit Marketing Playbook for brand alignment, current strategy accuracy, and actionable improvements."
     }
   ],
   "contacts": [
