@@ -4,32 +4,32 @@
     "role": "VP of Sales & Marketing",
     "startDate": "2026-02-23",
     "endDate": "2026-05-24",
-    "lastUpdated": "2026-02-12T09:58:00-06:00"
+    "lastUpdated": "2026-02-12T16:13:00.350Z"
   },
   "categories": [
     {
       "id": "uncategorized",
       "name": "Uncategorized",
       "color": "#6b7280",
-      "icon": "ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¦"
+      "icon": "📋"
     },
     {
       "id": "home",
       "name": "Home",
       "color": "#10b981",
-      "icon": "ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ "
+      "icon": "🏠"
     },
     {
       "id": "dallas-move",
       "name": "Dallas Move",
       "color": "#ec4899",
-      "icon": "ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ"
+      "icon": "🚚"
     },
     {
       "id": "special-strong",
       "name": "Special Strong",
       "color": "#3b82f6",
-      "icon": "ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂª",
+      "icon": "💪",
       "subcategories": [
         {
           "id": "onboarding",
@@ -65,7 +65,7 @@
       "id": "avila",
       "name": "Avila University",
       "color": "#8b5cf6",
-      "icon": "ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ",
+      "icon": "🎓",
       "subcategories": [
         {
           "id": "spring-1",
@@ -1948,7 +1948,10 @@
       "owner": "Alex",
       "dueDate": "2026-03-07",
       "priority": "high",
-      "dependencies": ["t9", "t43"],
+      "dependencies": [
+        "t9",
+        "t43"
+      ],
       "category": "special-strong",
       "subcategory": "systems",
       "notes": "CRITICAL: Jared found SS ads have NO UTM parameters - likely cause of 50% attribution gap. Ensure all ads have proper UTMs."
@@ -1962,7 +1965,9 @@
       "owner": "Alex",
       "dueDate": "2026-03-07",
       "priority": "high",
-      "dependencies": ["t9"],
+      "dependencies": [
+        "t9"
+      ],
       "category": "special-strong",
       "subcategory": "systems",
       "notes": "Judah meeting finding: UTMs lost when visitor navigates between pages. Need persistent tracking across website."
@@ -1975,7 +1980,11 @@
       "status": "pending",
       "owner": "Alex",
       "dueDate": "2026-04-15",
-      "dependencies": ["t45", "t46", "t17"],
+      "dependencies": [
+        "t45",
+        "t46",
+        "t17"
+      ],
       "category": "special-strong",
       "subcategory": "systems",
       "notes": "Current: 6/10 (was 2/10 nine months ago). Target: 9/10. Requires UTM fixes, attribution closure, and data cleanliness."
@@ -1988,7 +1997,9 @@
       "status": "pending",
       "owner": "Alex",
       "dueDate": "2026-03-15",
-      "dependencies": ["t10"],
+      "dependencies": [
+        "t10"
+      ],
       "category": "special-strong",
       "subcategory": "systems",
       "notes": "Judah meeting: Review forms for free-text vs controlled selections. Standardize data entry (e.g., city names, selections). Clean at point of entry."
@@ -2001,7 +2012,10 @@
       "status": "pending",
       "owner": "Alex",
       "dueDate": "2026-04-01",
-      "dependencies": ["t43", "t18"],
+      "dependencies": [
+        "t43",
+        "t18"
+      ],
       "category": "special-strong",
       "subcategory": "funnel",
       "notes": "Ads strategy meeting: Test done, needs full buildout. Individual accounts enable per-franchise measurement and optimization."
@@ -2014,7 +2028,11 @@
       "status": "pending",
       "owner": "Alex",
       "dueDate": "2026-04-10",
-      "dependencies": ["t45", "t46", "t17"],
+      "dependencies": [
+        "t45",
+        "t46",
+        "t17"
+      ],
       "category": "special-strong",
       "subcategory": "systems",
       "notes": "Close 50% attribution gap via Meta Conversions API or offline conversion uploads. Enables Meta optimization for booked appointments, not just form fills."
@@ -2031,6 +2049,21 @@
       "category": "special-strong",
       "subcategory": "leadership",
       "notes": "Trinity (Daniel's wife) slipped and hit her head. Send brief, warm check-in email."
+    },
+    {
+      "id": "t30",
+      "title": "EOS Accountability Chart - Design accountability in Sales & Marketing area",
+      "phase": "phase-1",
+      "type": "task",
+      "status": "pending",
+      "owner": "Alex",
+      "dueDate": "2026-03-10",
+      "dependencies": [
+        "t9"
+      ],
+      "category": "special-strong",
+      "subcategory": "leadership",
+      "notes": "EOS framework - Define seats, roles, and accountability structure for Sales & Marketing department"
     }
   ],
   "contacts": [
