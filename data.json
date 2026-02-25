@@ -3275,7 +3275,7 @@
                       "dependencies":  [
 
                                        ],
-                      "status":  "pending",
+                      "status":  "waiting",
                       "subcategory":  "funnel",
                       "title":  "Reach out to Jared - get ad turnaround timeline",
                       "owner":  "Alex",
@@ -3284,7 +3284,11 @@
                       "scheduledDate":  "2026-02-26",
                       "timeEstimate":  null,
                       "activityLog":  [
-
+                                          {
+                                              "date":  "2026-02-25",
+                                              "note":  "Waiting for Jared\u0027s response on ad turnaround timeline",
+                                              "action":  "Email sent"
+                                          }
                                       ],
                       "completedDate":  null
                   },
@@ -3483,6 +3487,63 @@
                       "title":  "Follow up with Daniel re: whiteboard",
                       "priority":  "P3",
                       "dueDate":  "2026-03-11"
+                  },
+                  {
+                      "scheduledDate":  "2026-02-26",
+                      "id":  "t1464",
+                      "timeEstimate":  5,
+                      "activityLog":  [
+                                          {
+                                              "date":  "2026-02-25",
+                                              "note":  "Emailed Daniel/Dwayne asking about budget",
+                                              "action":  "Created"
+                                          }
+                                      ],
+                      "category":  "special-strong",
+                      "description":  "Check if budget approved for Jared\u0027s ad creative reformatting (1:1, 16:9, 9:16 aspect ratios). Vendor: Yam (yamlaranas@gmail.com)",
+                      "status":  "pending",
+                      "subcategory":  "strategy",
+                      "title":  "Follow up: Video editing budget (Daniel/Dwayne)",
+                      "priority":  "P2",
+                      "dueDate":  "2026-02-26"
+                  },
+                  {
+                      "scheduledDate":  "2026-02-26",
+                      "id":  "t3556",
+                      "timeEstimate":  5,
+                      "activityLog":  [
+                                          {
+                                              "date":  "2026-02-25",
+                                              "note":  "Asked Naovi about granting access",
+                                              "action":  "Created"
+                                          }
+                                      ],
+                      "category":  "special-strong",
+                      "description":  "Check if Naovi granted Jared access to franchise Meta ads account",
+                      "status":  "pending",
+                      "subcategory":  "strategy",
+                      "title":  "Follow up: Meta ads access for Jared (Naovi)",
+                      "priority":  "P2",
+                      "dueDate":  "2026-02-26"
+                  },
+                  {
+                      "scheduledDate":  "2026-02-26",
+                      "id":  "t5950",
+                      "timeEstimate":  5,
+                      "activityLog":  [
+                                          {
+                                              "date":  "2026-02-25",
+                                              "note":  "Email sent to Jared",
+                                              "action":  "Created"
+                                          }
+                                      ],
+                      "category":  "special-strong",
+                      "description":  "Sent email Feb 25 asking about campaign rebuild timeline and lead flow improvements",
+                      "status":  "pending",
+                      "subcategory":  "strategy",
+                      "title":  "Check for Jared response on ad turnaround timeline",
+                      "priority":  "P2",
+                      "dueDate":  "2026-02-26"
                   }
               ],
     "contacts":  [
