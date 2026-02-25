@@ -3464,6 +3464,25 @@
 
                                       ],
                       "completedDate":  null
+                  },
+                  {
+                      "scheduledDate":  "2026-03-11",
+                      "id":  "t7823",
+                      "timeEstimate":  5,
+                      "activityLog":  [
+                                          {
+                                              "date":  "2026-02-25",
+                                              "note":  "Daniel mentioned checking into whiteboard",
+                                              "action":  "Created"
+                                          }
+                                      ],
+                      "category":  "special-strong",
+                      "description":  "Daniel said he would check into getting a whiteboard for Alex. Follow up.",
+                      "status":  "pending",
+                      "subcategory":  "admin",
+                      "title":  "Follow up with Daniel re: whiteboard",
+                      "priority":  "P3",
+                      "dueDate":  "2026-03-11"
                   }
               ],
     "contacts":  [
