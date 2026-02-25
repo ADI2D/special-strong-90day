@@ -3544,6 +3544,25 @@
                       "title":  "Check for Jared response on ad turnaround timeline",
                       "priority":  "P2",
                       "dueDate":  "2026-02-26"
+                  },
+                  {
+                      "scheduledDate":  "2026-02-27",
+                      "id":  "t3401",
+                      "timeEstimate":  15,
+                      "activityLog":  [
+                                          {
+                                              "date":  "2026-02-25",
+                                              "note":  "Craig\u0027s email flagged funnel communication issues. Alex wants to review and help.",
+                                              "action":  "Created"
+                                          }
+                                      ],
+                      "category":  "special-strong",
+                      "description":  "Craig flagged over-communication issues. Alex wants visibility on contact cadence, automation sequences, and messaging scripts. Offer to help optimize.",
+                      "status":  "pending",
+                      "subcategory":  "strategy",
+                      "title":  "Request franchise sales contact strategy \u0026 scripts from Craig",
+                      "priority":  "P3",
+                      "dueDate":  "2026-02-28"
                   }
               ],
     "contacts":  [
